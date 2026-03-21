@@ -330,6 +330,7 @@ async function loadReport(week){
     content.innerHTML=renderReport(d);
     buildSidebar(d);
     switchBrand(0);
+    switchTab('overview');
   }catch(e){
     content.innerHTML=`<div class="error">加载失败：${e.message}</div>`;
   }
@@ -351,8 +352,13 @@ function tone(t){
 
 function renderReport(d){
   return renderHeader(d)
-    +`<div class="summary-industry-grid"><div>${renderSummary(d)}</div><div>${renderIndustry(d)}</div></div>`
-    +renderBrands(d)+renderComparison(d)+renderPosts(d)+renderRefs(d);
+    +`<div class="m-tab-panel" id="tab-overview">`
+      +`<div class="summary-industry-grid"><div>${renderSummary(d)}</div><div>${renderIndustry(d)}</div></div>`
+      +renderBrandsSummary(d)
+    +`</div>`
+    +`<div class="m-tab-panel" id="tab-brands">${renderBrands(d)}</div>`
+    +`<div class="m-tab-panel" id="tab-compare">${renderComparison(d)}</div>`
+    +`<div class="m-tab-panel" id="tab-posts">${renderPosts(d)}${renderRefs(d)}</div>`;
 }
 
 function renderHeader(d){
@@ -369,6 +375,28 @@ function renderSummary(d){
 function renderIndustry(d){
   if(!d.industry_overview)return "";
   return `<div class="section"><div class="section-title">行业总览 <span class="badge badge-green">GLP-1 TRACK</span></div><p class="industry-text">${d.industry_overview}</p></div>`;
+}
+
+function renderBrandsSummary(d){
+  if(!d.brands?.length)return "";
+  const rows=d.brands.map(b=>`
+    <div class="m-brand-row">
+      <div class="m-brand-row-header" onclick="this.parentElement.classList.toggle('open')">
+        <div>
+          <div class="m-brand-name">${b.company} · ${b.product}</div>
+          <div class="m-brand-trade">${b.trade_name}</div>
+        </div>
+        <div class="m-brand-right">
+          <span class="volume-badge volume-${b.volume_level}">${b.volume_level}声量</span>
+          <span class="m-chevron">▶</span>
+        </div>
+      </div>
+      <div class="m-brand-expanded">
+        ${b.one_line?`<div class="m-one-line">${b.one_line}</div>`:""}
+        <div class="keywords">${(b.keywords||[]).map(k=>`<span class="keyword-tag">${k}</span>`).join("")}</div>
+      </div>
+    </div>`).join("");
+  return `<div class="section"><div class="section-title">品牌速览</div><div class="m-brand-list">${rows}</div></div>`;
 }
 
 function renderBrands(d){
@@ -411,6 +439,15 @@ function switchBrand(idx){
   document.querySelectorAll(".brand-card").forEach((el,i)=>el.classList.toggle("active",i===idx));
   document.querySelectorAll(".brand-nav-item").forEach((el,i)=>el.classList.toggle("active",i===idx));
   document.querySelectorAll(".brand-tab-m").forEach((el,i)=>el.classList.toggle("active",i===idx));
+}
+
+function switchTab(tab){
+  document.querySelectorAll(".m-tab-panel").forEach(el=>{
+    el.style.display=el.id===`tab-${tab}`?"":"none";
+  });
+  document.querySelectorAll(".m-nav-item").forEach(el=>{
+    el.classList.toggle("active",el.id===`mnav-${tab}`);
+  });
 }
 
 function renderComparison(d){
