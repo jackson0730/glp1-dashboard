@@ -329,6 +329,7 @@ details summary:hover{color:#00b37a}
     <select id="weekSelect" onchange="loadReport(this.value)">
       <option value="">Loading...</option>
     </select>
+    <button id="langBtn" onclick="toggleLang()" style="padding:6px 10px;background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);border-radius:8px;cursor:pointer;font-size:13px;font-family:inherit;flex-shrink:0">EN</button>
   </div>
 </div>
 
@@ -347,20 +348,23 @@ details summary:hover{color:#00b37a}
 <!-- Mobile bottom nav (hidden on desktop via CSS) -->
 <nav id="mobile-bottom-nav">
   <button class="m-nav-item active" onclick="switchTab('overview')" id="mnav-overview">
-    <span class="m-nav-icon">📊</span><span>总览</span>
+    <span class="m-nav-icon">📊</span><span data-zh="总览" data-en="Overview">总览</span>
   </button>
   <button class="m-nav-item" onclick="switchTab('brands')" id="mnav-brands">
-    <span class="m-nav-icon">🏷️</span><span>品牌</span>
+    <span class="m-nav-icon">🏷️</span><span data-zh="品牌" data-en="Brands">品牌</span>
   </button>
   <button class="m-nav-item" onclick="switchTab('compare')" id="mnav-compare">
-    <span class="m-nav-icon">⚔️</span><span>对比</span>
+    <span class="m-nav-icon">⚔️</span><span data-zh="对比" data-en="Compare">对比</span>
   </button>
   <button class="m-nav-item" onclick="switchTab('posts')" id="mnav-posts">
-    <span class="m-nav-icon">💬</span><span>讨论</span>
+    <span class="m-nav-icon">💬</span><span data-zh="讨论" data-en="Posts">讨论</span>
   </button>
 </nav>
 
 <script>
+let currentLang="zh";
+let currentWeek="";
+
 async function fetchJSON(url){
   const res=await fetch(url);
   if(!res.ok)throw new Error(`HTTP ${res.status}`);
@@ -377,18 +381,43 @@ async function initWeeks(){
 }
 
 async function loadReport(week){
+  currentWeek=week;
   const content=document.getElementById("content");
-  content.innerHTML=`<div class="loading">正在加载...</div>`;
+  content.innerHTML=`<div class="loading">${currentLang==="zh"?"正在加载...":"Loading..."}</div>`;
+  const suffix=currentLang==="en"?".en":"";
   try{
-    const d=await fetchJSON(`data/${week}.json`);
+    const d=await fetchJSON(`data/${week}${suffix}.json`);
     content.className="";
     content.innerHTML=renderReport(d);
     buildSidebar(d);
     switchBrand(0);
     switchTab('overview');
   }catch(e){
-    content.innerHTML=`<div class="error">加载失败：${e.message}</div>`;
+    // fallback to Chinese if English not available
+    if(currentLang==="en"){
+      try{
+        const d=await fetchJSON(`data/${week}.json`);
+        content.className="";
+        content.innerHTML=renderReport(d);
+        buildSidebar(d);
+        switchBrand(0);
+        switchTab('overview');
+        content.insertAdjacentHTML("afterbegin",`<div class="error" style="font-size:11px;padding:8px 14px">English translation not available for this week. Showing Chinese.</div>`);
+        return;
+      }catch(_){}
+    }
+    content.innerHTML=`<div class="error">${currentLang==="zh"?"加载失败：":"Load failed: "}${e.message}</div>`;
   }
+}
+
+function toggleLang(){
+  currentLang=currentLang==="zh"?"en":"zh";
+  document.getElementById("langBtn").textContent=currentLang==="zh"?"EN":"中";
+  // Update mobile nav labels
+  document.querySelectorAll("[data-zh]").forEach(el=>{
+    el.textContent=currentLang==="zh"?el.dataset.zh:el.dataset.en;
+  });
+  if(currentWeek)loadReport(currentWeek);
 }
 
 function buildSidebar(d){
