@@ -167,6 +167,7 @@ details summary:hover{color:#00b37a}
 .divider{height:1px;background:rgba(0,229,160,.08);margin:14px 0}
 .summary-industry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0}
 #mobile-bottom-nav{display:none}
+.m-brand-list{display:none}
 
 /* ===== MOBILE (<=900px) ===== */
 @media(max-width:900px){
@@ -211,7 +212,6 @@ details summary:hover{color:#00b37a}
   .industry-text{color:#333;font-size:13px}
 
   /* ── Mobile brand list (总览页速览) ── */
-  .m-brand-list{display:flex;flex-direction:column;gap:6px}
   .m-brand-row{background:#f8f9ff;border-radius:10px;overflow:hidden}
   .m-brand-row-header{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;cursor:pointer;user-select:none}
   .m-brand-name{font-size:13px;font-weight:700;color:#1a1a2e}
@@ -296,7 +296,8 @@ details summary:hover{color:#00b37a}
   .m-nav-icon{font-size:18px;line-height:1}
 
   /* ── Tab panels — initial state controlled by switchTab() in JS ── */
-  .m-tab-panel{display:block}
+  .m-tab-panel{display:none}
+  .m-brand-list{display:flex;flex-direction:column;gap:6px}
 }
 </style>
 </head>
