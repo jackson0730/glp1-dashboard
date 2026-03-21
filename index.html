@@ -293,7 +293,7 @@ details summary:hover{color:#00b37a}
 <script>
 async function fetchJSON(url){
   const res=await fetch(url);
-  if(!res.ok)throw new Error("HTTP "+res.status);
+  if(!res.ok)throw new Error(`HTTP ${res.status}`);
   return res.json();
 }
 
@@ -301,21 +301,21 @@ async function initWeeks(){
   const weeks=await fetchJSON("data/index.json");
   const sel=document.getElementById("weekSelect");
   sel.innerHTML=weeks.map((w,i)=>
-    "<option value=""+w+"""+( i===0?" selected":"")+">"+w+"</option>"
+    `<option value="${w}"${i===0?" selected":""}>${w}</option>`
   ).join("");
   if(weeks.length>0)await loadReport(weeks[0]);
 }
 
 async function loadReport(week){
   const content=document.getElementById("content");
-  content.innerHTML="<div class="loading">正在加载...</div>";
+  content.innerHTML=`<div class="loading">正在加载...</div>`;
   try{
-    const d=await fetchJSON("data/"+week+".json");
+    const d=await fetchJSON(`data/${week}.json`);
     content.innerHTML=renderReport(d);
     buildSidebar(d);
     switchBrand(0);
   }catch(e){
-    content.innerHTML="<div class="error">加载失败："+e.message+"</div>";
+    content.innerHTML=`<div class="error">加载失败：${e.message}</div>`;
   }
 }
 
@@ -323,75 +323,72 @@ function buildSidebar(d){
   const nav=document.getElementById("brandNav");
   if(!nav||!d.brands)return;
   nav.innerHTML=d.brands.map((b,i)=>
-    "<div class="brand-nav-item" id="nav-"+i+"" onclick="switchBrand("+i+")"><div><span class="nav-company">"+b.company+"</span><span class="nav-product">"+b.product+"</span></div></div>"
+    `<div class="brand-nav-item" id="nav-${i}" onclick="switchBrand(${i})"><div><span class="nav-company">${b.company}</span><span class="nav-product">${b.product}</span></div></div>`
   ).join("");
 }
 
 function tone(t){
-  if(!t)return "<span class="no-data">-</span>";
-  const cls=t.replace(/\//g,"\/");
-  return "<span class="tone-"+cls+"">"+t+"</span>";
+  if(!t)return `<span class="no-data">-</span>`;
+  const cls=t.replace(/\//g,"\\/");
+  return `<span class="tone-${cls}">${t}</span>`;
 }
 
 function renderReport(d){
-  return renderHeader(d)+
-    "<div class="summary-industry-grid"><div>"+renderSummary(d)+"</div><div>"+renderIndustry(d)+"</div></div>"+
-    renderBrands(d)+
-    renderComparison(d)+
-    renderPosts(d)+
-    renderRefs(d);
+  return renderHeader(d)
+    +`<div class="summary-industry-grid"><div>${renderSummary(d)}</div><div>${renderIndustry(d)}</div></div>`
+    +renderBrands(d)+renderComparison(d)+renderPosts(d)+renderRefs(d);
 }
 
 function renderHeader(d){
   const gen=d.generated_at?d.generated_at.replace("T"," ").slice(0,16):"-";
-  return "<div class="report-header"><div><div class="period">"+( d.period||d.week)+"</div><div class="meta">更新时间："+gen+" &nbsp;·&nbsp; 北京时间自然周（周一–周日）&nbsp;·&nbsp; 公开互联网数据</div></div></div>";
+  return `<div class="report-header"><div><div class="period">${d.period||d.week}</div><div class="meta">更新时间：${gen} &nbsp;·&nbsp; 北京时间自然周（周一–周日）&nbsp;·&nbsp; 公开互联网数据</div></div></div>`;
 }
 
 function renderSummary(d){
-  if(!d.executive_summary||!d.executive_summary.length)return "";
-  const items=d.executive_summary.map(s=>"<li>"+s+"</li>").join("");
-  return "<div class="section"><div class="section-title">核心结论 <span class="badge">EXECUTIVE SUMMARY</span></div><ul class="summary-list">"+items+"</ul></div>";
+  if(!d.executive_summary?.length)return "";
+  const items=d.executive_summary.map(s=>`<li>${s}</li>`).join("");
+  return `<div class="section"><div class="section-title">核心结论 <span class="badge">EXECUTIVE SUMMARY</span></div><ul class="summary-list">${items}</ul></div>`;
 }
 
 function renderIndustry(d){
   if(!d.industry_overview)return "";
-  return "<div class="section"><div class="section-title">行业总览 <span class="badge badge-green">GLP-1 TRACK</span></div><p class="industry-text">"+d.industry_overview+"</p></div>";
+  return `<div class="section"><div class="section-title">行业总览 <span class="badge badge-green">GLP-1 TRACK</span></div><p class="industry-text">${d.industry_overview}</p></div>`;
 }
 
 function renderBrands(d){
-  if(!d.brands||!d.brands.length)return "";
+  if(!d.brands?.length)return "";
   const mobileTabs=d.brands.map((b,i)=>
-    "<button class="brand-tab-m" onclick="switchBrand("+i+")" id="tabm-"+i+"">"+b.company+"｜"+b.product+"</button>"
+    `<button class="brand-tab-m" onclick="switchBrand(${i})" id="tabm-${i}">${b.company}｜${b.product}</button>`
   ).join("");
   const cards=d.brands.map((b,i)=>renderBrandCard(b,i)).join("");
-  return "<div class="brand-tabs-mobile">"+mobileTabs+"</div><div class="section"><div class="section-title">分品牌舆情卡 <span class="badge badge-orange">BRAND CARDS</span></div>"+cards+"</div>";
+  return `<div class="brand-tabs-mobile">${mobileTabs}</div><div class="section"><div class="section-title">分品牌舆情卡 <span class="badge badge-orange">BRAND CARDS</span></div>${cards}</div>`;
 }
 
 function renderBrandCard(b,i){
   const events=(b.events||[]).map(e=>
-    "<li><span>"+e.text+"</span>"+(e.ref&&e.ref!=="N/A"?" <a href=""+e.ref+"" target="_blank">[来源]</a>":"")+"</li>"
-  ).join("")||"<li class="no-data" style="padding-left:0;list-style:none">本周期未检索到足够公开内容支持判断</li>";
+    `<li><span>${e.text}</span>${e.ref&&e.ref!=="N/A"?` <a href="${e.ref}" target="_blank">[来源]</a>`:""}</li>`
+  ).join("")||`<li class="no-data" style="padding-left:0;list-style:none">本周期未检索到足够公开内容支持判断</li>`;
 
   const platforms=Object.entries(b.platform_sentiment||{}).map(([p,v])=>{
     const hasData=v.summary&&!v.summary.includes("未检索到");
-    return "<tr><td><span class="platform-name">"+p+"</span></td><td>"+(hasData?v.summary:"<span class="no-data">-</span>")+"</td><td>"+(hasData?(v.focus||"-"):"-")+"</td><td>"+tone(v.tone)+"</td></tr>";
+    return `<tr><td><span class="platform-name">${p}</span></td><td>${hasData?v.summary:`<span class="no-data">-</span>`}</td><td>${hasData?(v.focus||"-"):"-"}</td><td>${tone(v.tone)}</td></tr>`;
   }).join("");
 
-  const keywords=(b.keywords||[]).map(k=>"<span class="keyword-tag">"+k+"</span>").join("");
-  const risks=(b.risks||[]).map(r=>"<li>"+r+"</li>").join("")||"<li class="no-data">-</li>";
-  const opps=(b.opportunities||[]).map(o=>"<li>"+o+"</li>").join("")||"<li class="no-data">-</li>";
+  const keywords=(b.keywords||[]).map(k=>`<span class="keyword-tag">${k}</span>`).join("");
+  const risks=(b.risks||[]).map(r=>`<li>${r}</li>`).join("")||`<li class="no-data">-</li>`;
+  const opps=(b.opportunities||[]).map(o=>`<li>${o}</li>`).join("")||`<li class="no-data">-</li>`;
 
-  return "<div class="brand-card" id="brand-"+i+"">"
-    +"<div class="brand-header"><span class="brand-name">"+b.company+"</span><span style="color:#4a5568">|</span><span class="brand-product">"+b.product+"</span><span class="brand-trade">（"+b.trade_name+"）</span><span class="volume-badge volume-"+b.volume_level+"">"+b.volume_level+"声量</span></div>"
-    +(b.volume_note?"<div class="volume-note">"+b.volume_note+"</div>":"")
-    +"<div class="brand-card-grid">"
-    +"<div class="card-block"><div class="card-block-title">本周核心事件</div><ul class="event-list">"+events+"</ul></div>"
-    +"<div><div class="card-block"><div class="card-block-title">舆情关键词</div><div class="keywords">"+( keywords||"<span class="no-data">-</span>")+"</div></div>"
-    +"<div class="risk-opp-grid"><div class="risk-block"><div class="card-block-title">风险点</div><ul class="risk-list">"+risks+"</ul></div><div class="opp-block"><div class="card-block-title">机会点</div><ul class="opp-list">"+opps+"</ul></div></div></div>"
-    +"</div>"
-    +"<div class="card-block" style="margin-top:14px"><div class="card-block-title">平台舆情观察</div><div style="overflow-x:auto"><table class="platform-table"><thead><tr><th>平台</th><th>主要讨论</th><th>用户关注点</th><th>情绪</th></tr></thead><tbody>"+platforms+"</tbody></table></div></div>"
-    +(b.one_line?"<div class="one-line"><span class="one-line-icon">💬</span>"+b.one_line+"</div>":"")
-    +"</div>";
+  return `<div class="brand-card" id="brand-${i}">
+    <div class="brand-header"><span class="brand-name">${b.company}</span><span style="color:#4a5568">|</span><span class="brand-product">${b.product}</span><span class="brand-trade">（${b.trade_name}）</span><span class="volume-badge volume-${b.volume_level}">${b.volume_level}声量</span></div>
+    ${b.volume_note?`<div class="volume-note">${b.volume_note}</div>`:""}
+    <div class="brand-card-grid">
+      <div class="card-block"><div class="card-block-title">本周核心事件</div><ul class="event-list">${events}</ul></div>
+      <div><div class="card-block"><div class="card-block-title">舆情关键词</div><div class="keywords">${keywords||`<span class="no-data">-</span>`}</div></div>
+      <div class="risk-opp-grid"><div class="risk-block"><div class="card-block-title">风险点</div><ul class="risk-list">${risks}</ul></div><div class="opp-block"><div class="card-block-title">机会点</div><ul class="opp-list">${opps}</ul></div></div></div>
+    </div>
+    <div class="card-block" style="margin-top:14px"><div class="card-block-title">平台舆情观察</div><div style="overflow-x:auto"><table class="platform-table"><thead><tr><th>平台</th><th>主要讨论</th><th>用户关注点</th><th>情绪</th></tr></thead><tbody>${platforms}</tbody></table></div></div>
+    ${b.one_line?`<div class="one-line"><span class="one-line-icon">💬</span>${b.one_line}</div>`:""}
+  </div>`;
 }
 
 function switchBrand(idx){
@@ -401,46 +398,46 @@ function switchBrand(idx){
 }
 
 function renderComparison(d){
-  if(!d.competitive_comparison||!d.competitive_comparison.length)return "";
+  if(!d.competitive_comparison?.length)return "";
   const rows=d.competitive_comparison.map(c=>
-    "<tr><td data-label="品牌"><strong>"+c.company+"</strong> <span style="color:#4a5568;font-size:11px">"+c.product+"</span></td>"
-    +"<td data-label="声量"><span class="volume-badge volume-"+c.volume_level+"">"+c.volume_level+"</span></td>"
-    +"<td data-label="事件强度">"+( c.event_intensity||"-")+"</td>"
-    +"<td data-label="舆情倾向">"+tone(c.sentiment)+"</td>"
-    +"<td data-label="讨论重心" style="max-width:160px">"+( c.discussion_focus||"-")+"</td>"
-    +"<td data-label="最活跃平台">"+( c.top_platform||"-")+"</td>"
-    +"<td data-label="主要风险" style="color:#ff6b35;font-size:12px;max-width:140px">"+( c.main_risk||"-")+"</td>"
-    +"<td data-label="主要机会" style="color:#00e5a0;font-size:12px;max-width:140px">"+( c.main_opportunity||"-")+"</td></tr>"
+    `<tr><td data-label="品牌"><strong>${c.company}</strong> <span style="color:#4a5568;font-size:11px">${c.product}</span></td>
+    <td data-label="声量"><span class="volume-badge volume-${c.volume_level}">${c.volume_level}</span></td>
+    <td data-label="事件强度">${c.event_intensity||"-"}</td>
+    <td data-label="舆情倾向">${tone(c.sentiment)}</td>
+    <td data-label="讨论重心" style="max-width:160px">${c.discussion_focus||"-"}</td>
+    <td data-label="最活跃平台">${c.top_platform||"-"}</td>
+    <td data-label="主要风险" style="color:#ff6b35;font-size:12px;max-width:140px">${c.main_risk||"-"}</td>
+    <td data-label="主要机会" style="color:#00e5a0;font-size:12px;max-width:140px">${c.main_opportunity||"-"}</td></tr>`
   ).join("");
-  return "<div class="section"><div class="section-title">品牌横向对比 <span class="badge">COMPETITIVE SNAPSHOT</span></div><div style="overflow-x:auto"><table class="comp-table"><thead><tr><th>品牌</th><th>声量</th><th>事件强度</th><th>舆情倾向</th><th>讨论重心</th><th>最活跃平台</th><th>主要风险</th><th>主要机会</th></tr></thead><tbody>"+rows+"</tbody></table></div></div>";
+  return `<div class="section"><div class="section-title">品牌横向对比 <span class="badge">COMPETITIVE SNAPSHOT</span></div><div style="overflow-x:auto"><table class="comp-table"><thead><tr><th>品牌</th><th>声量</th><th>事件强度</th><th>舆情倾向</th><th>讨论重心</th><th>最活跃平台</th><th>主要风险</th><th>主要机会</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
 }
 
 function renderPosts(d){
-  if(!d.representative_posts||!d.representative_posts.length)return "";
+  if(!d.representative_posts?.length)return "";
   const cards=d.representative_posts.map(p=>{
     const tags=(p.tags||[]).map(t=>{
       const cls=t.includes("推广")?"tag-promo":t.includes("副作用")?"tag-risk":t.includes("机会")?"tag-opp":"";
-      return "<span class="keyword-tag "+cls+"">"+t+"</span>";
+      return `<span class="keyword-tag ${cls}">${t}</span>`;
     }).join("");
-    return "<div class="post-card"><div class="post-meta"><span class="post-brand">"+p.brand+"</span><span class="post-platform">"+p.platform+"</span></div>"
-      +(tags?"<div style="margin-bottom:8px;display:flex;flex-wrap:wrap;gap:4px">"+tags+"</div>":"")
-      +"<p>"+p.summary+"</p>"
-      +(p.ref&&p.ref!=="N/A"?"<a href=""+p.ref+"" target="_blank">查看原文 →</a>":"")
-      +"</div>";
+    return `<div class="post-card"><div class="post-meta"><span class="post-brand">${p.brand}</span><span class="post-platform">${p.platform}</span></div>
+      ${tags?`<div style="margin-bottom:8px;display:flex;flex-wrap:wrap;gap:4px">${tags}</div>`:""}
+      <p>${p.summary}</p>
+      ${p.ref&&p.ref!=="N/A"?`<a href="${p.ref}" target="_blank">查看原文 →</a>`:""}
+    </div>`;
   }).join("");
-  return "<div class="section"><div class="section-title">代表性讨论摘录 <span class="badge">REPRESENTATIVE POSTS</span></div><div class="posts-grid">"+cards+"</div></div>";
+  return `<div class="section"><div class="section-title">代表性讨论摘录 <span class="badge">REPRESENTATIVE POSTS</span></div><div class="posts-grid">${cards}</div></div>`;
 }
 
 function renderRefs(d){
-  if(!d.references||!d.references.length)return "";
+  if(!d.references?.length)return "";
   const rows=d.references.map(r=>
-    "<tr><td>"+( r.brand||"-")+"</td><td>"+( r.platform||"-")+"</td><td style="white-space:nowrap">"+( r.date||"-")+"</td><td>"+( r.title||"-")+"</td><td><span class="keyword-tag" style="font-size:11px">"+( r.type||"-")+"</span></td><td style="max-width:200px">"+( r.summary||"-")+"</td><td>"+(r.url&&r.url!=="N/A"?"<a href=""+r.url+"" target="_blank">链接</a>":"-")+"</td></tr>"
+    `<tr><td>${r.brand||"-"}</td><td>${r.platform||"-"}</td><td style="white-space:nowrap">${r.date||"-"}</td><td>${r.title||"-"}</td><td><span class="keyword-tag" style="font-size:11px">${r.type||"-"}</span></td><td style="max-width:200px">${r.summary||"-"}</td><td>${r.url&&r.url!=="N/A"?`<a href="${r.url}" target="_blank">链接</a>`:"-"}</td></tr>`
   ).join("");
-  return "<div class="section"><details><summary>📎 Reference 附录（共 "+d.references.length+" 条）</summary><div style="overflow-x:auto"><table class="ref-table"><thead><tr><th>品牌</th><th>平台</th><th>日期</th><th>标题/话题</th><th>类型</th><th>摘要</th><th>链接</th></tr></thead><tbody>"+rows+"</tbody></table></div></details></div>";
+  return `<div class="section"><details><summary>📎 Reference 附录（共 ${d.references.length} 条）</summary><div style="overflow-x:auto"><table class="ref-table"><thead><tr><th>品牌</th><th>平台</th><th>日期</th><th>标题/话题</th><th>类型</th><th>摘要</th><th>链接</th></tr></thead><tbody>${rows}</tbody></table></div></details></div>`;
 }
 
 initWeeks().catch(e=>{
-  document.getElementById("content").innerHTML="<div class="error">初始化失败："+e.message+"</div>";
+  document.getElementById("content").innerHTML=`<div class="error">初始化失败：${e.message}</div>`;
 });
 </script>
 </body>
