@@ -148,40 +148,54 @@
 
   /* ── Mobile ── */
   @media (max-width: 640px) {
-    /* header 折两行 */
-    .header { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+    /* header */
+    .header { padding: 12px 14px; flex-wrap: wrap; gap: 8px; }
     .header h1 { font-size: 15px; }
     .header-meta { display: none; }
     .week-selector { width: 100%; justify-content: space-between; }
-    .week-selector select { flex: 1; font-size: 13px; }
+    .week-selector select { flex: 1; font-size: 16px; } /* 16px 防 iOS 自动缩放 */
 
-    /* 容器贴边，去掉多余留白 */
-    .container { padding: 10px 8px; }
-    .section { padding: 14px 12px; margin-bottom: 10px; border-radius: 10px; }
-    .report-header { padding: 12px 14px; border-radius: 10px; margin-bottom: 10px; }
-    .card-block { padding: 12px 12px; }
+    /* 容器贴边 */
+    .container { padding: 8px 4px; }
+    .section { padding: 12px 10px; margin-bottom: 8px; border-radius: 8px; }
+    .report-header { padding: 10px 12px; border-radius: 8px; margin-bottom: 8px; }
+    .card-block { padding: 10px 10px; }
+    .one-line { padding: 12px 14px; }
 
-    /* 所有多列改单列 */
+    /* 多列改单列 */
     .brand-card-grid { grid-template-columns: 1fr; }
     .risk-opp-grid { grid-template-columns: 1fr; }
-    .posts-grid { grid-template-columns: 1fr; }
+    .posts-grid { grid-template-columns: minmax(0, 1fr); }
 
-    /* 品牌标题缩小 */
+    /* 品牌 tab 改 2×2 grid，增大点击区域 */
+    .brand-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .brand-tab { padding: 10px 8px; font-size: 12px; text-align: center; border-radius: 10px; }
+
+    /* 品牌标题两行 */
+    .brand-header { flex-direction: column; align-items: flex-start; gap: 4px; }
     .brand-name { font-size: 16px; }
     .brand-product { font-size: 13px; }
 
-    /* 表格横向滚动，不压缩内容 */
-    .comp-table, .platform-table, .ref-table { font-size: 12px; white-space: nowrap; }
-    .comp-table td, .comp-table th { padding: 8px 10px; }
-    .platform-table td, .platform-table th { padding: 7px 8px; }
+    /* 表格：平台表允许换行，横向对比表滚动 */
+    .platform-table { font-size: 12px; white-space: normal; }
+    .platform-table td, .platform-table th { padding: 6px 8px; }
+    .comp-table { font-size: 12px; white-space: nowrap; }
+    .comp-table td, .comp-table th { padding: 7px 9px; }
+    .ref-table { font-size: 11px; white-space: nowrap; }
 
-    /* 品牌 tab 按钮铺满 */
-    .brand-tabs { gap: 6px; }
-    .brand-tab { padding: 6px 12px; font-size: 12px; flex: 1; text-align: center; }
-
-    /* 字号微调 */
+    /* 字号 */
     .summary-list li { font-size: 13px; }
     .industry-text { font-size: 13px; }
+    .report-header .meta { font-size: 10px; }
+  }
+
+  /* 横向对比：移动端改卡片列表 */
+  @media (max-width: 640px) {
+    .comp-table thead { display: none; }
+    .comp-table, .comp-table tbody, .comp-table tr, .comp-table td { display: block; white-space: normal; }
+    .comp-table tr { border: 1px solid #e8e8f0; border-radius: 8px; margin-bottom: 10px; padding: 10px 12px; background: #fff; }
+    .comp-table td { padding: 4px 0; border: none; font-size: 13px; }
+    .comp-table td::before { content: attr(data-label); font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; display: block; margin-bottom: 2px; }
   }
 </style>
 </head>
@@ -376,14 +390,14 @@ function renderComparison(d) {
   if (!d.competitive_comparison?.length) return '';
   const rows = d.competitive_comparison.map(c => `
     <tr>
-      <td><strong>${c.company}</strong><br><span style="color:#888;font-size:11px">${c.product}</span></td>
-      <td><span class="volume-badge volume-${c.volume_level}">${c.volume_level}</span></td>
-      <td>${c.event_intensity || '-'}</td>
-      <td>${tone(c.sentiment)}</td>
-      <td style="max-width:160px">${c.discussion_focus || '-'}</td>
-      <td>${c.top_platform || '-'}</td>
-      <td style="color:#dc2626;font-size:12px;max-width:140px">${c.main_risk || '-'}</td>
-      <td style="color:#16a34a;font-size:12px;max-width:140px">${c.main_opportunity || '-'}</td>
+      <td data-label="品牌"><strong>${c.company}</strong> <span style="color:#888;font-size:11px">${c.product}</span></td>
+      <td data-label="声量"><span class="volume-badge volume-${c.volume_level}">${c.volume_level}</span></td>
+      <td data-label="事件强度">${c.event_intensity || '-'}</td>
+      <td data-label="舆情倾向">${tone(c.sentiment)}</td>
+      <td data-label="讨论重心" style="max-width:160px">${c.discussion_focus || '-'}</td>
+      <td data-label="最活跃平台">${c.top_platform || '-'}</td>
+      <td data-label="主要风险" style="color:#dc2626;font-size:12px;max-width:140px">${c.main_risk || '-'}</td>
+      <td data-label="主要机会" style="color:#16a34a;font-size:12px;max-width:140px">${c.main_opportunity || '-'}</td>
     </tr>`).join('');
   return `
     <div class="section">
