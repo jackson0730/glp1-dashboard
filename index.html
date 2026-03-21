@@ -20,7 +20,7 @@
   .week-selector select:hover { background: rgba(255,255,255,.15); }
 
   /* ── Layout ── */
-  .container { max-width: 1440px; margin: 0 auto; padding: 28px 40px; }
+  .container { max-width: 1440px; margin: 0 auto; padding: 20px 24px; }
 
   /* ── Report header bar ── */
   .report-header { background: #fff; border-radius: 12px; padding: 18px 24px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border-left: 4px solid #4f46e5; }
@@ -147,54 +147,35 @@
   .divider { height: 1px; background: #f0f0f5; margin: 14px 0; }
 
   /* ── Mobile：贴边列表风格 ── */
-  @media (max-width: 768px) {
-    /* 整体背景改白，去掉灰色 */
+  @media (max-width: 900px) {
     body { background: #fff; }
-
-    /* header */
     .header { padding: 12px 14px; flex-wrap: wrap; gap: 8px; }
     .header h1 { font-size: 15px; }
     .header-meta { display: none; }
     .header-logo { width: 30px; height: 30px; font-size: 15px; }
     .week-selector { width: 100%; }
     .week-selector select { flex: 1; font-size: 16px; padding: 8px 10px; }
-
-    /* 容器零 padding */
-    .container { padding: 0; }
+    .container { padding: 0 !important; }
     .summary-industry-grid { gap: 0 !important; }
-
-    /* section：去掉卡片感，用分隔线 */
     .section { background: #fff; padding: 16px 14px; margin: 0; border-radius: 0; box-shadow: none; border-bottom: 6px solid #f0f2f8; }
-    .report-header { background: #fff; padding: 14px; border-radius: 0; margin: 0; box-shadow: none; border-left: none; border-bottom: 6px solid #f0f2f8; text-align: left; }
+    .report-header { background: #fff; padding: 14px; border-radius: 0; margin: 0; box-shadow: none; border-left: none; border-bottom: 6px solid #f0f2f8; }
     .report-header .period { text-align: left; font-size: 15px; }
     .report-header .meta { text-align: left; font-size: 10px; }
     .card-block { padding: 10px; border-radius: 6px; }
     .one-line { padding: 10px 12px; border-radius: 6px; margin-top: 10px; }
-
-    /* 多列改单列 */
     .brand-card-grid { grid-template-columns: 1fr; gap: 8px; }
     .risk-opp-grid { grid-template-columns: 1fr; gap: 8px; }
     .posts-grid { grid-template-columns: 1fr; gap: 8px; }
-
-    /* 品牌 tab 2×2 */
     .brand-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; }
     .brand-tab { padding: 10px 6px; font-size: 12px; text-align: center; border-radius: 8px; }
-
-    /* 品牌标题竖排 */
     .brand-header { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 10px; }
     .brand-name { font-size: 17px; }
     .brand-product { font-size: 13px; }
-
-    /* 表格 */
     .platform-table { font-size: 12px; white-space: normal; }
     .platform-table td, .platform-table th { padding: 6px 8px; }
     .ref-table { font-size: 11px; }
     .ref-table td, .ref-table th { padding: 5px 6px; }
-
-    /* 帖子卡 */
     .post-card { padding: 12px; border-radius: 8px; }
-
-    /* 字号 */
     .summary-list li { font-size: 13px; padding: 8px 0 8px 18px; }
     .summary-list li::before { top: 10px; }
     .industry-text { font-size: 13px; }
@@ -202,7 +183,7 @@
   }
 
   /* 横向对比：移动端改卡片 */
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .comp-table thead { display: none; }
     .comp-table, .comp-table tbody, .comp-table tr, .comp-table td { display: block; white-space: normal; }
     .comp-table tr { border: 1px solid #e8e8f0; border-radius: 8px; margin-bottom: 8px; padding: 10px 12px; background: #f8f9ff; }
