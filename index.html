@@ -147,55 +147,64 @@
   .divider { height: 1px; background: #f0f0f5; margin: 14px 0; }
 
   /* ── Mobile ── */
-  @media (max-width: 640px) {
-    /* header */
-    .header { padding: 12px 14px; flex-wrap: wrap; gap: 8px; }
+  @media (max-width: 768px) {
+    /* header 紧凑 */
+    .header { padding: 12px; flex-wrap: wrap; gap: 8px; }
     .header h1 { font-size: 15px; }
     .header-meta { display: none; }
+    .header-logo { width: 30px; height: 30px; font-size: 15px; }
     .week-selector { width: 100%; justify-content: space-between; }
-    .week-selector select { flex: 1; font-size: 16px; } /* 16px 防 iOS 自动缩放 */
+    .week-selector select { flex: 1; font-size: 16px; padding: 8px 10px; }
 
-    /* 容器贴边 */
-    .container { padding: 8px 4px; }
-    .section { padding: 12px 10px; margin-bottom: 8px; border-radius: 8px; }
-    .report-header { padding: 10px 12px; border-radius: 8px; margin-bottom: 8px; }
-    .card-block { padding: 10px 10px; }
-    .one-line { padding: 12px 14px; }
+    /* 容器几乎贴边 */
+    .container { padding: 6px 0; }
+
+    /* 卡片全宽、无圆角、贴边 */
+    .section { padding: 14px 12px; margin: 0 0 6px 0; border-radius: 0; box-shadow: none; border-bottom: 1px solid #e8e8f0; }
+    .report-header { padding: 12px; border-radius: 0; margin: 0 0 6px 0; box-shadow: none; }
+    .report-header .meta { font-size: 10px; }
+    .card-block { padding: 10px; border-radius: 6px; }
+    .one-line { padding: 10px 12px; border-radius: 6px; margin-top: 10px; }
 
     /* 多列改单列 */
-    .brand-card-grid { grid-template-columns: 1fr; }
-    .risk-opp-grid { grid-template-columns: 1fr; }
-    .posts-grid { grid-template-columns: minmax(0, 1fr); }
+    .brand-card-grid { grid-template-columns: 1fr; gap: 8px; }
+    .risk-opp-grid { grid-template-columns: 1fr; gap: 8px; }
+    .posts-grid { grid-template-columns: 1fr; gap: 8px; }
 
-    /* 品牌 tab 改 2×2 grid，增大点击区域 */
-    .brand-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-    .brand-tab { padding: 10px 8px; font-size: 12px; text-align: center; border-radius: 10px; }
+    /* 品牌 tab 2×2 grid */
+    .brand-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; }
+    .brand-tab { padding: 10px 6px; font-size: 12px; text-align: center; border-radius: 8px; }
 
-    /* 品牌标题两行 */
-    .brand-header { flex-direction: column; align-items: flex-start; gap: 4px; }
-    .brand-name { font-size: 16px; }
+    /* 品牌标题竖排 */
+    .brand-header { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 10px; }
+    .brand-name { font-size: 17px; }
     .brand-product { font-size: 13px; }
+    .volume-note { margin-bottom: 10px; }
 
-    /* 表格：平台表允许换行，横向对比表滚动 */
+    /* 表格允许换行 */
     .platform-table { font-size: 12px; white-space: normal; }
     .platform-table td, .platform-table th { padding: 6px 8px; }
-    .comp-table { font-size: 12px; white-space: nowrap; }
-    .comp-table td, .comp-table th { padding: 7px 9px; }
-    .ref-table { font-size: 11px; white-space: nowrap; }
+    .ref-table { font-size: 11px; }
+    .ref-table td, .ref-table th { padding: 5px 6px; }
+
+    /* 帖子卡 */
+    .post-card { padding: 12px; border-radius: 8px; }
 
     /* 字号 */
-    .summary-list li { font-size: 13px; }
+    .summary-list li { font-size: 13px; padding: 8px 0 8px 18px; }
+    .summary-list li::before { top: 10px; }
     .industry-text { font-size: 13px; }
-    .report-header .meta { font-size: 10px; }
+    .section-title { font-size: 13px; margin-bottom: 12px; padding-bottom: 10px; }
   }
 
-  /* 横向对比：移动端改卡片列表 */
-  @media (max-width: 640px) {
+  /* 横向对比：移动端改卡片 */
+  @media (max-width: 768px) {
     .comp-table thead { display: none; }
     .comp-table, .comp-table tbody, .comp-table tr, .comp-table td { display: block; white-space: normal; }
-    .comp-table tr { border: 1px solid #e8e8f0; border-radius: 8px; margin-bottom: 10px; padding: 10px 12px; background: #fff; }
-    .comp-table td { padding: 4px 0; border: none; font-size: 13px; }
-    .comp-table td::before { content: attr(data-label); font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; display: block; margin-bottom: 2px; }
+    .comp-table tr { border: 1px solid #e8e8f0; border-radius: 8px; margin-bottom: 8px; padding: 10px 12px; background: #f8f9ff; }
+    .comp-table td { padding: 3px 0; border: none; font-size: 13px; }
+    .comp-table td::before { content: attr(data-label); font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; display: block; margin-bottom: 1px; }
+  }
   }
 </style>
 </head>
@@ -258,7 +267,7 @@ function tone(t) {
 function renderReport(d) {
   return `
     ${renderHeader(d)}
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+    <div class="summary-industry-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px">
       <div>${renderSummary(d)}</div>
       <div>${renderIndustry(d)}</div>
     </div>
