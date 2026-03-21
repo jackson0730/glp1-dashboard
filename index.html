@@ -3,193 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLP-1 舆情周报看板</title>
+<title>GLP-1 Intelligence Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.6; }
+*{box-sizing:border-box;margin:0;padding:0}
 
-  /* ── Header ── */
-  .header { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%); color: #fff; padding: 18px 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(0,0,0,.25); }
-  .header-left { display: flex; align-items: center; gap: 14px; }
-  .header-logo { width: 36px; height: 36px; background: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-  .header h1 { font-size: 18px; font-weight: 700; letter-spacing: .3px; }
-  .header-meta { font-size: 11px; color: #9999cc; margin-top: 2px; }
-  .week-selector { display: flex; align-items: center; gap: 10px; }
-  .week-selector label { color: #9999cc; font-size: 12px; white-space: nowrap; }
-  .week-selector select { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 7px 14px; font-size: 13px; cursor: pointer; outline: none; }
-  .week-selector select:hover { background: rgba(255,255,255,.15); }
+/* ===== DESKTOP DARK TERMINAL (>900px) ===== */
+body{font-family:"Noto Sans SC",sans-serif;background:#0a0e1a;color:#c9d1e0;font-size:14px;line-height:1.6;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(circle,rgba(0,229,160,.06) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0}
 
-  /* ── Layout ── */
-  .container { max-width: 1440px; margin: 0 auto; padding: 0; }
+/* header */
+.header{position:relative;z-index:10;background:rgba(10,14,26,.95);border-bottom:1px solid rgba(0,229,160,.2);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;backdrop-filter:blur(8px)}
+.header-left{display:flex;align-items:center;gap:16px}
+.header-logo{width:38px;height:38px;background:linear-gradient(135deg,#00e5a0,#00b37a);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;box-shadow:0 0 16px rgba(0,229,160,.4)}
+.header h1{font-family:"Space Mono",monospace;font-size:17px;font-weight:700;color:#00e5a0;letter-spacing:2px;text-transform:uppercase}
+.header h1::after{content:"_";animation:blink 1.2s step-end infinite;color:#00e5a0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.header-meta{font-size:11px;color:#4a5568;margin-top:2px;font-family:"Space Mono",monospace}
+.week-selector{display:flex;align-items:center;gap:10px}
+.week-selector label{color:#4a5568;font-size:11px;font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:1px}
+.week-selector select{background:rgba(0,229,160,.05);color:#00e5a0;border:1px solid rgba(0,229,160,.3);border-radius:6px;padding:7px 14px;font-size:12px;cursor:pointer;outline:none;font-family:"Space Mono",monospace}
+.week-selector select:hover{background:rgba(0,229,160,.1);border-color:#00e5a0}
+.week-selector select option{background:#0d1117;color:#c9d1e0}
 
-  /* ── Report header bar ── */
-  .report-header { background: #fff; border-radius: 12px; padding: 14px 16px; margin: 0 0 12px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.06); border-left: 4px solid #4f46e5; }
-  .report-header .period { font-size: 16px; font-weight: 700; color: #1a1a2e; }
-  .report-header .meta { font-size: 11px; color: #999; margin-top: 3px; }
+/* layout */
+.layout{display:flex;min-height:calc(100vh - 64px);position:relative;z-index:1}
+.sidebar{width:240px;flex-shrink:0;background:rgba(13,17,23,.8);border-right:1px solid rgba(0,229,160,.1);padding:24px 0;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+.sidebar-label{font-family:"Space Mono",monospace;font-size:9px;color:#4a5568;text-transform:uppercase;letter-spacing:2px;padding:0 20px 12px;border-bottom:1px solid rgba(0,229,160,.08);margin-bottom:8px}
+.brand-nav-item{display:flex;align-items:center;padding:12px 20px;cursor:pointer;transition:all .2s;border-left:3px solid transparent;position:relative}
+.brand-nav-item:hover{background:rgba(0,229,160,.05);border-left-color:rgba(0,229,160,.4)}
+.brand-nav-item.active{background:rgba(0,229,160,.08);border-left-color:#00e5a0}
+.brand-nav-item.active::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:4px;height:24px;background:#00e5a0;border-radius:2px 0 0 2px;box-shadow:0 0 8px #00e5a0}
+@keyframes pulse-active{0%,100%{opacity:1}50%{opacity:.6}}
+.brand-nav-item.active .nav-company{animation:pulse-active 2s ease-in-out infinite}
+.nav-company{font-family:"Space Mono",monospace;font-size:12px;font-weight:700;color:#c9d1e0;display:block}
+.brand-nav-item.active .nav-company{color:#00e5a0}
+.nav-product{font-size:11px;color:#4a5568;display:block;margin-top:2px}
+.brand-nav-item.active .nav-product{color:#00b37a}
 
-  /* ── Section card ── */
-  .section { background: #fff; border-radius: 12px; padding: 16px 14px; margin: 0 0 12px 0; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-  .section-title { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f5; display: flex; align-items: center; gap: 8px; }
-  .badge { background: #4f46e5; color: #fff; font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: 600; letter-spacing: .3px; }
-  .badge-green { background: #059669; }
-  .badge-orange { background: #d97706; }
+/* main */
+.main{flex:1;padding:28px 32px;overflow-x:hidden}
+.container{max-width:1100px}
 
-  /* ── Executive summary ── */
-  .summary-list { list-style: none; }
-  .summary-list li { padding: 10px 0 10px 20px; border-bottom: 1px solid #f5f5f8; position: relative; line-height: 1.65; color: #2d2d4e; font-size: 13.5px; text-align: left; }
-  .summary-list li:last-child { border-bottom: none; }
-  .summary-list li::before { content: "▸"; position: absolute; left: 0; color: #4f46e5; font-size: 12px; top: 12px; }
+/* report header */
+.report-header{background:rgba(17,24,39,.8);border:1px solid rgba(0,229,160,.15);border-radius:10px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:blur(4px)}
+.report-header .period{font-family:"Space Mono",monospace;font-size:15px;font-weight:700;color:#00e5a0}
+.report-header .meta{font-size:11px;color:#4a5568;margin-top:3px;font-family:"Space Mono",monospace}
 
-  /* ── Industry overview ── */
-  .industry-text { line-height: 1.85; color: #333; font-size: 13.5px; text-align: left; }
+/* section */
+.section{background:rgba(17,24,39,.8);border:1px solid rgba(0,229,160,.12);border-radius:10px;padding:20px 22px;margin-bottom:20px;backdrop-filter:blur(4px);transition:border-color .2s,box-shadow .2s}
+.section:hover{border-color:rgba(0,229,160,.25);box-shadow:0 0 20px rgba(0,229,160,.05)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.section{animation:fadeIn .35s ease both}
+.section-title{font-family:"Space Mono",monospace;font-size:11px;font-weight:700;color:#00e5a0;text-transform:uppercase;letter-spacing:2px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(0,229,160,.15);display:flex;align-items:center;gap:10px}
+.section-title::before{content:"> ";color:#4a5568}
+.badge{background:rgba(0,229,160,.15);color:#00e5a0;font-size:9px;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:1px;border:1px solid rgba(0,229,160,.3);font-family:"Space Mono",monospace}
+.badge-orange{background:rgba(255,107,53,.15);color:#ff6b35;border-color:rgba(255,107,53,.3)}
+.badge-green{background:rgba(0,229,160,.15);color:#00e5a0;border-color:rgba(0,229,160,.3)}
 
-  /* ── Brand tabs ── */
-  .brand-tabs { display: flex; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
-  .brand-tab { padding: 7px 18px; border-radius: 20px; border: 1.5px solid #e0e0ee; background: #fff; cursor: pointer; font-size: 13px; font-weight: 500; transition: all .18s; color: #555; }
-  .brand-tab.active { background: #4f46e5; color: #fff; border-color: #4f46e5; box-shadow: 0 2px 8px rgba(79,70,229,.3); }
-  .brand-tab:hover:not(.active) { border-color: #4f46e5; color: #4f46e5; }
+/* summary */
+.summary-list{list-style:none}
+.summary-list li{padding:10px 0 10px 20px;border-bottom:1px solid rgba(0,229,160,.06);position:relative;line-height:1.7;color:#a0aec0;font-size:13.5px}
+.summary-list li:last-child{border-bottom:none}
+.summary-list li::before{content:"▸";position:absolute;left:0;color:#00e5a0;font-size:12px;top:12px}
+.industry-text{line-height:1.9;color:#a0aec0;font-size:13.5px}
 
-  .brand-card { display: none; }
-  .brand-card.active { display: block; }
+/* brand card */
+.brand-card{display:none}
+.brand-card.active{display:block}
+.brand-header{display:flex;align-items:center;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.brand-name{font-family:"Space Mono",monospace;font-size:20px;font-weight:700;color:#e2e8f0}
+.brand-product{font-size:15px;color:#00e5a0;font-weight:600}
+.brand-trade{color:#4a5568;font-size:13px}
+.volume-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 12px;border-radius:4px;font-size:11px;font-weight:700;font-family:"Space Mono",monospace}
+.volume-高{background:rgba(255,107,53,.15);color:#ff6b35;border:1px solid rgba(255,107,53,.4);box-shadow:0 0 8px rgba(255,107,53,.2)}
+.volume-中{background:rgba(0,229,160,.12);color:#00e5a0;border:1px solid rgba(0,229,160,.3);box-shadow:0 0 8px rgba(0,229,160,.15)}
+.volume-低{background:rgba(74,85,104,.2);color:#718096;border:1px solid rgba(74,85,104,.3)}
+.volume-note{font-size:12px;color:#4a5568;margin-bottom:18px;padding:8px 14px;background:rgba(0,229,160,.04);border-radius:6px;border-left:2px solid rgba(0,229,160,.3);font-family:"Space Mono",monospace}
 
-  /* ── Brand card header ── */
-  .brand-header { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; flex-wrap: wrap; }
-  .brand-name { font-size: 20px; font-weight: 800; color: #1a1a2e; }
-  .brand-product { font-size: 15px; color: #4f46e5; font-weight: 600; }
-  .brand-trade { color: #aaa; font-size: 13px; }
-  .volume-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
-  .volume-高 { background: #fef3c7; color: #b45309; }
-  .volume-中 { background: #dbeafe; color: #1d4ed8; }
-  .volume-低 { background: #f3f4f6; color: #6b7280; }
-  .volume-note { font-size: 12px; color: #888; margin-bottom: 18px; padding: 8px 12px; background: #f8f9ff; border-radius: 6px; border-left: 3px solid #c7d2fe; }
+.brand-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card-block{background:rgba(13,17,23,.6);border:1px solid rgba(0,229,160,.08);border-radius:8px;padding:16px 18px}
+.card-block-title{font-family:"Space Mono",monospace;font-size:9px;font-weight:700;color:#4a5568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
 
-  /* ── 2-col grid ── */
-  .brand-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 900px) { .brand-card-grid { grid-template-columns: 1fr; } }
+/* event list */
+.event-list{list-style:none}
+.event-list li{padding:8px 0;border-bottom:1px solid rgba(0,229,160,.06);font-size:13px;line-height:1.6;color:#a0aec0;display:flex;align-items:flex-start;gap:8px}
+.event-list li:last-child{border-bottom:none}
+.event-list li::before{content:"◆";color:#00e5a0;font-size:8px;margin-top:5px;flex-shrink:0}
+.event-list a{color:#00e5a0;font-size:11px;white-space:nowrap;flex-shrink:0;opacity:.7}
+.event-list a:hover{opacity:1}
 
-  .card-block { background: #f8f9ff; border-radius: 10px; padding: 16px 18px; }
-  .card-block-title { font-size: 11px; font-weight: 700; color: #7c7caa; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 12px; }
+/* keywords */
+.keywords{display:flex;flex-wrap:wrap;gap:6px}
+.keyword-tag{background:rgba(79,70,229,.15);color:#818cf8;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:500;border:1px solid rgba(79,70,229,.25)}
+.tag-risk{background:rgba(255,107,53,.12);color:#ff6b35;border-color:rgba(255,107,53,.3)}
+.tag-opp{background:rgba(0,229,160,.1);color:#00e5a0;border-color:rgba(0,229,160,.25)}
+.tag-promo{background:rgba(251,191,36,.1);color:#fbbf24;border-color:rgba(251,191,36,.25)}
 
-  /* ── Event list ── */
-  .event-list { list-style: none; }
-  .event-list li { padding: 8px 0; border-bottom: 1px solid #eeeef8; font-size: 13px; line-height: 1.55; color: #2d2d4e; display: flex; align-items: flex-start; gap: 6px; }
-  .event-list li:last-child { border-bottom: none; }
-  .event-list li::before { content: "·"; color: #4f46e5; font-size: 18px; line-height: 1.2; flex-shrink: 0; }
-  .event-list a { color: #4f46e5; font-size: 11px; white-space: nowrap; flex-shrink: 0; }
+/* risk/opp */
+.risk-opp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.risk-block{background:rgba(255,107,53,.06);border:1px solid rgba(255,107,53,.2);border-radius:8px;padding:12px 14px}
+.opp-block{background:rgba(0,229,160,.05);border:1px solid rgba(0,229,160,.2);border-radius:8px;padding:12px 14px}
+.risk-block .card-block-title{color:#ff6b35}
+.opp-block .card-block-title{color:#00e5a0}
+.risk-list,.opp-list{list-style:none}
+.risk-list li,.opp-list li{padding:4px 0 4px 16px;font-size:12.5px;position:relative;line-height:1.5;color:#a0aec0}
+.risk-list li::before{content:"!";position:absolute;left:0;font-size:11px;font-weight:800;color:#ff6b35}
+.opp-list li::before{content:"↑";position:absolute;left:0;font-size:11px;font-weight:800;color:#00e5a0}
 
-  /* ── Keywords ── */
-  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
-  .keyword-tag { background: #ede9fe; color: #5b21b6; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; }
-  .tag-risk { background: #fee2e2; color: #991b1b; }
-  .tag-opp { background: #d1fae5; color: #065f46; }
-  .tag-promo { background: #fef3c7; color: #92400e; }
+/* platform table */
+.platform-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.platform-table th{background:rgba(0,229,160,.08);padding:9px 14px;text-align:left;font-weight:700;color:#00e5a0;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-family:"Space Mono",monospace;border-bottom:1px solid rgba(0,229,160,.2)}
+.platform-table td{padding:9px 14px;border-bottom:1px solid rgba(0,229,160,.06);vertical-align:top;line-height:1.5;color:#a0aec0}
+.platform-table tr:last-child td{border-bottom:none}
+.platform-table tbody tr:nth-child(even) td{background:rgba(0,229,160,.02)}
+.platform-table tr:hover td{background:rgba(0,229,160,.05)}
+.platform-name{font-weight:700;color:#e2e8f0;white-space:nowrap;font-family:"Space Mono",monospace;font-size:11px}
 
-  /* ── Risk / Opp ── */
-  .risk-opp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
-  .risk-block, .opp-block { border-radius: 8px; padding: 12px 14px; }
-  .risk-block { background: #fff5f5; border-left: 3px solid #f87171; }
-  .opp-block { background: #f0fdf4; border-left: 3px solid #4ade80; }
-  .risk-block .card-block-title { color: #b91c1c; }
-  .opp-block .card-block-title { color: #15803d; }
-  .risk-list, .opp-list { list-style: none; }
-  .risk-list li, .opp-list li { padding: 4px 0 4px 16px; font-size: 12.5px; position: relative; line-height: 1.5; color: #374151; }
-  .risk-list li::before { content: "!"; position: absolute; left: 0; font-size: 11px; font-weight: 800; color: #ef4444; }
-  .opp-list li::before { content: "↑"; position: absolute; left: 0; font-size: 11px; font-weight: 800; color: #22c55e; }
+/* tone */
+.tone-正面为主{color:#00e5a0;font-weight:700;text-shadow:0 0 8px rgba(0,229,160,.5)}
+.tone-负面为主{color:#ff6b35;font-weight:700;text-shadow:0 0 8px rgba(255,107,53,.5)}
+.tone-负面\/争议,.tone-争议{color:#fbbf24;font-weight:700;text-shadow:0 0 8px rgba(251,191,36,.4)}
+.tone-中性{color:#718096;font-weight:600}
+.tone-正面\/中性{color:#60a5fa;font-weight:700}
 
-  /* ── Platform table ── */
-  .platform-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  .platform-table th { background: #f0f0f8; padding: 8px 12px; text-align: left; font-weight: 600; color: #555; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
-  .platform-table td { padding: 8px 12px; border-bottom: 1px solid #f0f0f5; vertical-align: top; line-height: 1.5; }
-  .platform-table tr:last-child td { border-bottom: none; }
-  .platform-table tr:hover td { background: #fafafe; }
-  .platform-name { font-weight: 600; color: #1a1a2e; white-space: nowrap; }
+/* one-liner */
+.one-line{background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.2);border-left:3px solid #00e5a0;border-radius:8px;padding:16px 20px;font-size:14px;font-style:italic;margin-top:18px;display:flex;align-items:flex-start;gap:12px;line-height:1.7;color:#c9d1e0}
+.one-line-icon{font-size:16px;flex-shrink:0;margin-top:1px}
 
-  .tone-正面为主 { color: #15803d; font-weight: 600; }
-  .tone-负面为主 { color: #dc2626; font-weight: 600; }
-  .tone-负面\/争议, .tone-争议 { color: #d97706; font-weight: 600; }
-  .tone-中性 { color: #6b7280; font-weight: 600; }
-  .tone-正面\/中性 { color: #2563eb; font-weight: 600; }
+/* comparison */
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.comp-table th{background:rgba(0,229,160,.08);color:#00e5a0;padding:10px 14px;text-align:left;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-family:"Space Mono",monospace;border-bottom:1px solid rgba(0,229,160,.2)}
+.comp-table td{padding:11px 14px;border-bottom:1px solid rgba(0,229,160,.06);vertical-align:top;color:#a0aec0}
+.comp-table tbody tr:nth-child(even) td{background:rgba(0,229,160,.02)}
+.comp-table tbody tr:hover td{background:rgba(0,229,160,.05)}
+.comp-table tbody tr:last-child td{border-bottom:none}
 
-  /* ── One-liner ── */
-  .one-line { background: linear-gradient(135deg, #1a1a2e, #2d2d5e); color: #e0e0ff; border-radius: 10px; padding: 14px 18px; font-size: 13px; font-style: italic; margin-top: 18px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
-  .one-line-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+/* posts */
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.post-card{background:rgba(13,17,23,.7);border:1px solid rgba(0,229,160,.1);border-radius:8px;padding:16px;transition:border-color .2s,box-shadow .2s}
+.post-card:hover{border-color:rgba(0,229,160,.3);box-shadow:0 0 16px rgba(0,229,160,.08)}
+.post-meta{font-size:11px;color:#4a5568;margin-bottom:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-family:"Space Mono",monospace}
+.post-brand{font-weight:700;color:#00e5a0}
+.post-platform{background:rgba(0,229,160,.1);color:#00e5a0;padding:1px 7px;border-radius:4px;font-size:10px;font-weight:700;border:1px solid rgba(0,229,160,.25)}
+.post-card p{font-size:13px;line-height:1.65;color:#a0aec0}
+.post-card a{font-size:11px;color:#00e5a0;display:inline-block;margin-top:8px;opacity:.7}
+.post-card a:hover{opacity:1}
 
-  /* ── Comparison table ── */
-  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .comp-table th { background: #1a1a2e; color: #ccc; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
-  .comp-table td { padding: 11px 14px; border-bottom: 1px solid #f0f0f5; vertical-align: top; }
-  .comp-table tbody tr:hover td { background: #f8f9ff; }
-  .comp-table tbody tr:last-child td { border-bottom: none; }
+/* refs */
+details summary{cursor:pointer;font-family:"Space Mono",monospace;font-weight:700;color:#00e5a0;font-size:12px;padding:6px 0;user-select:none;letter-spacing:1px}
+details summary:hover{color:#00b37a}
+.ref-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:14px}
+.ref-table th{background:rgba(0,229,160,.08);padding:7px 12px;text-align:left;font-weight:700;color:#00e5a0;font-size:10px;font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid rgba(0,229,160,.2)}
+.ref-table td{padding:7px 12px;border-bottom:1px solid rgba(0,229,160,.06);vertical-align:top;line-height:1.45;color:#a0aec0}
+.ref-table a{color:#00e5a0}
 
-  /* ── Posts grid ── */
-  .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
-  .post-card { background: #f8f9ff; border-radius: 10px; padding: 16px; border-left: 3px solid #4f46e5; transition: box-shadow .15s; }
-  .post-card:hover { box-shadow: 0 4px 16px rgba(79,70,229,.12); }
-  .post-meta { font-size: 11px; color: #888; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-  .post-brand { font-weight: 700; color: #4f46e5; }
-  .post-platform { background: #e0e7ff; color: #3730a3; padding: 1px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; }
-  .post-card p { font-size: 13px; line-height: 1.6; color: #333; text-align: left; }
-  .post-card a { font-size: 11px; color: #4f46e5; display: inline-block; margin-top: 8px; }
-  .post-card a:hover { text-decoration: underline; }
+/* misc */
+.loading{text-align:center;padding:80px;color:#4a5568;font-size:15px;font-family:"Space Mono",monospace}
+.error{background:rgba(255,107,53,.1);color:#ff6b35;padding:16px 20px;border-radius:8px;margin:20px 0;border:1px solid rgba(255,107,53,.3)}
+.no-data{color:#4a5568;font-style:italic;font-size:12px}
+.divider{height:1px;background:rgba(0,229,160,.08);margin:14px 0}
+.summary-industry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0}
 
-  /* ── Reference ── */
-  details summary { cursor: pointer; font-weight: 600; color: #4f46e5; font-size: 13px; padding: 6px 0; user-select: none; }
-  details summary:hover { color: #3730a3; }
-  .ref-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 14px; }
-  .ref-table th { background: #f0f0f8; padding: 7px 12px; text-align: left; font-weight: 600; color: #555; font-size: 11px; }
-  .ref-table td { padding: 7px 12px; border-bottom: 1px solid #f0f0f5; vertical-align: top; line-height: 1.45; }
-  .ref-table a { color: #4f46e5; }
-
-  /* ── Misc ── */
-  .loading { text-align: center; padding: 80px; color: #aaa; font-size: 15px; }
-  .error { background: #fef2f2; color: #dc2626; padding: 16px 20px; border-radius: 10px; margin: 20px 0; }
-  .no-data { color: #bbb; font-style: italic; font-size: 12px; }
-  .divider { height: 1px; background: #f0f0f5; margin: 14px 0; }
-
-  /* ── Mobile：贴边列表风格 ── */
-  @media (max-width: 900px) {
-    body { background: #fff; }
-    .header { padding: 12px 14px; flex-wrap: wrap; gap: 8px; }
-    .header h1 { font-size: 15px; }
-    .header-meta { display: none; }
-    .header-logo { width: 30px; height: 30px; font-size: 15px; }
-    .week-selector { width: 100%; justify-content: flex-end; }
-    .week-selector select { flex: 1; font-size: 16px; padding: 8px 10px; }
-    .container { padding: 0 !important; }
-    .summary-industry-grid { gap: 0 !important; }
-    .section { background: #fff; padding: 16px 14px; margin: 0; border-radius: 0; box-shadow: none; border-bottom: 6px solid #f0f2f8; }
-    .report-header { background: #fff; padding: 14px; border-radius: 0; margin: 0; box-shadow: none; border-left: none; border-bottom: 6px solid #f0f2f8; }
-    .report-header .period { text-align: left; font-size: 15px; }
-    .report-header .meta { text-align: left; font-size: 10px; }
-    .card-block { padding: 10px; border-radius: 6px; }
-    .one-line { padding: 10px 12px; border-radius: 6px; margin-top: 10px; }
-    .brand-card-grid { grid-template-columns: 1fr; gap: 8px; }
-    .risk-opp-grid { grid-template-columns: 1fr; gap: 8px; }
-    .posts-grid { grid-template-columns: 1fr; gap: 8px; }
-    .brand-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; }
-    .brand-tab { padding: 10px 6px; font-size: 12px; text-align: center; border-radius: 8px; }
-    .brand-header { flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 10px; }
-    .brand-name { font-size: 17px; }
-    .brand-product { font-size: 13px; }
-    .platform-table { font-size: 12px; white-space: normal; }
-    .platform-table td, .platform-table th { padding: 6px 8px; }
-    .ref-table { font-size: 11px; }
-    .ref-table td, .ref-table th { padding: 5px 6px; }
-    .post-card { padding: 12px; border-radius: 8px; }
-    .summary-list li { font-size: 13px; padding: 8px 0 8px 18px; }
-    .summary-list li::before { top: 10px; }
-    .industry-text { font-size: 13px; }
-    .section-title { font-size: 13px; margin-bottom: 12px; padding-bottom: 10px; }
-  }
-
-  /* 横向对比：移动端改卡片 */
-  @media (max-width: 900px) {
-    .comp-table thead { display: none; }
-    .comp-table, .comp-table tbody, .comp-table tr, .comp-table td { display: block; white-space: normal; }
-    .comp-table tr { border: 1px solid #e8e8f0; border-radius: 8px; margin-bottom: 8px; padding: 10px 12px; background: #f8f9ff; }
-    .comp-table td { padding: 3px 0; border: none; font-size: 13px; }
-    .comp-table td::before { content: attr(data-label); font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; display: block; margin-bottom: 1px; }
-  }
+/* ===== MOBILE (<=900px) ===== */
+@media(max-width:900px){
+  body{background:#f7f8fc;color:#1a1a2e}
+  body::before{display:none}
+  .header{background:#1a1a2e;padding:12px 16px;flex-wrap:wrap;gap:8px;height:auto;border-bottom:none}
+  .header h1{font-family:"Noto Sans SC",sans-serif;font-size:15px;color:#fff;letter-spacing:0}
+  .header h1::after{display:none}
+  .header-meta{display:none}
+  .header-logo{background:#4f46e5;box-shadow:none}
+  .week-selector{width:100%;justify-content:flex-end}
+  .week-selector label{color:#9999cc}
+  .week-selector select{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2);font-family:"Noto Sans SC",sans-serif;font-size:16px;padding:8px 10px;flex:1}
+  .layout{flex-direction:column}
+  .sidebar{display:none}
+  .main{padding:0}
+  .container{max-width:100%}
+  .report-header{background:#fff;border-radius:0;border:none;border-bottom:6px solid #f0f2f8;margin-bottom:0;box-shadow:none;backdrop-filter:none}
+  .report-header .period{font-family:"Noto Sans SC",sans-serif;color:#1a1a2e;font-size:15px}
+  .report-header .meta{font-family:"Noto Sans SC",sans-serif;color:#999;font-size:10px}
+  .section{background:#fff;border-radius:0;border:none;border-bottom:6px solid #f0f2f8;margin-bottom:0;box-shadow:none;backdrop-filter:none;padding:16px 14px}
+  .section:hover{border-color:transparent;box-shadow:none}
+  .section-title{font-family:"Noto Sans SC",sans-serif;color:#1a1a2e;font-size:13px;letter-spacing:0;text-transform:none;border-bottom-color:#f0f0f5}
+  .section-title::before{display:none}
+  .badge{font-family:"Noto Sans SC",sans-serif;background:#e0e7ff;color:#3730a3;border:none}
+  .badge-orange{background:#fef3c7;color:#92400e}
+  .badge-green{background:#d1fae5;color:#065f46}
+  .summary-list li{color:#2d2d4e;font-size:13px;padding:8px 0 8px 18px}
+  .summary-list li::before{color:#4f46e5;top:10px}
+  .industry-text{color:#333;font-size:13px}
+  .brand-header{flex-direction:column;align-items:flex-start;gap:4px;margin-bottom:10px}
+  .brand-name{font-family:"Noto Sans SC",sans-serif;font-size:17px;color:#1a1a2e}
+  .brand-product{color:#4f46e5}
+  .brand-trade{color:#aaa}
+  .volume-badge{font-family:"Noto Sans SC",sans-serif}
+  .volume-高{background:#fef3c7;color:#b45309;border:none;box-shadow:none}
+  .volume-中{background:#dbeafe;color:#1d4ed8;border:none;box-shadow:none}
+  .volume-低{background:#f3f4f6;color:#6b7280;border:none}
+  .volume-note{background:#f8f9ff;border-left-color:#c7d2fe;color:#888;font-family:"Noto Sans SC",sans-serif}
+  .brand-card-grid{grid-template-columns:1fr;gap:8px}
+  .card-block{background:#f8f9ff;border:none;padding:10px;border-radius:6px}
+  .card-block-title{font-family:"Noto Sans SC",sans-serif;color:#7c7caa;letter-spacing:0}
+  .event-list li{color:#2d2d4e}
+  .event-list li::before{color:#4f46e5}
+  .keyword-tag{background:#ede9fe;color:#5b21b6;border:none}
+  .tag-risk{background:#fee2e2;color:#991b1b;border:none}
+  .tag-opp{background:#d1fae5;color:#065f46;border:none}
+  .tag-promo{background:#fef3c7;color:#92400e;border:none}
+  .risk-opp-grid{grid-template-columns:1fr;gap:8px}
+  .risk-block{background:#fff5f5;border:none;border-left:3px solid #f87171}
+  .opp-block{background:#f0fdf4;border:none;border-left:3px solid #4ade80}
+  .risk-block .card-block-title{color:#b91c1c}
+  .opp-block .card-block-title{color:#15803d}
+  .risk-list li,.opp-list li{color:#374151}
+  .risk-list li::before{color:#ef4444}
+  .opp-list li::before{color:#22c55e}
+  .platform-table th{background:#f0f0f8;color:#555;font-family:"Noto Sans SC",sans-serif;border-bottom-color:#e0e0ee}
+  .platform-table td{color:#333;border-bottom-color:#f0f0f5}
+  .platform-table tbody tr:nth-child(even) td{background:transparent}
+  .platform-table tr:hover td{background:#fafafe}
+  .platform-name{font-family:"Noto Sans SC",sans-serif;color:#1a1a2e}
+  .tone-正面为主{color:#15803d;text-shadow:none}
+  .tone-负面为主{color:#dc2626;text-shadow:none}
+  .tone-负面\/争议,.tone-争议{color:#d97706;text-shadow:none}
+  .tone-中性{color:#6b7280}
+  .tone-正面\/中性{color:#2563eb}
+  .one-line{background:linear-gradient(135deg,#1a1a2e,#2d2d5e);color:#e0e0ff;border:none;border-left:3px solid #4f46e5;border-radius:6px;padding:10px 12px;margin-top:10px}
+  .comp-table thead{display:none}
+  .comp-table,.comp-table tbody,.comp-table tr,.comp-table td{display:block;white-space:normal}
+  .comp-table tr{border:1px solid #e8e8f0;border-radius:8px;margin-bottom:8px;padding:10px 12px;background:#f8f9ff}
+  .comp-table td{padding:3px 0;border:none;font-size:13px;color:#333}
+  .comp-table td::before{content:attr(data-label);font-size:10px;font-weight:700;color:#999;text-transform:uppercase;display:block;margin-bottom:1px}
+  .posts-grid{grid-template-columns:1fr;gap:8px}
+  .post-card{background:#f8f9ff;border:none;border-left:3px solid #4f46e5;border-radius:8px;padding:12px}
+  .post-card:hover{border-color:#4f46e5;box-shadow:none}
+  .post-meta{font-family:"Noto Sans SC",sans-serif;color:#888}
+  .post-brand{color:#4f46e5}
+  .post-platform{background:#e0e7ff;color:#3730a3;border:none}
+  .post-card p{color:#333}
+  .post-card a{color:#4f46e5}
+  details summary{font-family:"Noto Sans SC",sans-serif;color:#4f46e5;letter-spacing:0}
+  .ref-table th{font-family:"Noto Sans SC",sans-serif;background:#f0f0f8;color:#555;border-bottom-color:#e0e0ee}
+  .ref-table td{color:#333;border-bottom-color:#f0f0f5}
+  .ref-table a{color:#4f46e5}
+  .loading{color:#aaa;font-family:"Noto Sans SC",sans-serif}
+  .error{background:#fef2f2;color:#dc2626;border:none}
+  .brand-tabs-mobile{display:flex;gap:8px;overflow-x:auto;padding:12px 14px;background:#fff;border-bottom:6px solid #f0f2f8;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .brand-tabs-mobile::-webkit-scrollbar{display:none}
+  .brand-tab-m{padding:8px 16px;border-radius:20px;border:1.5px solid #e0e0ee;background:#fff;cursor:pointer;font-size:13px;font-weight:500;white-space:nowrap;color:#555;flex-shrink:0;transition:all .18s}
+  .brand-tab-m.active{background:#4f46e5;color:#fff;border-color:#4f46e5;box-shadow:0 2px 8px rgba(79,70,229,.3)}
+  .brand-tab-m:hover:not(.active){border-color:#4f46e5;color:#4f46e5}
+}
 </style>
 </head>
 <body>
@@ -198,265 +266,181 @@
   <div class="header-left">
     <div class="header-logo">💊</div>
     <div>
-      <h1>GLP-1 舆情周报看板</h1>
-      <div class="header-meta">数据来源：微博 · 小红书 · 知乎 · 公开互联网 &nbsp;|&nbsp; 非医学/投资建议</div>
+      <h1>GLP-1 INTELLIGENCE</h1>
+      <div class="header-meta">WEIBO · XIAOHONGSHU · ZHIHU · OPEN WEB &nbsp;|&nbsp; NOT MEDICAL/INVESTMENT ADVICE</div>
     </div>
   </div>
   <div class="week-selector">
-    <label>统计周期</label>
+    <label>PERIOD</label>
     <select id="weekSelect" onchange="loadReport(this.value)">
-      <option value="">加载中...</option>
+      <option value="">Loading...</option>
     </select>
   </div>
 </div>
 
-<div class="container">
-  <div id="content" class="loading">正在加载数据...</div>
+<div class="layout">
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-label">Brand Navigation</div>
+    <div id="brandNav"></div>
+  </div>
+  <div class="main">
+    <div class="container">
+      <div id="content" class="loading">正在加载数据...</div>
+    </div>
+  </div>
 </div>
 
 <script>
-async function fetchJSON(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+async function fetchJSON(url){
+  const res=await fetch(url);
+  if(!res.ok)throw new Error("HTTP "+res.status);
   return res.json();
 }
 
-async function initWeeks() {
-  const weeks = await fetchJSON('data/index.json');
-  const sel = document.getElementById('weekSelect');
-  sel.innerHTML = weeks.map((w, i) =>
-    `<option value="${w}"${i === 0 ? ' selected' : ''}>${w}</option>`
-  ).join('');
-  if (weeks.length > 0) await loadReport(weeks[0]);
+async function initWeeks(){
+  const weeks=await fetchJSON("data/index.json");
+  const sel=document.getElementById("weekSelect");
+  sel.innerHTML=weeks.map((w,i)=>
+    "<option value=""+w+"""+( i===0?" selected":"")+">"+w+"</option>"
+  ).join("");
+  if(weeks.length>0)await loadReport(weeks[0]);
 }
 
-async function loadReport(week) {
-  const content = document.getElementById('content');
-  content.innerHTML = '<div class="loading">正在加载...</div>';
-  try {
-    const d = await fetchJSON(`data/${week}.json`);
-    content.innerHTML = renderReport(d);
+async function loadReport(week){
+  const content=document.getElementById("content");
+  content.innerHTML="<div class="loading">正在加载...</div>";
+  try{
+    const d=await fetchJSON("data/"+week+".json");
+    content.innerHTML=renderReport(d);
+    buildSidebar(d);
     switchBrand(0);
-  } catch (e) {
-    content.innerHTML = `<div class="error">加载失败：${e.message}</div>`;
+  }catch(e){
+    content.innerHTML="<div class="error">加载失败："+e.message+"</div>";
   }
 }
 
-function tone(t) {
-  if (!t) return '<span class="no-data">-</span>';
-  const cls = t.replace(/\//g, '\\/');
-  return `<span class="tone-${cls}">${t}</span>`;
+function buildSidebar(d){
+  const nav=document.getElementById("brandNav");
+  if(!nav||!d.brands)return;
+  nav.innerHTML=d.brands.map((b,i)=>
+    "<div class="brand-nav-item" id="nav-"+i+"" onclick="switchBrand("+i+")"><div><span class="nav-company">"+b.company+"</span><span class="nav-product">"+b.product+"</span></div></div>"
+  ).join("");
 }
 
-function renderReport(d) {
-  return `
-    ${renderHeader(d)}
-    <div class="summary-industry-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0">
-      <div>${renderSummary(d)}</div>
-      <div>${renderIndustry(d)}</div>
-    </div>
-    ${renderBrands(d)}
-    ${renderComparison(d)}
-    ${renderPosts(d)}
-    ${renderRefs(d)}
-  `;
+function tone(t){
+  if(!t)return "<span class="no-data">-</span>";
+  const cls=t.replace(/\//g,"\/");
+  return "<span class="tone-"+cls+"">"+t+"</span>";
 }
 
-function renderHeader(d) {
-  const gen = d.generated_at ? d.generated_at.replace('T',' ').slice(0,16) : '-';
-  return `
-    <div class="report-header">
-      <div>
-        <div class="period">📅 ${d.period || d.week}</div>
-        <div class="meta">更新时间：${gen} &nbsp;·&nbsp; 北京时间自然周（周一–周日）&nbsp;·&nbsp; 公开互联网数据</div>
-      </div>
-    </div>`;
+function renderReport(d){
+  return renderHeader(d)+
+    "<div class="summary-industry-grid"><div>"+renderSummary(d)+"</div><div>"+renderIndustry(d)+"</div></div>"+
+    renderBrands(d)+
+    renderComparison(d)+
+    renderPosts(d)+
+    renderRefs(d);
 }
 
-function renderSummary(d) {
-  if (!d.executive_summary?.length) return '';
-  const items = d.executive_summary.map(s => `<li>${s}</li>`).join('');
-  return `
-    <div class="section" style="height:100%">
-      <div class="section-title">核心结论 <span class="badge">Executive Summary</span></div>
-      <ul class="summary-list">${items}</ul>
-    </div>`;
+function renderHeader(d){
+  const gen=d.generated_at?d.generated_at.replace("T"," ").slice(0,16):"-";
+  return "<div class="report-header"><div><div class="period">"+( d.period||d.week)+"</div><div class="meta">更新时间："+gen+" &nbsp;·&nbsp; 北京时间自然周（周一–周日）&nbsp;·&nbsp; 公开互联网数据</div></div></div>";
 }
 
-function renderIndustry(d) {
-  if (!d.industry_overview) return '';
-  return `
-    <div class="section" style="height:100%">
-      <div class="section-title">行业总览 <span class="badge badge-green">GLP-1 赛道</span></div>
-      <p class="industry-text">${d.industry_overview}</p>
-    </div>`;
+function renderSummary(d){
+  if(!d.executive_summary||!d.executive_summary.length)return "";
+  const items=d.executive_summary.map(s=>"<li>"+s+"</li>").join("");
+  return "<div class="section"><div class="section-title">核心结论 <span class="badge">EXECUTIVE SUMMARY</span></div><ul class="summary-list">"+items+"</ul></div>";
 }
 
-function renderBrands(d) {
-  if (!d.brands?.length) return '';
-  const tabs = d.brands.map((b, i) =>
-    `<button class="brand-tab" onclick="switchBrand(${i})" id="tab-${i}">${b.company}｜${b.product}</button>`
-  ).join('');
-  const cards = d.brands.map((b, i) => renderBrandCard(b, i)).join('');
-  return `
-    <div class="section">
-      <div class="section-title">分品牌舆情卡 <span class="badge badge-orange">Brand Cards</span></div>
-      <div class="brand-tabs">${tabs}</div>
-      ${cards}
-    </div>`;
+function renderIndustry(d){
+  if(!d.industry_overview)return "";
+  return "<div class="section"><div class="section-title">行业总览 <span class="badge badge-green">GLP-1 TRACK</span></div><p class="industry-text">"+d.industry_overview+"</p></div>";
 }
 
-function renderBrandCard(b, i) {
-  const events = (b.events || []).map(e =>
-    `<li><span>${e.text}</span>${e.ref && e.ref !== 'N/A' ? ` <a href="${e.ref}" target="_blank">[来源]</a>` : ''}</li>`
-  ).join('') || `<li class="no-data" style="padding-left:0;list-style:none">本周期未检索到足够公开内容支持判断</li>`;
-
-  const platforms = Object.entries(b.platform_sentiment || {}).map(([p, v]) => {
-    const hasData = v.summary && !v.summary.includes('未检索到');
-    return `
-    <tr>
-      <td><span class="platform-name">${p}</span></td>
-      <td>${hasData ? v.summary : '<span class="no-data">-</span>'}</td>
-      <td>${hasData ? (v.focus || '-') : '-'}</td>
-      <td>${tone(v.tone)}</td>
-    </tr>`;
-  }).join('');
-
-  const keywords = (b.keywords || []).map(k => `<span class="keyword-tag">${k}</span>`).join('');
-  const risks = (b.risks || []).map(r => `<li>${r}</li>`).join('') || '<li class="no-data">-</li>';
-  const opps = (b.opportunities || []).map(o => `<li>${o}</li>`).join('') || '<li class="no-data">-</li>';
-
-  return `
-    <div class="brand-card" id="brand-${i}">
-      <div class="brand-header">
-        <span class="brand-name">${b.company}</span>
-        <span style="color:#ccc">|</span>
-        <span class="brand-product">${b.product}</span>
-        <span class="brand-trade">（${b.trade_name}）</span>
-        <span class="volume-badge volume-${b.volume_level}">${b.volume_level}声量</span>
-      </div>
-      ${b.volume_note ? `<div class="volume-note">${b.volume_note}</div>` : ''}
-
-      <div class="brand-card-grid">
-        <div class="card-block">
-          <div class="card-block-title">本周核心事件</div>
-          <ul class="event-list">${events}</ul>
-        </div>
-        <div>
-          <div class="card-block">
-            <div class="card-block-title">舆情关键词</div>
-            <div class="keywords">${keywords || '<span class="no-data">-</span>'}</div>
-          </div>
-          <div class="risk-opp-grid">
-            <div class="risk-block">
-              <div class="card-block-title">风险点</div>
-              <ul class="risk-list">${risks}</ul>
-            </div>
-            <div class="opp-block">
-              <div class="card-block-title">机会点</div>
-              <ul class="opp-list">${opps}</ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-block" style="margin-top:14px">
-        <div class="card-block-title">平台舆情观察</div>
-        <div style="overflow-x:auto">
-        <table class="platform-table">
-          <thead><tr><th>平台</th><th>主要讨论</th><th>用户关注点</th><th>情绪</th></tr></thead>
-          <tbody>${platforms}</tbody>
-        </table>
-        </div>
-      </div>
-
-      ${b.one_line ? `<div class="one-line"><span class="one-line-icon">💬</span>${b.one_line}</div>` : ''}
-    </div>`;
+function renderBrands(d){
+  if(!d.brands||!d.brands.length)return "";
+  const mobileTabs=d.brands.map((b,i)=>
+    "<button class="brand-tab-m" onclick="switchBrand("+i+")" id="tabm-"+i+"">"+b.company+"｜"+b.product+"</button>"
+  ).join("");
+  const cards=d.brands.map((b,i)=>renderBrandCard(b,i)).join("");
+  return "<div class="brand-tabs-mobile">"+mobileTabs+"</div><div class="section"><div class="section-title">分品牌舆情卡 <span class="badge badge-orange">BRAND CARDS</span></div>"+cards+"</div>";
 }
 
-function switchBrand(idx) {
-  document.querySelectorAll('.brand-card').forEach((el, i) => el.classList.toggle('active', i === idx));
-  document.querySelectorAll('.brand-tab').forEach((el, i) => el.classList.toggle('active', i === idx));
+function renderBrandCard(b,i){
+  const events=(b.events||[]).map(e=>
+    "<li><span>"+e.text+"</span>"+(e.ref&&e.ref!=="N/A"?" <a href=""+e.ref+"" target="_blank">[来源]</a>":"")+"</li>"
+  ).join("")||"<li class="no-data" style="padding-left:0;list-style:none">本周期未检索到足够公开内容支持判断</li>";
+
+  const platforms=Object.entries(b.platform_sentiment||{}).map(([p,v])=>{
+    const hasData=v.summary&&!v.summary.includes("未检索到");
+    return "<tr><td><span class="platform-name">"+p+"</span></td><td>"+(hasData?v.summary:"<span class="no-data">-</span>")+"</td><td>"+(hasData?(v.focus||"-"):"-")+"</td><td>"+tone(v.tone)+"</td></tr>";
+  }).join("");
+
+  const keywords=(b.keywords||[]).map(k=>"<span class="keyword-tag">"+k+"</span>").join("");
+  const risks=(b.risks||[]).map(r=>"<li>"+r+"</li>").join("")||"<li class="no-data">-</li>";
+  const opps=(b.opportunities||[]).map(o=>"<li>"+o+"</li>").join("")||"<li class="no-data">-</li>";
+
+  return "<div class="brand-card" id="brand-"+i+"">"
+    +"<div class="brand-header"><span class="brand-name">"+b.company+"</span><span style="color:#4a5568">|</span><span class="brand-product">"+b.product+"</span><span class="brand-trade">（"+b.trade_name+"）</span><span class="volume-badge volume-"+b.volume_level+"">"+b.volume_level+"声量</span></div>"
+    +(b.volume_note?"<div class="volume-note">"+b.volume_note+"</div>":"")
+    +"<div class="brand-card-grid">"
+    +"<div class="card-block"><div class="card-block-title">本周核心事件</div><ul class="event-list">"+events+"</ul></div>"
+    +"<div><div class="card-block"><div class="card-block-title">舆情关键词</div><div class="keywords">"+( keywords||"<span class="no-data">-</span>")+"</div></div>"
+    +"<div class="risk-opp-grid"><div class="risk-block"><div class="card-block-title">风险点</div><ul class="risk-list">"+risks+"</ul></div><div class="opp-block"><div class="card-block-title">机会点</div><ul class="opp-list">"+opps+"</ul></div></div></div>"
+    +"</div>"
+    +"<div class="card-block" style="margin-top:14px"><div class="card-block-title">平台舆情观察</div><div style="overflow-x:auto"><table class="platform-table"><thead><tr><th>平台</th><th>主要讨论</th><th>用户关注点</th><th>情绪</th></tr></thead><tbody>"+platforms+"</tbody></table></div></div>"
+    +(b.one_line?"<div class="one-line"><span class="one-line-icon">💬</span>"+b.one_line+"</div>":"")
+    +"</div>";
 }
 
-function renderComparison(d) {
-  if (!d.competitive_comparison?.length) return '';
-  const rows = d.competitive_comparison.map(c => `
-    <tr>
-      <td data-label="品牌"><strong>${c.company}</strong> <span style="color:#888;font-size:11px">${c.product}</span></td>
-      <td data-label="声量"><span class="volume-badge volume-${c.volume_level}">${c.volume_level}</span></td>
-      <td data-label="事件强度">${c.event_intensity || '-'}</td>
-      <td data-label="舆情倾向">${tone(c.sentiment)}</td>
-      <td data-label="讨论重心" style="max-width:160px">${c.discussion_focus || '-'}</td>
-      <td data-label="最活跃平台">${c.top_platform || '-'}</td>
-      <td data-label="主要风险" style="color:#dc2626;font-size:12px;max-width:140px">${c.main_risk || '-'}</td>
-      <td data-label="主要机会" style="color:#16a34a;font-size:12px;max-width:140px">${c.main_opportunity || '-'}</td>
-    </tr>`).join('');
-  return `
-    <div class="section">
-      <div class="section-title">品牌横向对比 <span class="badge">Competitive Snapshot</span></div>
-      <div style="overflow-x:auto">
-        <table class="comp-table">
-          <thead><tr><th>品牌</th><th>声量</th><th>事件强度</th><th>舆情倾向</th><th>讨论重心</th><th>最活跃平台</th><th>主要风险</th><th>主要机会</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>
-    </div>`;
+function switchBrand(idx){
+  document.querySelectorAll(".brand-card").forEach((el,i)=>el.classList.toggle("active",i===idx));
+  document.querySelectorAll(".brand-nav-item").forEach((el,i)=>el.classList.toggle("active",i===idx));
+  document.querySelectorAll(".brand-tab-m").forEach((el,i)=>el.classList.toggle("active",i===idx));
 }
 
-function renderPosts(d) {
-  if (!d.representative_posts?.length) return '';
-  const cards = d.representative_posts.map(p => {
-    const tags = (p.tags || []).map(t => {
-      const cls = t.includes('推广') ? 'tag-promo' : t.includes('副作用') ? 'tag-risk' : t.includes('机会') ? 'tag-opp' : '';
-      return `<span class="keyword-tag ${cls}">${t}</span>`;
-    }).join('');
-    return `
-    <div class="post-card">
-      <div class="post-meta">
-        <span class="post-brand">${p.brand}</span>
-        <span class="post-platform">${p.platform}</span>
-      </div>
-      ${tags ? `<div style="margin-bottom:8px;display:flex;flex-wrap:wrap;gap:4px">${tags}</div>` : ''}
-      <p>${p.summary}</p>
-      ${p.ref && p.ref !== 'N/A' ? `<a href="${p.ref}" target="_blank">查看原文 →</a>` : ''}
-    </div>`;
-  }).join('');
-  return `
-    <div class="section">
-      <div class="section-title">代表性讨论摘录 <span class="badge">Representative Posts</span></div>
-      <div class="posts-grid">${cards}</div>
-    </div>`;
+function renderComparison(d){
+  if(!d.competitive_comparison||!d.competitive_comparison.length)return "";
+  const rows=d.competitive_comparison.map(c=>
+    "<tr><td data-label="品牌"><strong>"+c.company+"</strong> <span style="color:#4a5568;font-size:11px">"+c.product+"</span></td>"
+    +"<td data-label="声量"><span class="volume-badge volume-"+c.volume_level+"">"+c.volume_level+"</span></td>"
+    +"<td data-label="事件强度">"+( c.event_intensity||"-")+"</td>"
+    +"<td data-label="舆情倾向">"+tone(c.sentiment)+"</td>"
+    +"<td data-label="讨论重心" style="max-width:160px">"+( c.discussion_focus||"-")+"</td>"
+    +"<td data-label="最活跃平台">"+( c.top_platform||"-")+"</td>"
+    +"<td data-label="主要风险" style="color:#ff6b35;font-size:12px;max-width:140px">"+( c.main_risk||"-")+"</td>"
+    +"<td data-label="主要机会" style="color:#00e5a0;font-size:12px;max-width:140px">"+( c.main_opportunity||"-")+"</td></tr>"
+  ).join("");
+  return "<div class="section"><div class="section-title">品牌横向对比 <span class="badge">COMPETITIVE SNAPSHOT</span></div><div style="overflow-x:auto"><table class="comp-table"><thead><tr><th>品牌</th><th>声量</th><th>事件强度</th><th>舆情倾向</th><th>讨论重心</th><th>最活跃平台</th><th>主要风险</th><th>主要机会</th></tr></thead><tbody>"+rows+"</tbody></table></div></div>";
 }
 
-function renderRefs(d) {
-  if (!d.references?.length) return '';
-  const rows = d.references.map(r => `
-    <tr>
-      <td>${r.brand || '-'}</td>
-      <td>${r.platform || '-'}</td>
-      <td style="white-space:nowrap">${r.date || '-'}</td>
-      <td>${r.title || '-'}</td>
-      <td><span class="keyword-tag" style="font-size:11px">${r.type || '-'}</span></td>
-      <td style="max-width:200px">${r.summary || '-'}</td>
-      <td>${r.url && r.url !== 'N/A' ? `<a href="${r.url}" target="_blank">链接</a>` : '-'}</td>
-    </tr>`).join('');
-  return `
-    <div class="section">
-      <details>
-        <summary>📎 Reference 附录（共 ${d.references.length} 条）</summary>
-        <div style="overflow-x:auto">
-          <table class="ref-table">
-            <thead><tr><th>品牌</th><th>平台</th><th>日期</th><th>标题/话题</th><th>类型</th><th>摘要</th><th>链接</th></tr></thead>
-            <tbody>${rows}</tbody>
-          </table>
-        </div>
-      </details>
-    </div>`;
+function renderPosts(d){
+  if(!d.representative_posts||!d.representative_posts.length)return "";
+  const cards=d.representative_posts.map(p=>{
+    const tags=(p.tags||[]).map(t=>{
+      const cls=t.includes("推广")?"tag-promo":t.includes("副作用")?"tag-risk":t.includes("机会")?"tag-opp":"";
+      return "<span class="keyword-tag "+cls+"">"+t+"</span>";
+    }).join("");
+    return "<div class="post-card"><div class="post-meta"><span class="post-brand">"+p.brand+"</span><span class="post-platform">"+p.platform+"</span></div>"
+      +(tags?"<div style="margin-bottom:8px;display:flex;flex-wrap:wrap;gap:4px">"+tags+"</div>":"")
+      +"<p>"+p.summary+"</p>"
+      +(p.ref&&p.ref!=="N/A"?"<a href=""+p.ref+"" target="_blank">查看原文 →</a>":"")
+      +"</div>";
+  }).join("");
+  return "<div class="section"><div class="section-title">代表性讨论摘录 <span class="badge">REPRESENTATIVE POSTS</span></div><div class="posts-grid">"+cards+"</div></div>";
 }
 
-initWeeks().catch(e => {
-  document.getElementById('content').innerHTML = `<div class="error">初始化失败：${e.message}</div>`;
+function renderRefs(d){
+  if(!d.references||!d.references.length)return "";
+  const rows=d.references.map(r=>
+    "<tr><td>"+( r.brand||"-")+"</td><td>"+( r.platform||"-")+"</td><td style="white-space:nowrap">"+( r.date||"-")+"</td><td>"+( r.title||"-")+"</td><td><span class="keyword-tag" style="font-size:11px">"+( r.type||"-")+"</span></td><td style="max-width:200px">"+( r.summary||"-")+"</td><td>"+(r.url&&r.url!=="N/A"?"<a href=""+r.url+"" target="_blank">链接</a>":"-")+"</td></tr>"
+  ).join("");
+  return "<div class="section"><details><summary>📎 Reference 附录（共 "+d.references.length+" 条）</summary><div style="overflow-x:auto"><table class="ref-table"><thead><tr><th>品牌</th><th>平台</th><th>日期</th><th>标题/话题</th><th>类型</th><th>摘要</th><th>链接</th></tr></thead><tbody>"+rows+"</tbody></table></div></details></div>";
+}
+
+initWeeks().catch(e=>{
+  document.getElementById("content").innerHTML="<div class="error">初始化失败："+e.message+"</div>";
 });
 </script>
 </body>
