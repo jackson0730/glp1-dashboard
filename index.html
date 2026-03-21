@@ -9,7 +9,7 @@
   body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f0f2f8; color: #1a1a2e; font-size: 14px; line-height: 1.6; }
 
   /* ── Header ── */
-  .header { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%); color: #fff; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(0,0,0,.25); }
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%); color: #fff; padding: 18px 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(0,0,0,.25); }
   .header-left { display: flex; align-items: center; gap: 14px; }
   .header-logo { width: 36px; height: 36px; background: #4f46e5; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
   .header h1 { font-size: 18px; font-weight: 700; letter-spacing: .3px; }
@@ -250,7 +250,7 @@ function tone(t) {
 function renderReport(d) {
   return `
     ${renderHeader(d)}
-    <div class="summary-industry-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px">
+    <div class="summary-industry-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0">
       <div>${renderSummary(d)}</div>
       <div>${renderIndustry(d)}</div>
     </div>
