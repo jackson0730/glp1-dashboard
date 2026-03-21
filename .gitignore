@@ -1,0 +1,6 @@
+data/*.json
+data/*_raw_response.txt
+raw_data/
+__pycache__/
+*.pyc
+.env
