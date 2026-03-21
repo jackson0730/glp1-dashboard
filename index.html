@@ -177,7 +177,7 @@ async function fetchJSON(url) {
 }
 
 async function initWeeks() {
-  const weeks = await fetchJSON('/api/weeks');
+  const weeks = await fetchJSON('data/index.json');
   const sel = document.getElementById('weekSelect');
   sel.innerHTML = weeks.map((w, i) =>
     `<option value="${w}"${i === 0 ? ' selected' : ''}>${w}</option>`
@@ -189,7 +189,7 @@ async function loadReport(week) {
   const content = document.getElementById('content');
   content.innerHTML = '<div class="loading">正在加载...</div>';
   try {
-    const d = await fetchJSON(`/api/report/${week}`);
+    const d = await fetchJSON(`data/${week}.json`);
     content.innerHTML = renderReport(d);
     switchBrand(0);
   } catch (e) {

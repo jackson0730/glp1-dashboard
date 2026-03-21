@@ -1,4 +1,3 @@
-data/*.json
 data/*_raw_response.txt
 raw_data/
 __pycache__/

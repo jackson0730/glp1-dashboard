@@ -1,0 +1,587 @@
+{
+  "week": "2026-W11",
+  "period": "2026/03/16 – 2026/03/22",
+  "generated_at": "2026-03-21T02:06:58.400577",
+  "executive_summary": [
+    "诺和诺德司美格鲁肽中国专利到期引发行业地震，'白菜价'仿制药预期冲击原研药价格体系，诺和诺德市值蒸发约350亿美元",
+    "辉瑞/先为达埃诺格鲁肽（先维盈）获批上市，作为全球首个cAMP偏向型GLP-1受体激动剂，48周减重15.4%的临床数据引发关注",
+    "信达生物玛仕度肽（信尔美）联合京东健康开展三里屯线下推广活动，通过打卡抽奖形式强化消费者教育",
+    "19岁女生网购替尔泊肽自行注射险丧命事件持续发酵，处方药非法流通及用药安全风险成为社交平台焦点",
+    "GLP-1停药反弹问题受关注，真实世界研究显示停药后一年内平均体重反弹仅0.5%，但个体差异和后续管理仍存争议"
+  ],
+  "industry_overview": "本周GLP-1赛道呈现'专利悬崖'与'新药获批'并行的格局。诺和诺德面临中国专利到期带来的仿制药冲击，市场关注价格体系重塑；辉瑞携新机制产品埃诺格鲁肽入局，差异化竞争加剧；信达生物通过线下活动积极推广玛仕度肽。同时，多平台出现自行网购注射导致严重不良反应的警示案例，反映出处方药网络销售监管和患者教育的双重缺口。整体舆论场中，疗效期待与安全性担忧交织，价格战预期与品牌护城河博弈并存。",
+  "brands": [
+    {
+      "company": "礼来",
+      "product": "替尔泊肽",
+      "trade_name": "穆峰达",
+      "volume_level": "中",
+      "volume_note": "主要来源于19岁女生网购注射事件的警示性报道及CEO薪酬相关讨论",
+      "events": [
+        {
+          "text": "19岁女生网购替尔泊肽自行注射后出现恶心呕吐、心跳加速等严重不良反应，医生提示可能致心跳呼吸骤停",
+          "ref": "https://www.xiaohongshu.com/explore/69ad2b1e000000001a036125"
+        },
+        {
+          "text": "礼来CEO年薪达3670万美元被热议，GLP-1双雄替尔泊肽系列年销售额约365亿美元，替尔泊肽减重幅度可达15%-20%",
+          "ref": "https://www.xiaohongshu.com/explore/69afadbf000000002603f8bb"
+        }
+      ],
+      "platform_sentiment": {
+        "微博": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "小红书": {
+          "summary": "主要围绕网购处方药风险警示及企业战略分析",
+          "focus": "用药安全、非法渠道购药风险、双靶点疗效优势",
+          "tone": "负面/警示"
+        },
+        "豆瓣": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "知乎": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "抖音/快手/bilibili": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        }
+      },
+      "keywords": [
+        "网购减肥针",
+        "心跳呼吸骤停",
+        "处方药",
+        "双靶点",
+        "15-20%减重"
+      ],
+      "risks": [
+        "非法网络销售渠道导致严重不良反应事件，损害品牌声誉",
+        "青少年/非适应人群自行用药引发监管关注",
+        "专利到期后仿制药竞争加剧"
+      ],
+      "opportunities": [
+        "双靶点机制（GLP-1/GIP）疗效优势被专业博主强调",
+        "真实世界研究显示停药后反弹较少（与司美格鲁肽对比）"
+      ],
+      "one_line": "本周礼来舆情焦点集中在网购处方药安全警示事件，凸显渠道管理风险，但双靶点疗效认知仍稳固"
+    },
+    {
+      "company": "信达",
+      "product": "玛仕度肽",
+      "trade_name": "信尔美",
+      "volume_level": "中",
+      "volume_note": "主要来源于京东健康线下推广活动及用户自发使用日记",
+      "events": [
+        {
+          "text": "京东健康在三里屯举办信达玛仕度肽线下活动，通过打卡抽奖形式推广科学减重",
+          "ref": "https://www.xiaohongshu.com/explore/69bb73990000000022026180"
+        },
+        {
+          "text": "用户分享使用信尔美17周减重80斤的案例，停药两个月未反弹",
+          "ref": "https://www.xiaohongshu.com/explore/69aa9d27000000002602c534"
+        },
+        {
+          "text": "用户记录玛仕度肽第一周体重从79.7kg降至78.8kg，反馈饱腹感强、食欲下降",
+          "ref": "https://www.xiaohongshu.com/explore/69b639c0000000001d018650"
+        }
+      ],
+      "platform_sentiment": {
+        "微博": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "小红书": {
+          "summary": "品牌推广活动与真实用户UGC并存，多维度记录用药体验",
+          "focus": "线下活动打卡、减重效果记录、饱腹感体验",
+          "tone": "正面"
+        },
+        "豆瓣": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "知乎": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "抖音/快手/bilibili": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        }
+      },
+      "keywords": [
+        "玛仕腰",
+        "信尔美",
+        "三里屯活动",
+        "京东健康",
+        "17周80斤",
+        "饱腹感"
+      ],
+      "risks": [
+        "用户分享极端减重案例（17周80斤）可能引发不切实际的疗效期待",
+        "作为国产新药，长期安全性数据尚未充分积累"
+      ],
+      "opportunities": [
+        "与京东健康合作开展线下活动，精准触达目标人群",
+        "真实用户持续记录用药日记，形成口碑积累",
+        "强调'科学享瘦'概念，区别于盲目减肥"
+      ],
+      "one_line": "信达本周通过线下推广活动和真实用户案例分享，在社交平台建立积极的品牌认知"
+    },
+    {
+      "company": "诺和诺德",
+      "product": "司美格鲁肽",
+      "trade_name": "诺和盈",
+      "volume_level": "高",
+      "volume_note": "多平台围绕专利到期、价格体系、副作用及高剂量版本获批等议题密集讨论",
+      "events": [
+        {
+          "text": "司美格鲁肽在华专利将于3月到期，中国首批仿制药已在路上，诺和诺德市值蒸发约350亿美元",
+          "ref": "https://www.xiaohongshu.com/explore/69a16177000000000e03c1e8"
+        },
+        {
+          "text": "美FDA批准高剂量Wegovy HD（7.2mg）用于肥胖患者减重，平均减重20.7%",
+          "ref": "https://m.weibo.cn/detail/5278332809908950"
+        },
+        {
+          "text": "研究称司美格鲁肽仿制药月成本或低于3美元（约28-140美元/年），原研药定价675美元/月",
+          "ref": "https://m.weibo.cn/detail/5273633354157236"
+        },
+        {
+          "text": "用户反馈使用司美格鲁肽后出现心脏不适、甲状腺/乳腺结节风险担忧",
+          "ref": "https://m.weibo.cn/detail/5277962309737295"
+        }
+      ],
+      "platform_sentiment": {
+        "微博": {
+          "summary": "专利到期与仿制药成本引发价格战热议，同时FDA批准高剂量版本带来新看点",
+          "focus": "专利悬崖、仿制药价格、FDA高剂量获批、停药反弹研究",
+          "tone": "中性/争议"
+        },
+        "小红书": {
+          "summary": "科普内容与副作用警示并存，用户关注长期用药安全性",
+          "focus": "专利到期影响、四种停药情况、药物机制科普",
+          "tone": "中性"
+        },
+        "豆瓣": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "知乎": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "抖音/快手/bilibili": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        }
+      },
+      "keywords": [
+        "专利到期",
+        "白菜价",
+        "市值蒸发",
+        "Wegovy HD",
+        "心脏不适",
+        "甲状腺结节",
+        "停药反弹"
+      ],
+      "risks": [
+        "专利到期后仿制药冲击导致价格战，影响利润",
+        "副作用讨论（心脏不适、结节风险）可能降低部分人群用药意愿",
+        "马斯克等名人'失败案例'被引用，质疑长期疗效"
+      ],
+      "opportunities": [
+        "FDA批准高剂量版本（7.2mg），临床数据亮眼（减重20.7%），可强化疗效领先形象",
+        "真实世界研究显示停药后反弹仅0.5%，回应'停药即反弹'担忧",
+        "通过科普内容强调需在医生指导下使用，区分于非法渠道用药"
+      ],
+      "one_line": "诺和诺德本周处于专利到期风暴中心，价格体系受冲击，但高剂量版本获批和真实世界研究数据提供新的叙事支撑"
+    },
+    {
+      "company": "辉瑞",
+      "product": "埃诺格鲁肽",
+      "trade_name": "先维盈",
+      "volume_level": "中",
+      "volume_note": "主要围绕NMPA获批及与先为达商业化合作的技术解读",
+      "events": [
+        {
+          "text": "NMPA正式批准埃诺格鲁肽注射液（先维盈）用于成人超重/肥胖患者的长期体重管理，为全球首个cAMP偏向型GLP-1受体激动剂",
+          "ref": "https://www.xiaohongshu.com/explore/69aaa92f00000000160091ee"
+        },
+        {
+          "text": "辉瑞与先为达达成4.95亿美元商业化战略合作，辉瑞获得中国大陆独家商业化权益",
+          "ref": "https://www.xiaohongshu.com/explore/699d0d430000000015031d21"
+        },
+        {
+          "text": "III期临床数据：48周减重15.4%，腰围减少12.8cm，肝脏脂肪降低53.1%",
+          "ref": "https://www.xiaohongshu.com/explore/69af7188000000001503847f"
+        }
+      ],
+      "platform_sentiment": {
+        "微博": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "小红书": {
+          "summary": "专业博主和新闻媒体集中报道获批消息，强调新机制差异化优势",
+          "focus": "cAMP偏向型机制、全球首个、48周减重数据、辉瑞商业化布局",
+          "tone": "正面"
+        },
+        "豆瓣": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "知乎": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        },
+        "抖音/快手/bilibili": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "",
+          "tone": ""
+        }
+      },
+      "keywords": [
+        "cAMP偏向型",
+        "全球首个",
+        "先为达",
+        "4.95亿美元",
+        "肝脏脂肪降低",
+        "获批"
+      ],
+      "risks": [
+        "作为新机制药物，市场教育成本高，医生和患者认知需要时间",
+        "面临司美格鲁肽仿制药价格竞争压力"
+      ],
+      "opportunities": [
+        "全球首个cAMP偏向型GLP-1的独特定位，可建立技术领先形象",
+        "肝脏脂肪降低53.1%的数据对NASH/脂肪肝人群有吸引力",
+        "辉瑞强大的商业化能力背书，提升市场准入信心"
+      ],
+      "one_line": "辉瑞埃诺格鲁肽本周凭借获批上市和差异化机制获得正面关注，但面临市场教育挑战"
+    }
+  ],
+  "competitive_comparison": [
+    {
+      "company": "礼来",
+      "product": "替尔泊肽",
+      "volume_level": "中",
+      "event_intensity": "强",
+      "sentiment": "负面为主",
+      "discussion_focus": "网购处方药安全风险警示",
+      "top_platform": "小红书",
+      "main_risk": "非法渠道用药导致严重不良反应事件",
+      "main_opportunity": "双靶点疗效优势持续强化"
+    },
+    {
+      "company": "信达",
+      "product": "玛仕度肽",
+      "volume_level": "中",
+      "event_intensity": "中",
+      "sentiment": "正面",
+      "discussion_focus": "线下推广活动及真实用户减重分享",
+      "top_platform": "小红书",
+      "main_risk": "极端案例引发过度期待",
+      "main_opportunity": "国产GLP-1双靶点先行者，渠道下沉优势"
+    },
+    {
+      "company": "诺和诺德",
+      "product": "司美格鲁肽",
+      "volume_level": "高",
+      "event_intensity": "强",
+      "sentiment": "争议",
+      "discussion_focus": "专利到期、仿制药价格、高剂量版本获批",
+      "top_platform": "微博",
+      "main_risk": "专利悬崖导致价格体系崩塌",
+      "main_opportunity": "高剂量版本维持技术领先"
+    },
+    {
+      "company": "辉瑞",
+      "product": "埃诺格鲁肽",
+      "volume_level": "中",
+      "event_intensity": "中",
+      "sentiment": "正面",
+      "discussion_focus": "新机制获批及临床数据解读",
+      "top_platform": "小红书",
+      "main_risk": "市场教育成本高",
+      "main_opportunity": "cAMP偏向型机制差异化竞争"
+    }
+  ],
+  "representative_posts": [
+    {
+      "brand": "诺和诺德",
+      "platform": "小红书",
+      "tags": [
+        "#疗效",
+        "#价格"
+      ],
+      "summary": "司美格鲁肽在华专利将于3月到期，中国首批仿制药已在路上，诺和诺德市值蒸发约350亿美元，减重药或将步入'白菜价'时代",
+      "ref": "https://www.xiaohongshu.com/explore/69a16177000000000e03c1e8"
+    },
+    {
+      "brand": "诺和诺德",
+      "platform": "小红书",
+      "tags": [
+        "#副作用"
+      ],
+      "summary": "药师科普长期使用司美格鲁肽四种情况需停药，涉及严重不良反应及禁忌症",
+      "ref": "https://www.xiaohongshu.com/explore/69a44a25000000002602da5c"
+    },
+    {
+      "brand": "诺和诺德",
+      "platform": "微博",
+      "tags": [
+        "#副作用",
+        "#价格"
+      ],
+      "summary": "用户反馈使用司美格鲁肽后心脏不适，提及价格约800元/四次，警告甲状腺/乳腺结节患者慎用",
+      "ref": "https://m.weibo.cn/detail/5277962309737295"
+    },
+    {
+      "brand": "诺和诺德",
+      "platform": "微博",
+      "tags": [
+        "#审批/政策",
+        "#疗效"
+      ],
+      "summary": "美FDA批准高剂量Wegovy HD（7.2mg），肥胖人群平均减重20.7%，约1/3患者减重≥25%",
+      "ref": "https://m.weibo.cn/detail/5278332809908950"
+    },
+    {
+      "brand": "礼来",
+      "platform": "小红书",
+      "tags": [
+        "#副作用"
+      ],
+      "summary": "19岁女生网购替尔泊肽注射后出现恶心呕吐、心脏不适，医生警示可能致心跳呼吸骤停，强调需遵医嘱",
+      "ref": "https://www.xiaohongshu.com/explore/69ad2b1e000000001a036125"
+    },
+    {
+      "brand": "礼来",
+      "platform": "小红书",
+      "tags": [
+        "#疗效"
+      ],
+      "summary": "分析礼来CEO年薪3670万美元背景，替尔泊肽双靶点机制减重15%-20%，年销售额365亿美元",
+      "ref": "https://www.xiaohongshu.com/explore/69afadbf000000002603f8bb"
+    },
+    {
+      "brand": "信达",
+      "platform": "小红书",
+      "tags": [
+        "#推广/合作"
+      ],
+      "summary": "京东健康举办信达玛仕度肽三里屯线下活动，打卡可获电影票及4980元双人出游卡，定位科学享'瘦'",
+      "ref": "https://www.xiaohongshu.com/explore/69bb73990000000022026180"
+    },
+    {
+      "brand": "信达",
+      "platform": "小红书",
+      "tags": [
+        "#疗效"
+      ],
+      "summary": "用户分享使用信尔美17周（4个半月）减重80斤，停药两个月未反弹，衣服尺码减3个",
+      "ref": "https://www.xiaohongshu.com/explore/69aa9d27000000002602c534"
+    },
+    {
+      "brand": "信达",
+      "platform": "小红书",
+      "tags": [
+        "#疗效"
+      ],
+      "summary": "用户记录玛仕度肽第一周体重变化（79.7→78.8kg），反馈前三天轻微反胃，后期饱腹感明显",
+      "ref": "https://www.xiaohongshu.com/explore/69b639c0000000001d018650"
+    },
+    {
+      "brand": "辉瑞",
+      "platform": "小红书",
+      "tags": [
+        "#审批/政策",
+        "#疗效"
+      ],
+      "summary": "埃诺格鲁肽获批上市，作为全球首个cAMP偏向型GLP-1受体激动剂，48周减重15.4%，腰围减12.8cm",
+      "ref": "https://www.xiaohongshu.com/explore/69aaa92f00000000160091ee"
+    },
+    {
+      "brand": "辉瑞",
+      "platform": "小红书",
+      "tags": [
+        "#推广/合作",
+        "#审批/政策"
+      ],
+      "summary": "辉瑞与先为达达成4.95亿美元商业化合作，辉瑞获中国大陆独家商业化权益，先为达负责研发生产",
+      "ref": "https://www.xiaohongshu.com/explore/699d0d430000000015031d21"
+    },
+    {
+      "brand": "通用GLP-1",
+      "platform": "小红书",
+      "tags": [
+        "#疗效"
+      ],
+      "summary": "骨科医生科普减肥针背后的秘密，警示GLP-1类药物并非适合所有人群",
+      "ref": "https://www.xiaohongshu.com/explore/69b0039900000000060095d5"
+    },
+    {
+      "brand": "通用GLP-1",
+      "platform": "微博",
+      "tags": [
+        "#疗效"
+      ],
+      "summary": "真实世界研究显示，7938名使用司美格鲁肽或替尔泊肽患者停药后一年内平均体重反弹仅0.5%",
+      "ref": "https://m.weibo.cn/detail/5278293986379292"
+    }
+  ],
+  "references": [
+    {
+      "brand": "诺和诺德",
+      "platform": "小红书",
+      "date": "2026-02-27",
+      "title": "减重药或将步入“白菜价”时代，司美格鲁肽在华专利将于3月到期",
+      "type": "媒体",
+      "summary": "专利到期将引发仿制药上市，诺和诺德市值蒸发350亿美元",
+      "url": "https://www.xiaohongshu.com/explore/69a16177000000000e03c1e8"
+    },
+    {
+      "brand": "诺和诺德",
+      "platform": "小红书",
+      "date": "2026-03-01",
+      "title": "长期使用司美格鲁肽，四种情况要停药",
+      "type": "UGC",
+      "summary": "药师科普停药指征，涉及严重副作用及禁忌",
+      "url": "https://www.xiaohongshu.com/explore/69a44a25000000002602da5c"
+    },
+    {
+      "brand": "诺和诺德",
+      "platform": "微博",
+      "date": "2026-03-19",
+      "title": "用户分享司美格鲁肽使用体验",
+      "type": "UGC",
+      "summary": "反馈心脏不适，提及价格及乳腺结节风险",
+      "url": "https://m.weibo.cn/detail/5277962309737295"
+    },
+    {
+      "brand": "诺和诺德",
+      "platform": "微博",
+      "date": "2026-03-20",
+      "title": "美FDA批准Wegovy HD高剂量版本",
+      "type": "官方/媒体",
+      "summary": "7.2mg剂量获批，平均减重20.7%",
+      "url": "https://m.weibo.cn/detail/5278332809908950"
+    },
+    {
+      "brand": "诺和诺德",
+      "platform": "微博",
+      "date": "2026-03-07",
+      "title": "司美格鲁肽仿制药成本或低于3美元/月",
+      "type": "媒体",
+      "summary": "研究分析仿制药成本结构，对比原研药675美元/月定价",
+      "url": "https://m.weibo.cn/detail/5273633354157236"
+    },
+    {
+      "brand": "礼来",
+      "platform": "小红书",
+      "date": "2026-03-08",
+      "title": "19岁女生网购“减肥针”注射危及生命",
+      "type": "媒体",
+      "summary": "替尔泊肽非法使用导致严重不良反应，医生警示风险",
+      "url": "https://www.xiaohongshu.com/explore/69ad2b1e000000001a036125"
+    },
+    {
+      "brand": "礼来",
+      "platform": "小红书",
+      "date": "2026-03-10",
+      "title": "前无古人！礼来CEO年薪站上3670万美元",
+      "type": "UGC",
+      "summary": "通过CEO薪酬分析礼来GLP-1业务增长，替尔泊肽销售额365亿美元",
+      "url": "https://www.xiaohongshu.com/explore/69afadbf000000002603f8bb"
+    },
+    {
+      "brand": "礼来",
+      "platform": "微博",
+      "date": "2026-03-20",
+      "title": "真实世界研究：停药后体重反弹0.5%",
+      "type": "专业人士",
+      "summary": "基于克利夫兰诊所数据，替尔泊肽/司美格鲁肽停药一年反弹较少",
+      "url": "https://m.weibo.cn/detail/5278293986379292"
+    },
+    {
+      "brand": "信达",
+      "platform": "小红书",
+      "date": "2026-03-19",
+      "title": "让星期四更疯狂点，v你4980",
+      "type": "推广/合作",
+      "summary": "京东健康三里屯线下活动推广玛仕度肽",
+      "url": "https://www.xiaohongshu.com/explore/69bb73990000000022026180"
+    },
+    {
+      "brand": "信达",
+      "platform": "小红书",
+      "date": "2026-03-06",
+      "title": "解锁信尔美17周减重80斤",
+      "type": "UGC",
+      "summary": "用户分享极端减重案例及停药维持效果",
+      "url": "https://www.xiaohongshu.com/explore/69aa9d27000000002602c534"
+    },
+    {
+      "brand": "信达",
+      "platform": "小红书",
+      "date": "2026-03-15",
+      "title": "玛仕度肽第一周结束",
+      "type": "UGC",
+      "summary": "用户详细记录第一周体重变化及身体感受",
+      "url": "https://www.xiaohongshu.com/explore/69b639c0000000001d018650"
+    },
+    {
+      "brand": "辉瑞",
+      "platform": "小红书",
+      "date": "2026-03-06",
+      "title": "埃诺格鲁肽获批用于中国成人体重管理",
+      "type": "官方/媒体",
+      "summary": "NMPA批准全球首个cAMP偏向型GLP-1受体激动剂",
+      "url": "https://www.xiaohongshu.com/explore/69aaa92f00000000160091ee"
+    },
+    {
+      "brand": "辉瑞",
+      "platform": "小红书",
+      "date": "2026-02-24",
+      "title": "辉瑞与先为达达成4.95亿美元GLP-1交易",
+      "type": "官方/媒体",
+      "summary": "商业化合作协议详情，辉瑞获独家商业化权益",
+      "url": "https://www.xiaohongshu.com/explore/699d0d430000000015031d21"
+    },
+    {
+      "brand": "辉瑞",
+      "platform": "小红书",
+      "date": "2026-03-10",
+      "title": "全球首款偏向型GLP-1获批",
+      "type": "UGC",
+      "summary": "强调48周减重15.4%及肝脏脂肪降低53.1%数据",
+      "url": "https://www.xiaohongshu.com/explore/69af7188000000001503847f"
+    },
+    {
+      "brand": "通用GLP-1",
+      "platform": "小红书",
+      "date": "2026-03-15",
+      "title": "减肥针爆火的背后，那些你可能不知道的秘密",
+      "type": "专业人士",
+      "summary": "医生视角科普GLP-1类药物风险",
+      "url": "https://www.xiaohongshu.com/explore/69b0039900000000060095d5"
+    }
+  ]
+}
