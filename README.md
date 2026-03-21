@@ -2,6 +2,8 @@
 
 基于 MediaCrawler + Kimi AI 的 GLP-1 减重药物舆情自动化分析系统，每周抓取微博、小红书、知乎等平台的公开内容，生成结构化周报并通过 Web 看板展示。
 
+**线上地址：** https://sociallisteningdashboard.cn
+
 ## 功能概览
 
 - 自动爬取微博、小红书、知乎等平台的 GLP-1 相关讨论
@@ -9,18 +11,22 @@
 - 自动识别内容类型标签：推广/合作、副作用、疗效、价格、审批/政策
 - Kimi AI 生成结构化舆情分析报告（Executive Summary、品牌舆情卡、横向对比）
 - Web 看板支持历史周期切换，保留所有历史数据
+- 纯静态部署，托管于 GitHub Pages
 
 ## 项目结构
 
 ```
 glp1-dashboard/
-├── app.py               # FastAPI 后端（3个接口）
+├── index.html           # 前端看板页面（纯静态，直接读取 data/ 下的 JSON）
 ├── crawl_glp1.py        # 平台爬取脚本（调用 MediaCrawler）
-├── generate_report.py   # AI 报告生成脚本（调用 Kimi API）
+├── generate_report.py   # AI 报告生成脚本（调用 Kimi API，自动更新 data/index.json）
 ├── rebuild_raw.py       # 从已有爬取数据重建原始文本（无需重新爬取）
-├── index.html           # 前端看板页面
+├── app.py               # FastAPI 后端（本地调试用，线上不需要）
+├── CNAME                # GitHub Pages 自定义域名
 ├── requirements.txt     # Python 依赖
-└── data/                # 生成的周报 JSON（不入库）
+└── data/                # 生成的周报 JSON（随代码一起提交，供静态托管使用）
+    ├── index.json       # 周期列表（由 generate_report.py 自动维护）
+    └── YYYY-WNN.json    # 各周报告
 ```
 
 ## 依赖
@@ -71,7 +77,7 @@ cd glp1-dashboard
 # Step 1：爬取上一自然周数据（约 20-30 分钟）
 python3 crawl_glp1.py --platforms xhs wb zhihu
 
-# Step 2：生成 AI 分析报告（约 1-3 分钟）
+# Step 2：生成 AI 分析报告（约 1-3 分钟），同时自动更新 data/index.json
 python3 generate_report.py
 ```
 
@@ -82,13 +88,15 @@ python3 crawl_glp1.py --platforms xhs wb zhihu --week 2026-W11
 python3 generate_report.py 2026-W11
 ```
 
-### 3. 启动看板
+### 3. 发布到线上
 
 ```bash
-python3 -m uvicorn app:app --port 8000
+git add data/
+git commit -m "report: add YYYY-WNN"
+git push
 ```
 
-浏览器访问 **http://localhost:8000**
+推送后 GitHub Pages 自动更新，约 1 分钟后线上可见。
 
 ## 从已有爬取数据重建报告
 
@@ -99,6 +107,20 @@ python3 -m uvicorn app:app --port 8000
 python3 rebuild_raw.py
 python3 generate_report.py 2026-W11
 ```
+
+## 本地调试
+
+如需在本地预览看板（不依赖 GitHub Pages）：
+
+```bash
+# 方式一：Python 内置静态服务器（推荐）
+python3 -m http.server 8000
+
+# 方式二：FastAPI（app.py，功能相同）
+python3 -m uvicorn app:app --port 8000
+```
+
+浏览器访问 **http://localhost:8000**
 
 ## 数据说明
 
