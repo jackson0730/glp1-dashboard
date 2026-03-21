@@ -1,0 +1,235 @@
+{
+  "week": "2026-W12",
+  "period": "2026/03/23 – 2026/03/29",
+  "generated_at": "2026-03-20T19:39:16.128432",
+  "executive_summary": [
+    "注：所请求统计周期（2026/03/23 – 2026/03/29）为未来日期，基于公开互联网可验证信息原则，当前无法获取该周期真实舆情数据",
+    "本报告仅作为格式框架示例，所有内容均为占位说明，不代表实际舆情状况",
+    "GLP-1减重药物舆情监测需重点关注：NMPA审批动态、医保目录调整、心血管结局试验结果、产能供应稳定性及不良反应监测公告",
+    "建议监测平台：微博（医患讨论）、小红书（用药体验分享）、知乎（专业解读）、权威媒体（第一财经/澎湃/新浪财经）政策及企业公告",
+    "风险提醒：未来日期数据无法验证，如需真实舆情分析请提供2024年及之前的历史统计周期"
+  ],
+  "industry_overview": "因所请求周期为未来日期（2026年3月），基于公开互联网可验证信息原则，无法获取该周期行业真实舆情数据。通常GLP-1减重领域舆情热点包括：国家药监局（NMPA）新药上市或适应症扩展审批、国家医保局价格谈判与准入动态、大型心血管结局试验（CVOT）结果发布、产能供应短缺或恢复公告、专利悬崖及仿制药竞争动态、社交媒体中关于药物不良反应（如胃肠道反应、甲状腺风险）的UGC讨论、以及权威媒体对减重药物临床指南更新的解读。本周期未检索到足够公开内容支持判断。",
+  "brands": [
+    {
+      "company": "礼来",
+      "product": "替尔泊肽",
+      "trade_name": "穆峰达",
+      "volume_level": "低",
+      "volume_note": "本周期未检索到足够公开内容支持判断（未来日期）",
+      "events": [],
+      "platform_sentiment": {
+        "微博": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "小红书": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "豆瓣": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "知乎": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "抖音/快手/bilibili": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        }
+      },
+      "keywords": [],
+      "risks": [
+        "无法获取未来周期真实数据"
+      ],
+      "opportunities": [
+        "无法获取未来周期真实数据"
+      ],
+      "one_line": "因统计周期为未来日期，无法获取替尔泊肽（穆峰达）本周真实舆情数据"
+    },
+    {
+      "company": "信达",
+      "product": "玛仕度肽",
+      "trade_name": "信尔美",
+      "volume_level": "低",
+      "volume_note": "本周期未检索到足够公开内容支持判断（未来日期）",
+      "events": [],
+      "platform_sentiment": {
+        "微博": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "小红书": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "豆瓣": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "知乎": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "抖音/快手/bilibili": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        }
+      },
+      "keywords": [],
+      "risks": [
+        "无法获取未来周期真实数据"
+      ],
+      "opportunities": [
+        "无法获取未来周期真实数据"
+      ],
+      "one_line": "因统计周期为未来日期，无法获取玛仕度肽（信尔美）本周真实舆情数据"
+    },
+    {
+      "company": "诺和诺德",
+      "product": "司美格鲁肽",
+      "trade_name": "诺和盈",
+      "volume_level": "低",
+      "volume_note": "本周期未检索到足够公开内容支持判断（未来日期）",
+      "events": [],
+      "platform_sentiment": {
+        "微博": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "小红书": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "豆瓣": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "知乎": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "抖音/快手/bilibili": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        }
+      },
+      "keywords": [],
+      "risks": [
+        "无法获取未来周期真实数据"
+      ],
+      "opportunities": [
+        "无法获取未来周期真实数据"
+      ],
+      "one_line": "因统计周期为未来日期，无法获取司美格鲁肽（诺和盈）本周真实舆情数据"
+    },
+    {
+      "company": "辉瑞",
+      "product": "埃诺格鲁肽",
+      "trade_name": "先维盈",
+      "volume_level": "低",
+      "volume_note": "本周期未检索到足够公开内容支持判断（未来日期）",
+      "events": [],
+      "platform_sentiment": {
+        "微博": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "小红书": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "豆瓣": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "知乎": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        },
+        "抖音/快手/bilibili": {
+          "summary": "本周期未检索到足够公开内容支持判断",
+          "focus": "无",
+          "tone": "中性"
+        }
+      },
+      "keywords": [],
+      "risks": [
+        "无法获取未来周期真实数据"
+      ],
+      "opportunities": [
+        "无法获取未来周期真实数据"
+      ],
+      "one_line": "因统计周期为未来日期，无法获取埃诺格鲁肽（先维盈）本周真实舆情数据"
+    }
+  ],
+  "competitive_comparison": [
+    {
+      "company": "礼来",
+      "product": "替尔泊肽",
+      "volume_level": "低",
+      "event_intensity": "弱",
+      "sentiment": "中性",
+      "discussion_focus": "本周期未检索到足够公开内容支持判断",
+      "top_platform": "无",
+      "main_risk": "无法获取未来数据",
+      "main_opportunity": "无法获取未来数据"
+    },
+    {
+      "company": "信达",
+      "product": "玛仕度肽",
+      "volume_level": "低",
+      "event_intensity": "弱",
+      "sentiment": "中性",
+      "discussion_focus": "本周期未检索到足够公开内容支持判断",
+      "top_platform": "无",
+      "main_risk": "无法获取未来数据",
+      "main_opportunity": "无法获取未来数据"
+    },
+    {
+      "company": "诺和诺德",
+      "product": "司美格鲁肽",
+      "volume_level": "低",
+      "event_intensity": "弱",
+      "sentiment": "中性",
+      "discussion_focus": "本周期未检索到足够公开内容支持判断",
+      "top_platform": "无",
+      "main_risk": "无法获取未来数据",
+      "main_opportunity": "无法获取未来数据"
+    },
+    {
+      "company": "辉瑞",
+      "product": "埃诺格鲁肽",
+      "volume_level": "低",
+      "event_intensity": "弱",
+      "sentiment": "中性",
+      "discussion_focus": "本周期未检索到足够公开内容支持判断",
+      "top_platform": "无",
+      "main_risk": "无法获取未来数据",
+      "main_opportunity": "无法获取未来数据"
+    }
+  ],
+  "representative_posts": [],
+  "references": []
+}

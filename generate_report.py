@@ -233,6 +233,13 @@ def generate(week_id: str, start: str, end: str):
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
 
+    # Update index.json for static hosting (GitHub Pages)
+    import glob as _glob
+    files = sorted(_glob.glob(os.path.join(DATA_DIR, "*.json")), reverse=True)
+    weeks = [os.path.basename(f).replace(".json", "") for f in files if not f.endswith("index.json")]
+    with open(os.path.join(DATA_DIR, "index.json"), "w", encoding="utf-8") as f:
+        json.dump(weeks, f, ensure_ascii=False)
+
     print(f"\n报告已保存：{out_path}")
     return out_path
 
