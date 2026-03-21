@@ -167,6 +167,7 @@ details summary:hover{color:#00b37a}
 .divider{height:1px;background:rgba(0,229,160,.08);margin:14px 0}
 .summary-industry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0}
 #mobile-bottom-nav{display:none}
+.m-tab-panel{display:block}
 .m-brand-list{display:none}
 
 /* ===== MOBILE (<=900px) ===== */
@@ -224,7 +225,9 @@ details summary:hover{color:#00b37a}
   .m-one-line{font-size:12px;color:#555;font-style:italic;padding:8px 0 6px;line-height:1.5}
 
   /* ── Brand cards (品牌 tab) ── */
-  .brand-tabs-mobile{display:none}
+  .brand-tabs-mobile{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px;background:#fff;border-bottom:1px solid #f0f0f5}
+  .brand-tab-m{flex:1;min-width:0;padding:7px 6px;background:#f0f9ff;border:1px solid #e0eef8;border-radius:8px;font-size:11px;color:#555;cursor:pointer;font-family:"Noto Sans SC",sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand-tab-m.active{background:#0369a1;color:#fff;border-color:#0369a1}
   .brand-header{flex-direction:column;align-items:flex-start;gap:4px;margin-bottom:10px}
   .brand-name{font-family:"Noto Sans SC",sans-serif;font-size:17px;color:#1a1a2e}
   .brand-product{color:#0369a1}
@@ -265,14 +268,19 @@ details summary:hover{color:#00b37a}
 
   /* ── Comparison (对比 tab) ── */
   .comp-table thead{display:none}
-  .comp-table,.comp-table tbody,.comp-table tr,.comp-table td{display:block;white-space:normal}
-  .comp-table tr{border:1px solid #e0eef8;border-radius:10px;margin-bottom:8px;padding:10px 12px;background:#f0f9ff}
-  .comp-table td{padding:3px 0;border:none;font-size:13px;color:#333}
-  .comp-table td::before{content:attr(data-label);font-size:10px;font-weight:700;color:#0369a1;text-transform:uppercase;display:block;margin-bottom:1px}
+  .comp-table,.comp-table tbody{display:block}
+  .comp-table tbody{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .comp-table tr{display:block;border:1px solid #e0eef8;border-radius:10px;padding:10px 12px;background:#f0f9ff}
+  .comp-table td{display:block;padding:3px 0;border:none;font-size:12px;color:#333;white-space:normal}
+  .comp-table td::before{content:attr(data-label);font-size:9px;font-weight:700;color:#0369a1;text-transform:uppercase;display:block;margin-bottom:1px}
 
   /* ── Posts (讨论 tab) ── */
   .posts-grid{grid-template-columns:1fr;gap:8px}
   .post-card{background:#f0f9ff;border:none;border-left:3px solid #0369a1;border-radius:8px;padding:12px}
+  .post-card[data-brand="礼来"]{border-left-color:#0369a1;background:#f0f9ff}
+  .post-card[data-brand="诺和诺德"]{border-left-color:#059669;background:#f0fdf4}
+  .post-card[data-brand="信达"]{border-left-color:#d97706;background:#fffbeb}
+  .post-card[data-brand="辉瑞"]{border-left-color:#7c3aed;background:#faf5ff}
   .post-card:hover{border-color:#0369a1;box-shadow:none}
   .post-meta{font-family:"Noto Sans SC",sans-serif;color:#888}
   .post-brand{color:#0369a1}
@@ -484,9 +492,13 @@ function switchBrand(idx){
 }
 
 function switchTab(tab){
-  document.querySelectorAll(".m-tab-panel").forEach(el=>{
-    el.style.display=el.id===`tab-${tab}`?"block":"none";
-  });
+  if(window.innerWidth>900){
+    document.querySelectorAll(".m-tab-panel").forEach(el=>el.style.display="");
+  }else{
+    document.querySelectorAll(".m-tab-panel").forEach(el=>{
+      el.style.display=el.id===`tab-${tab}`?"block":"none";
+    });
+  }
   document.querySelectorAll(".m-nav-item").forEach(el=>{
     el.classList.toggle("active",el.id===`mnav-${tab}`);
   });
@@ -514,7 +526,7 @@ function renderPosts(d){
       const cls=t.includes("推广")?"tag-promo":t.includes("副作用")?"tag-risk":t.includes("机会")?"tag-opp":"";
       return `<span class="keyword-tag ${cls}">${t}</span>`;
     }).join("");
-    return `<div class="post-card"><div class="post-meta"><span class="post-brand">${p.brand}</span><span class="post-platform">${p.platform}</span></div>
+    return `<div class="post-card" data-brand="${p.brand}"><div class="post-meta"><span class="post-brand">${p.brand}</span><span class="post-platform">${p.platform}</span></div>
       ${tags?`<div style="margin-bottom:8px;display:flex;flex-wrap:wrap;gap:4px">${tags}</div>`:""}
       <p>${p.summary}</p>
       ${p.ref&&p.ref!=="N/A"?`<a href="${p.ref}" target="_blank">查看原文 →</a>`:""}
