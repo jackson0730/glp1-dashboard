@@ -148,20 +148,40 @@
 
   /* ── Mobile ── */
   @media (max-width: 640px) {
-    .header { padding: 14px 16px; flex-wrap: wrap; gap: 10px; }
+    /* header 折两行 */
+    .header { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
     .header h1 { font-size: 15px; }
     .header-meta { display: none; }
-    .week-selector { width: 100%; }
-    .week-selector select { flex: 1; }
-    .container { padding: 14px 12px; }
-    .section { padding: 16px 14px; }
+    .week-selector { width: 100%; justify-content: space-between; }
+    .week-selector select { flex: 1; font-size: 13px; }
+
+    /* 容器贴边，去掉多余留白 */
+    .container { padding: 10px 8px; }
+    .section { padding: 14px 12px; margin-bottom: 10px; border-radius: 10px; }
+    .report-header { padding: 12px 14px; border-radius: 10px; margin-bottom: 10px; }
+    .card-block { padding: 12px 12px; }
+
+    /* 所有多列改单列 */
     .brand-card-grid { grid-template-columns: 1fr; }
     .risk-opp-grid { grid-template-columns: 1fr; }
     .posts-grid { grid-template-columns: 1fr; }
-    .comp-table, .platform-table, .ref-table { font-size: 11px; }
-    .comp-table th, .comp-table td,
-    .platform-table th, .platform-table td { padding: 6px 8px; }
+
+    /* 品牌标题缩小 */
     .brand-name { font-size: 16px; }
+    .brand-product { font-size: 13px; }
+
+    /* 表格横向滚动，不压缩内容 */
+    .comp-table, .platform-table, .ref-table { font-size: 12px; white-space: nowrap; }
+    .comp-table td, .comp-table th { padding: 8px 10px; }
+    .platform-table td, .platform-table th { padding: 7px 8px; }
+
+    /* 品牌 tab 按钮铺满 */
+    .brand-tabs { gap: 6px; }
+    .brand-tab { padding: 6px 12px; font-size: 12px; flex: 1; text-align: center; }
+
+    /* 字号微调 */
+    .summary-list li { font-size: 13px; }
+    .industry-text { font-size: 13px; }
   }
 </style>
 </head>
@@ -335,10 +355,12 @@ function renderBrandCard(b, i) {
 
       <div class="card-block" style="margin-top:14px">
         <div class="card-block-title">平台舆情观察</div>
+        <div style="overflow-x:auto">
         <table class="platform-table">
           <thead><tr><th>平台</th><th>主要讨论</th><th>用户关注点</th><th>情绪</th></tr></thead>
           <tbody>${platforms}</tbody>
         </table>
+        </div>
       </div>
 
       ${b.one_line ? `<div class="one-line"><span class="one-line-icon">💬</span>${b.one_line}</div>` : ''}
