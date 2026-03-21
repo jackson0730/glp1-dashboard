@@ -368,6 +368,7 @@ async function loadReport(week){
   content.innerHTML=`<div class="loading">正在加载...</div>`;
   try{
     const d=await fetchJSON(`data/${week}.json`);
+    content.className="";
     content.innerHTML=renderReport(d);
     buildSidebar(d);
     switchBrand(0);
@@ -484,7 +485,7 @@ function switchBrand(idx){
 
 function switchTab(tab){
   document.querySelectorAll(".m-tab-panel").forEach(el=>{
-    el.style.display=el.id===`tab-${tab}`?"":"none";
+    el.style.display=el.id===`tab-${tab}`?"block":"none";
   });
   document.querySelectorAll(".m-nav-item").forEach(el=>{
     el.classList.toggle("active",el.id===`mnav-${tab}`);
