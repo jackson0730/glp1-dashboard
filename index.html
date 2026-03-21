@@ -290,6 +290,22 @@ details summary:hover{color:#00b37a}
   </div>
 </div>
 
+<!-- Mobile bottom nav (hidden on desktop via CSS) -->
+<nav id="mobile-bottom-nav">
+  <button class="m-nav-item active" onclick="switchTab('overview')" id="mnav-overview">
+    <span class="m-nav-icon">📊</span><span>总览</span>
+  </button>
+  <button class="m-nav-item" onclick="switchTab('brands')" id="mnav-brands">
+    <span class="m-nav-icon">🏷️</span><span>品牌</span>
+  </button>
+  <button class="m-nav-item" onclick="switchTab('compare')" id="mnav-compare">
+    <span class="m-nav-icon">⚔️</span><span>对比</span>
+  </button>
+  <button class="m-nav-item" onclick="switchTab('posts')" id="mnav-posts">
+    <span class="m-nav-icon">💬</span><span>讨论</span>
+  </button>
+</nav>
+
 <script>
 async function fetchJSON(url){
   const res=await fetch(url);
