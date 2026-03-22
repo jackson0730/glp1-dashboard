@@ -21,6 +21,7 @@ body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(
 .header h1{font-family:"Space Mono",monospace;font-size:17px;font-weight:700;color:#00e5a0;letter-spacing:2px;text-transform:uppercase}
 .header h1::after{content:"_";animation:blink 1.2s step-end infinite;color:#00e5a0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.header-subtitle{font-size:10px;color:#4a5568;font-family:"Space Mono",monospace;letter-spacing:2px;text-transform:uppercase;margin-top:1px}
 .header-meta{font-size:11px;color:#4a5568;margin-top:2px;font-family:"Space Mono",monospace}
 .week-selector{display:flex;align-items:center;gap:10px}
 .week-selector label{color:#4a5568;font-size:11px;font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:1px}
@@ -181,8 +182,9 @@ details summary:hover{color:#00b37a}
 
   /* ── Header ── */
   .header{background:linear-gradient(135deg,#0369a1,#075985);padding:12px 16px;flex-wrap:wrap;gap:8px;height:auto;border-bottom:none}
-  .header h1{font-family:"Noto Sans SC",sans-serif;font-size:15px;color:#fff;letter-spacing:0}
+  .header h1{font-family:"Space Mono",monospace;font-size:13px;color:#fff;letter-spacing:1px}
   .header h1::after{display:none}
+  .header-subtitle{color:rgba(255,255,255,0.6);font-size:9px;letter-spacing:1px}
   .header-meta{display:none}
   .header-logo{background:rgba(255,255,255,0.2);box-shadow:none}
   .week-selector{width:100%;justify-content:flex-end}
@@ -318,9 +320,10 @@ details summary:hover{color:#00b37a}
 
 <div class="header">
   <div class="header-left">
-    <div class="header-logo">💊</div>
+    <div class="header-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M5 7l7-4 7 4M5 7a4 4 0 0 0 4 4M19 7a4 4 0 0 1-4 4"/></svg></div>
     <div>
-      <h1>GLP-1 INTELLIGENCE</h1>
+      <h1>GLP-1 SOCIAL LISTENING</h1>
+      <div class="header-subtitle">INTELLIGENCE DASHBOARD</div>
       <div class="header-meta">WEIBO · XIAOHONGSHU · ZHIHU · OPEN WEB &nbsp;|&nbsp; NOT MEDICAL/INVESTMENT ADVICE</div>
     </div>
   </div>
