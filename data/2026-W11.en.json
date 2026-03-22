@@ -1,0 +1,587 @@
+{
+  "week": "2026-W11",
+  "period": "2026/03/16 – 2026/03/22",
+  "generated_at": "2026-03-21T02:06:58.400577",
+  "executive_summary": [
+    "The expiration of Novo Nordisk's semaglutide patent in China triggers industry shock; expectations of rock-bottom generic drug prices impact the originator drug pricing system; Novo Nordisk loses approximately $35 billion in market value",
+    "Pfizer/Sciwind's ecnoglutide (Xianweiying) receives approval for launch; as the world's first cAMP-biased GLP-1 receptor agonist, clinical data showing 15.4% weight loss at 48 weeks garners attention",
+    "Innovent's mazdutide (Xinermei) partners with JD Health to launch offline promotional events in Sanlitun, strengthening consumer education through check-in and prize draw activities",
+    "The incident of a 19-year-old girl purchasing tirzepatide online and nearly dying from self-injection continues to escalate; illegal circulation of prescription drugs and medication safety risks become focal points on social platforms",
+    "Concerns over weight rebound after GLP-1 discontinuation grow; real-world studies show average weight rebound of only 0.5% within one year after stopping medication, but individual differences and subsequent management remain controversial"
+  ],
+  "industry_overview": "This week, the GLP-1 sector presents a landscape where the \"patent cliff\" and new drug approvals proceed in parallel. Novo Nordisk faces the impact of generic drugs resulting from the expiration of its Chinese patent, with market focus on the reshaping of the pricing system. Pfizer enters the market with the new-mechanism product Ecnoglutide, intensifying differentiated competition; Innovent actively promotes Mazdutide through offline activities. Meanwhile, warning cases of serious adverse reactions from self-purchasing and injecting via online channels have emerged across multiple platforms, reflecting dual gaps in prescription drug online sales regulation and patient education. In the overall public opinion landscape, efficacy expectations intertwine with safety concerns, while expectations of price wars coexist with competition around brand moats.",
+  "brands": [
+    {
+      "company": "Eli Lilly",
+      "product": "Tirzepatide",
+      "trade_name": "Mounjaro",
+      "volume_level": "Medium",
+      "volume_note": "Mainly derived from warning reports regarding the 19-year-old female online purchase and self-injection incident and discussions related to CEO compensation",
+      "events": [
+        {
+          "text": "19-year-old female experienced severe adverse reactions including nausea, vomiting, and rapid heartbeat after purchasing tirzepatide online and self-injecting; doctors warn of potential cardiac and respiratory arrest",
+          "ref": "https://www.xiaohongshu.com/explore/69ad2b1e000000001a036125"
+        },
+        {
+          "text": "Eli Lilly CEO annual salary of $36.70 million sparks discussion; GLP-1 dual agonist tirzepatide series annual sales approximately $36.5 billion; tirzepatide achieves 15%-20% weight loss",
+          "ref": "https://www.xiaohongshu.com/explore/69afadbf000000002603f8bb"
+        }
+      ],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Insufficient public content retrieved this period to support judgment",
+          "focus": "",
+          "tone": ""
+        },
+        "Xiaohongshu": {
+          "summary": "Mainly focused on risks of purchasing prescription drugs online and corporate strategic analysis",
+          "focus": "Medication safety, risks of purchasing drugs through illegal channels, dual-target efficacy advantages",
+          "tone": "Negative/Warning"
+        },
+        "Douban": {
+          "summary": "Insufficient public content retrieved this period to support judgment",
+          "focus": "",
+          "tone": ""
+        },
+        "Zhihu": {
+          "summary": "Insufficient public content retrieved this period to support judgment",
+          "focus": "",
+          "tone": ""
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Insufficient public content retrieved this period to support judgment",
+          "focus": "",
+          "tone": ""
+        }
+      },
+      "keywords": [
+        "Online purchase of weight-loss injections",
+        "Cardiac and respiratory arrest",
+        "Prescription drugs",
+        "Dual-target",
+        "15-20% weight loss"
+      ],
+      "risks": [
+        "Illegal online sales channels leading to serious adverse events, damaging brand reputation",
+        "Adolescents/non-indicated populations self-medicating triggering regulatory scrutiny",
+        "Intensified generic competition after patent expiration"
+      ],
+      "opportunities": [
+        "Efficacy advantages of dual-target mechanism (GLP-1/GIP) emphasized by professional bloggers",
+        "Real-world studies show less rebound after discontinuation (compared to semaglutide)"
+      ],
+      "one_line": "This week's Eli Lilly public opinion focus concentrated on the online prescription drug purchase safety warning incident, highlighting channel management risks, but dual-target efficacy recognition remains solid"
+    },
+    {
+      "company": "Innovent",
+      "product": "Mazdutide",
+      "trade_name": "Xinermei",
+      "volume_level": "Medium",
+      "volume_note": "Mainly derived from JD Health offline promotional events and user-initiated usage diaries",
+      "events": [
+        {
+          "text": "JD Health held an offline event for Innovent's Mazdutide in Sanlitun, promoting scientific weight loss through check-in and lottery activities",
+          "ref": "https://www.xiaohongshu.com/explore/69bb73990000000022026180"
+        },
+        {
+          "text": "User shared a case of losing 80 jin in 17 weeks using Xinermei, with no rebound after stopping medication for two months",
+          "ref": "https://www.xiaohongshu.com/explore/69aa9d27000000002602c534"
+        },
+        {
+          "text": "User recorded weight dropping from 79.7kg to 78.8kg in the first week of Mazdutide use, reporting strong satiety and decreased appetite",
+          "ref": "https://www.xiaohongshu.com/explore/69b639c0000000001d018650"
+        }
+      ],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Insufficient public content retrieved in this period to support assessment",
+          "focus": "",
+          "tone": ""
+        },
+        "Xiaohongshu": {
+          "summary": "Brand promotional events coexist with authentic user UGC, recording medication experiences from multiple dimensions",
+          "focus": "Offline event check-ins, weight loss effect records, satiety experiences",
+          "tone": "Positive"
+        },
+        "Douban": {
+          "summary": "Insufficient public content retrieved in this period to support assessment",
+          "focus": "",
+          "tone": ""
+        },
+        "Zhihu": {
+          "summary": "Insufficient public content retrieved in this period to support assessment",
+          "focus": "",
+          "tone": ""
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Insufficient public content retrieved in this period to support assessment",
+          "focus": "",
+          "tone": ""
+        }
+      },
+      "keywords": [
+        "Mazdutide",
+        "Xinermei",
+        "Sanlitun event",
+        "JD Health",
+        "17 weeks 80 jin",
+        "Satiety"
+      ],
+      "risks": [
+        "User sharing of extreme weight loss cases (80 jin in 17 weeks) may trigger unrealistic efficacy expectations",
+        "As a domestic new drug, long-term safety data has not been fully accumulated"
+      ],
+      "opportunities": [
+        "Cooperation with JD Health to conduct offline events, precisely reaching target audiences",
+        "Continuous recording of medication diaries by real users, forming word-of-mouth accumulation",
+        "Emphasizing the concept of 'scientific weight loss', distinguishing from blind dieting"
+      ],
+      "one_line": "Innovent this week established positive brand recognition on social platforms through offline promotional events and real user case sharing"
+    },
+    {
+      "company": "Novo Nordisk",
+      "product": "Semaglutide",
+      "trade_name": "NovoRyb",
+      "volume_level": "High",
+      "volume_note": "Intensive discussions across multiple platforms regarding patent expiration, pricing systems, side effects, and approval of high-dose versions",
+      "events": [
+        {
+          "text": "Semaglutide patent in China expires in March, first batch of Chinese generics already underway, Novo Nordisk market cap evaporated approximately $35 billion",
+          "ref": "https://www.xiaohongshu.com/explore/69a16177000000000e03c1e8"
+        },
+        {
+          "text": "US FDA approves high-dose Wegovy HD (7.2mg) for weight loss in obese patients, average weight loss 20.7%",
+          "ref": "https://m.weibo.cn/detail/5278332809908950"
+        },
+        {
+          "text": "Study indicates Semaglutide generics monthly cost may be below $3 (approximately $28-140/year), originator drug priced at $675/month",
+          "ref": "https://m.weibo.cn/detail/5273633354157236"
+        },
+        {
+          "text": "User feedback reports heart discomfort after using Semaglutide, concerns about thyroid/breast nodule risks",
+          "ref": "https://m.weibo.cn/detail/5277962309737295"
+        }
+      ],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Patent expiration and generic drug costs trigger heated discussions on price wars, while FDA approval of high-dose version brings new highlights",
+          "focus": "Patent cliff, generic drug prices, FDA high-dose approval, rebound studies after discontinuation",
+          "tone": "Neutral/Controversial"
+        },
+        "Xiaohongshu": {
+          "summary": "Science popularization content coexists with side effect warnings, users concerned about long-term medication safety",
+          "focus": "Impact of patent expiration, four scenarios for drug discontinuation, drug mechanism science popularization",
+          "tone": "Neutral"
+        },
+        "Douban": {
+          "summary": "Insufficient public content retrieved in this cycle to support judgment",
+          "focus": "",
+          "tone": ""
+        },
+        "Zhihu": {
+          "summary": "Insufficient public content retrieved in this cycle to support judgment",
+          "focus": "",
+          "tone": ""
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Insufficient public content retrieved in this cycle to support judgment",
+          "focus": "",
+          "tone": ""
+        }
+      },
+      "keywords": [
+        "Patent expiration",
+        "Rock-bottom price",
+        "Market cap evaporation",
+        "Wegovy HD",
+        "Heart discomfort",
+        "Thyroid nodules",
+        "Rebound after discontinuation"
+      ],
+      "risks": [
+        "Post-patent expiration generic drug impact leads to price wars, affecting profits",
+        "Side effect discussions (heart discomfort, nodule risks) may reduce medication willingness among certain populations",
+        "Elon Musk and other celebrities' 'failure cases' cited, questioning long-term efficacy"
+      ],
+      "opportunities": [
+        "FDA approval of high-dose version (7.2mg), impressive clinical data (20.7% weight loss), can strengthen image of therapeutic leadership",
+        "Real-world studies show only 0.5% rebound after discontinuation, addressing concerns of 'rebound upon discontinuation'",
+        "Emphasize through science popularization content the need for use under medical guidance, distinguishing from illegal channel procurement"
+      ],
+      "one_line": "Novo Nordisk is at the center of the patent expiration storm this week, with pricing systems impacted, but approval of high-dose version and real-world study data provide new narrative support"
+    },
+    {
+      "company": "Pfizer",
+      "product": "Ecnoglutide",
+      "trade_name": "Xianweiying",
+      "volume_level": "Medium",
+      "volume_note": "Mainly focused on technical interpretation of NMPA approval and commercialization cooperation with Sciwind",
+      "events": [
+        {
+          "text": "NMPA officially approved Ecnoglutide injection (Xianweiying) for long-term weight management in adult overweight/obese patients, as the world's first cAMP-biased GLP-1 receptor agonist",
+          "ref": "https://www.xiaohongshu.com/explore/69aaa92f00000000160091ee"
+        },
+        {
+          "text": "Pfizer and Sciwind reached a $495 million commercial strategic cooperation, with Pfizer obtaining exclusive commercialization rights in mainland China",
+          "ref": "https://www.xiaohongshu.com/explore/699d0d430000000015031d21"
+        },
+        {
+          "text": "Phase III clinical data: 15.4% weight loss at 48 weeks, 12.8cm waist circumference reduction, 53.1% liver fat reduction",
+          "ref": "https://www.xiaohongshu.com/explore/69af7188000000001503847f"
+        }
+      ],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Insufficient public content retrieved in this cycle to support judgment",
+          "focus": "",
+          "tone": ""
+        },
+        "Xiaohongshu": {
+          "summary": "Professional bloggers and news media focused on reporting the approval news, emphasizing the differentiated advantages of the new mechanism",
+          "focus": "cAMP-biased mechanism, world's first, 48-week weight loss data, Pfizer commercialization layout",
+          "tone": "Positive"
+        },
+        "Douban": {
+          "summary": "Insufficient public content retrieved in this cycle to support judgment",
+          "focus": "",
+          "tone": ""
+        },
+        "Zhihu": {
+          "summary": "Insufficient public content retrieved in this cycle to support judgment",
+          "focus": "",
+          "tone": ""
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Insufficient public content retrieved in this cycle to support judgment",
+          "focus": "",
+          "tone": ""
+        }
+      },
+      "keywords": [
+        "cAMP-biased",
+        "World's first",
+        "Sciwind",
+        "$495 million",
+        "Liver fat reduction",
+        "Approval"
+      ],
+      "risks": [
+        "As a new mechanism drug, market education costs are high, and time is needed for physician and patient awareness",
+        "Facing price competition pressure from Semaglutide generics"
+      ],
+      "opportunities": [
+        "Unique positioning as the world's first cAMP-biased GLP-1 can establish a technology leadership image",
+        "The 53.1% liver fat reduction data is attractive to NASH/fatty liver populations",
+        "Backed by Pfizer's strong commercialization capabilities, enhancing market access confidence"
+      ],
+      "one_line": "Pfizer's Ecnoglutide gained positive attention this week through approval launch and differentiated mechanism, but faces market education challenges"
+    }
+  ],
+  "competitive_comparison": [
+    {
+      "company": "Eli Lilly",
+      "product": "Tirzepatide",
+      "volume_level": "Medium",
+      "event_intensity": "Strong",
+      "sentiment": "Mostly Negative",
+      "discussion_focus": "Safety risk warnings for purchasing prescription drugs online",
+      "top_platform": "Xiaohongshu",
+      "main_risk": "Serious adverse events caused by medication from illegal channels",
+      "main_opportunity": "Continued strengthening of dual-target therapeutic advantages"
+    },
+    {
+      "company": "Innovent",
+      "product": "Mazdutide",
+      "volume_level": "Medium",
+      "event_intensity": "Medium",
+      "sentiment": "Positive",
+      "discussion_focus": "Offline promotion activities and real user weight loss sharing",
+      "top_platform": "Xiaohongshu",
+      "main_risk": "Extreme cases leading to excessive expectations",
+      "main_opportunity": "First-mover advantage for domestic GLP-1 dual-target drug, channel penetration advantage"
+    },
+    {
+      "company": "Novo Nordisk",
+      "product": "Semaglutide",
+      "volume_level": "High",
+      "event_intensity": "Strong",
+      "sentiment": "Controversial",
+      "discussion_focus": "Patent expiry, generic drug prices, high-dose version approval",
+      "top_platform": "Weibo",
+      "main_risk": "Patent cliff leading to collapse of pricing system",
+      "main_opportunity": "High-dose version maintaining technological leadership"
+    },
+    {
+      "company": "Pfizer",
+      "product": "Efnoglutide",
+      "volume_level": "Medium",
+      "event_intensity": "Medium",
+      "sentiment": "Positive",
+      "discussion_focus": "New mechanism approval and clinical data interpretation",
+      "top_platform": "Xiaohongshu",
+      "main_risk": "High market education costs",
+      "main_opportunity": "Differentiated competition through cAMP-biased mechanism"
+    }
+  ],
+  "representative_posts": [
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#Efficacy",
+        "#Price"
+      ],
+      "summary": "Semaglutide patent in China will expire in March, first batch of Chinese generics already on the way, Novo Nordisk market cap evaporated approximately $35 billion, weight-loss drugs may enter the 'cabbage price' era",
+      "ref": "https://www.xiaohongshu.com/explore/69a16177000000000e03c1e8"
+    },
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#SideEffects"
+      ],
+      "summary": "Pharmacist explains four situations requiring discontinuation of long-term semaglutide use, involving serious adverse reactions and contraindications",
+      "ref": "https://www.xiaohongshu.com/explore/69a44a25000000002602da5c"
+    },
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Weibo",
+      "tags": [
+        "#SideEffects",
+        "#Price"
+      ],
+      "summary": "User feedback on heart discomfort after using semaglutide, mentions price approximately 800 yuan/4 doses, warns patients with thyroid/breast nodules to use with caution",
+      "ref": "https://m.weibo.cn/detail/5277962309737295"
+    },
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Weibo",
+      "tags": [
+        "#Approval/Policy",
+        "#Efficacy"
+      ],
+      "summary": "US FDA approves high-dose Wegovy HD (7.2mg), average weight loss of 20.7% in obese population, approximately 1/3 of patients lost ≥25% weight",
+      "ref": "https://m.weibo.cn/detail/5278332809908950"
+    },
+    {
+      "brand": "Eli Lilly",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#SideEffects"
+      ],
+      "summary": "19-year-old girl experiences nausea, vomiting, and heart discomfort after purchasing tirzepatide online for injection, doctor warns may cause cardiac and respiratory arrest, emphasizes need to follow medical advice",
+      "ref": "https://www.xiaohongshu.com/explore/69ad2b1e000000001a036125"
+    },
+    {
+      "brand": "Eli Lilly",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#Efficacy"
+      ],
+      "summary": "Analysis of Eli Lilly CEO's annual salary of $36.7 million background, tirzepatide dual-target mechanism reduces weight by 15%-20%, annual sales of $36.5 billion",
+      "ref": "https://www.xiaohongshu.com/explore/69afadbf000000002603f8bb"
+    },
+    {
+      "brand": "Innovent",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#Promotion/Partnership"
+      ],
+      "summary": "JD Health holds Innovent mazdutide offline event at Sanlitun, check-in can receive movie tickets and 4980 yuan dual travel card, positioned as scientifically enjoying 'thin'",
+      "ref": "https://www.xiaohongshu.com/explore/69bb73990000000022026180"
+    },
+    {
+      "brand": "Innovent",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#Efficacy"
+      ],
+      "summary": "User shares using Xinerme for 17 weeks (4.5 months) lost 80 jin, no rebound after stopping medication for two months, clothing size reduced by 3 sizes",
+      "ref": "https://www.xiaohongshu.com/explore/69aa9d27000000002602c534"
+    },
+    {
+      "brand": "Innovent",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#Efficacy"
+      ],
+      "summary": "User records mazdutide first week weight change (79.7→78.8kg), feedback shows slight nausea first three days, obvious satiety later",
+      "ref": "https://www.xiaohongshu.com/explore/69b639c0000000001d018650"
+    },
+    {
+      "brand": "Pfizer",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#Approval/Policy",
+        "#Efficacy"
+      ],
+      "summary": "Enotigulatide approved for market launch, as world's first cAMP-biased GLP-1 receptor agonist, 15.4% weight loss at 48 weeks, waist circumference reduced by 12.8cm",
+      "ref": "https://www.xiaohongshu.com/explore/69aaa92f00000000160091ee"
+    },
+    {
+      "brand": "Pfizer",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#Promotion/Partnership",
+        "#Approval/Policy"
+      ],
+      "summary": "Pfizer and Sciwind reach $495 million commercialization partnership, Pfizer obtains exclusive commercialization rights in mainland China, Sciwind responsible for R&D and production",
+      "ref": "https://www.xiaohongshu.com/explore/699d0d430000000015031d21"
+    },
+    {
+      "brand": "Generic GLP-1",
+      "platform": "Xiaohongshu",
+      "tags": [
+        "#Efficacy"
+      ],
+      "summary": "Orthopedic doctor explains secrets behind weight-loss injections, warns GLP-1 drugs not suitable for all populations",
+      "ref": "https://www.xiaohongshu.com/explore/69b0039900000000060095d5"
+    },
+    {
+      "brand": "Generic GLP-1",
+      "platform": "Weibo",
+      "tags": [
+        "#Efficacy"
+      ],
+      "summary": "Real-world study shows, 7938 patients using semaglutide or tirzepatide had average weight rebound of only 0.5% within one year after discontinuation",
+      "ref": "https://m.weibo.cn/detail/5278293986379292"
+    }
+  ],
+  "references": [
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Xiaohongshu",
+      "date": "2026-02-27",
+      "title": "Weight-loss drugs may enter the 'bargain price' era as Semaglutide patent in China expires in March",
+      "type": "Media",
+      "summary": "Patent expiration will trigger launch of generic drugs, Novo Nordisk market cap evaporated by $35 billion",
+      "url": "https://www.xiaohongshu.com/explore/69a16177000000000e03c1e8"
+    },
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Xiaohongshu",
+      "date": "2026-03-01",
+      "title": "Long-term Semaglutide use: four situations requiring discontinuation",
+      "type": "UGC",
+      "summary": "Pharmacist explains discontinuation indications, involving serious side effects and contraindications",
+      "url": "https://www.xiaohongshu.com/explore/69a44a25000000002602da5c"
+    },
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Weibo",
+      "date": "2026-03-19",
+      "title": "User shares Semaglutide usage experience",
+      "type": "UGC",
+      "summary": "Reports heart discomfort, mentions price and breast nodule risks",
+      "url": "https://m.weibo.cn/detail/5277962309737295"
+    },
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Weibo",
+      "date": "2026-03-20",
+      "title": "US FDA approves high-dose version of Wegovy HD",
+      "type": "Official/Media",
+      "summary": "7.2mg dose approved, average weight loss of 20.7%",
+      "url": "https://m.weibo.cn/detail/5278332809908950"
+    },
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Weibo",
+      "date": "2026-03-07",
+      "title": "Semaglutide generic cost may fall below $3 per month",
+      "type": "Media",
+      "summary": "Study analyzes generic drug cost structure, comparing to originator drug pricing of $675 per month",
+      "url": "https://m.weibo.cn/detail/5273633354157236"
+    },
+    {
+      "brand": "Eli Lilly",
+      "platform": "Xiaohongshu",
+      "date": "2026-03-08",
+      "title": "19-year-old girl purchases 'weight-loss injection' online, injection endangers life",
+      "type": "Media",
+      "summary": "Illegal use of Tirzepatide leads to serious adverse reactions, doctors warn of risks",
+      "url": "https://www.xiaohongshu.com/explore/69ad2b1e000000001a036125"
+    },
+    {
+      "brand": "Eli Lilly",
+      "platform": "Xiaohongshu",
+      "date": "2026-03-10",
+      "title": "Unprecedented! Eli Lilly CEO annual salary reaches $36.7 million",
+      "type": "UGC",
+      "summary": "Analyzes Eli Lilly's GLP-1 business growth through CEO compensation, Tirzepatide sales of $36.5 billion",
+      "url": "https://www.xiaohongshu.com/explore/69afadbf000000002603f8bb"
+    },
+    {
+      "brand": "Eli Lilly",
+      "platform": "Weibo",
+      "date": "2026-03-20",
+      "title": "Real-world study: 0.5% weight regain after discontinuation",
+      "type": "Professional",
+      "summary": "Based on Cleveland Clinic data, less weight rebound one year after discontinuing Tirzepatide/Semaglutide",
+      "url": "https://m.weibo.cn/detail/5278293986379292"
+    },
+    {
+      "brand": "Innovent",
+      "platform": "Xiaohongshu",
+      "date": "2026-03-19",
+      "title": "Make Thursday crazier, 4980 for you",
+      "type": "Promotion/Collaboration",
+      "summary": "JD Health Sanlitun offline event promoting Mazdutide",
+      "url": "https://www.xiaohongshu.com/explore/69bb73990000000022026180"
+    },
+    {
+      "brand": "Innovent",
+      "platform": "Xiaohongshu",
+      "date": "2026-03-06",
+      "title": "Unlock Xinermei: 80 jin weight loss in 17 weeks",
+      "type": "UGC",
+      "summary": "User shares extreme weight loss case and maintenance effects after discontinuation",
+      "url": "https://www.xiaohongshu.com/explore/69aa9d27000000002602c534"
+    },
+    {
+      "brand": "Innovent",
+      "platform": "Xiaohongshu",
+      "date": "2026-03-15",
+      "title": "First week of Mazdutide completed",
+      "type": "UGC",
+      "summary": "User details weight changes and physical feelings during first week",
+      "url": "https://www.xiaohongshu.com/explore/69b639c0000000001d018650"
+    },
+    {
+      "brand": "Pfizer",
+      "platform": "Xiaohongshu",
+      "date": "2026-03-06",
+      "title": "Ecnoglutide approved for weight management in Chinese adults",
+      "type": "Official/Media",
+      "summary": "NMPA approves world's first cAMP-biased GLP-1 receptor agonist",
+      "url": "https://www.xiaohongshu.com/explore/69aaa92f00000000160091ee"
+    },
+    {
+      "brand": "Pfizer",
+      "platform": "Xiaohongshu",
+      "date": "2026-02-24",
+      "title": "Pfizer and Sciwind Biosciences reach $495 million GLP-1 deal",
+      "type": "Official/Media",
+      "summary": "Details of commercial cooperation agreement, Pfizer obtains exclusive commercialization rights",
+      "url": "https://www.xiaohongshu.com/explore/699d0d430000000015031d21"
+    },
+    {
+      "brand": "Pfizer",
+      "platform": "Xiaohongshu",
+      "date": "2026-03-10",
+      "title": "World's first biased GLP-1 approved",
+      "type": "UGC",
+      "summary": "Emphasizes data showing 15.4% weight loss at 48 weeks and 53.1% reduction in liver fat",
+      "url": "https://www.xiaohongshu.com/explore/69af7188000000001503847f"
+    },
+    {
+      "brand": "Generic GLP-1",
+      "platform": "Xiaohongshu",
+      "date": "2026-03-15",
+      "title": "Behind the popularity of weight-loss injections: secrets you may not know",
+      "type": "Professional",
+      "summary": "Doctor explains risks of GLP-1 drugs from medical perspective",
+      "url": "https://www.xiaohongshu.com/explore/69b0039900000000060095d5"
+    }
+  ]
+}

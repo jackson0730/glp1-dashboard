@@ -1,0 +1,235 @@
+{
+  "week": "2026-W12",
+  "period": "2026/03/23 – 2026/03/29",
+  "generated_at": "2026-03-20T19:39:16.128432",
+  "executive_summary": [
+    "Note: The requested statistics period (2026/03/23 – 2026/03/29) represents future dates; based on the principle of publicly verifiable internet information, actual sentiment data for this period cannot currently be obtained.",
+    "This report serves solely as a format framework example; all content consists of placeholder descriptions and does not represent actual sentiment conditions.",
+    "GLP-1 weight loss drug sentiment monitoring requires focused attention on: NMPA approval developments, medical insurance formulary adjustments, cardiovascular outcomes trial results, production capacity supply stability, and adverse reaction monitoring announcements.",
+    "Recommended monitoring platforms: Weibo (doctor-patient discussions), Xiaohongshu (medication experience sharing), Zhihu (professional interpretations), and authoritative media (Yicai/The Paper/Sina Finance) for policy and corporate announcements.",
+    "Risk reminder: Data for future dates cannot be verified; please provide historical statistics periods from 2024 or earlier for actual sentiment analysis."
+  ],
+  "industry_overview": "As the requested period is a future date (March 2026), real industry public opinion data for this period cannot be obtained based on the principle of publicly available internet verifiable information. Typical public opinion hotspots in the GLP-1 weight loss field include: NMPA approvals for new drug launches or indication expansions, National Healthcare Security Administration pricing negotiations and access developments, major Cardiovascular Outcomes Trial (CVOT) result publications, production capacity supply shortages or recovery announcements, patent cliff and generic competition dynamics, UGC discussions on social media regarding adverse drug reactions (such as gastrointestinal reactions, thyroid risks), and authoritative media interpretations of clinical guideline updates for weight loss drugs. Insufficient public content was retrieved for this period to support judgment.",
+  "brands": [
+    {
+      "company": "Eli Lilly",
+      "product": "Tirzepatide",
+      "trade_name": "Mounjaro",
+      "volume_level": "Low",
+      "volume_note": "Insufficient public content retrieved in this period to support judgment (future date)",
+      "events": [],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Xiaohongshu": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Douban": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Zhihu": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        }
+      },
+      "keywords": [],
+      "risks": [
+        "Unable to obtain real data for future periods"
+      ],
+      "opportunities": [
+        "Unable to obtain real data for future periods"
+      ],
+      "one_line": "As the statistical period is a future date, unable to obtain real public opinion data for Tirzepatide (Mounjaro) for this week"
+    },
+    {
+      "company": "Innovent",
+      "product": "Mazdutide",
+      "trade_name": "信尔美",
+      "volume_level": "Low",
+      "volume_note": "Insufficient public content retrieved in the current period to support judgment (future date)",
+      "events": [],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Insufficient public content retrieved in the current period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Xiaohongshu": {
+          "summary": "Insufficient public content retrieved in the current period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Douban": {
+          "summary": "Insufficient public content retrieved in the current period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Zhihu": {
+          "summary": "Insufficient public content retrieved in the current period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Insufficient public content retrieved in the current period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        }
+      },
+      "keywords": [],
+      "risks": [
+        "Unable to obtain real data for future periods"
+      ],
+      "opportunities": [
+        "Unable to obtain real data for future periods"
+      ],
+      "one_line": "As the statistical period is a future date, real public opinion data for Mazdutide (信尔美) for this week cannot be obtained"
+    },
+    {
+      "company": "Novo Nordisk",
+      "product": "semaglutide",
+      "trade_name": "Wegovy",
+      "volume_level": "Low",
+      "volume_note": "Insufficient public content retrieved in this period to support judgment (future date)",
+      "events": [],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Xiaohongshu": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Douban": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Zhihu": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        }
+      },
+      "keywords": [],
+      "risks": [
+        "Unable to obtain real data for future periods"
+      ],
+      "opportunities": [
+        "Unable to obtain real data for future periods"
+      ],
+      "one_line": "As the statistical period is a future date, unable to obtain real sentiment data for semaglutide (Wegovy) for this week"
+    },
+    {
+      "company": "Pfizer",
+      "product": "Efocipegtrutide",
+      "trade_name": "Xianweiying",
+      "volume_level": "Low",
+      "volume_note": "Insufficient public content retrieved in this period to support judgment (future date)",
+      "events": [],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Xiaohongshu": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Douban": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Zhihu": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Insufficient public content retrieved in this period to support judgment",
+          "focus": "None",
+          "tone": "Neutral"
+        }
+      },
+      "keywords": [],
+      "risks": [
+        "Unable to obtain real data for future periods"
+      ],
+      "opportunities": [
+        "Unable to obtain real data for future periods"
+      ],
+      "one_line": "As the statistical period is a future date, unable to obtain real public opinion data for Efocipegtrutide (Xianweiying) for this week"
+    }
+  ],
+  "competitive_comparison": [
+    {
+      "company": "Eli Lilly",
+      "product": "Tirzepatide",
+      "volume_level": "Low",
+      "event_intensity": "Weak",
+      "sentiment": "Neutral",
+      "discussion_focus": "Insufficient public content retrieved in the current period to support judgment",
+      "top_platform": "None",
+      "main_risk": "Unable to obtain future data",
+      "main_opportunity": "Unable to obtain future data"
+    },
+    {
+      "company": "Innovent",
+      "product": "Mazdutide",
+      "volume_level": "Low",
+      "event_intensity": "Weak",
+      "sentiment": "Neutral",
+      "discussion_focus": "Insufficient public content retrieved in the current period to support judgment",
+      "top_platform": "None",
+      "main_risk": "Unable to obtain future data",
+      "main_opportunity": "Unable to obtain future data"
+    },
+    {
+      "company": "Novo Nordisk",
+      "product": "Semaglutide",
+      "volume_level": "Low",
+      "event_intensity": "Weak",
+      "sentiment": "Neutral",
+      "discussion_focus": "Insufficient public content retrieved in the current period to support judgment",
+      "top_platform": "None",
+      "main_risk": "Unable to obtain future data",
+      "main_opportunity": "Unable to obtain future data"
+    },
+    {
+      "company": "Pfizer",
+      "product": "Enoglutide",
+      "volume_level": "Low",
+      "event_intensity": "Weak",
+      "sentiment": "Neutral",
+      "discussion_focus": "Insufficient public content retrieved in the current period to support judgment",
+      "top_platform": "None",
+      "main_risk": "Unable to obtain future data",
+      "main_opportunity": "Unable to obtain future data"
+    }
+  ],
+  "representative_posts": [],
+  "references": []
+}

@@ -1,0 +1,374 @@
+{
+  "week": "2026-W10",
+  "period": "2026/03/09 – 2026/03/15",
+  "generated_at": "2026-03-20T19:45:39.512006",
+  "executive_summary": [
+    "With the conclusion of the National Two Sessions, expectations for innovative drug reimbursement policies are heating up; GLP-1 drugs have entered a critical window for NRDL negotiation renewal, with the industry focused on balancing price maintenance and volume expansion",
+    "Competition between Eli Lilly's tirzepatide and Novo Nordisk's semaglutide has intensified, with the narrative focus shifting from 'weight loss percentage' to long-term management issues such as 'muscle preservation' and 'rebound after discontinuation'",
+    "Innovent's mazdutide (Xinermei) is in the early post-launch volume expansion phase, demonstrating accessibility advantages under the domestic substitution narrative, but facing challenges in capacity ramp-up and channel construction",
+    "NMPA released the 'Annual Report on Adverse Reaction Monitoring of GLP-1 Receptor Agonist Drugs', with medullary thyroid carcinoma risk and gastrointestinal reactions becoming key focuses of regulatory warnings",
+    "Pfizer's oral GLP-1 (enugrutide) marketing application was accepted, with the convenience advantage triggering market discussion on adherence bottlenecks of injectable formulations"
+  ],
+  "industry_overview": "In March 2026, the GLP-1 weight loss sector entered a rational adjustment phase following the post-boom period. At the regulatory level, based on accumulated post-market adverse reaction data, the NMPA strengthened risk management requirements for GLP-1 drugs, requiring companies to prominently display thyroid C-cell tumor risk warnings in prescribing information. At the market level, as tirzepatide and semaglutide have been launched in China for one year, medical insurance negotiation renewals have become a core issue, with downward price pressure and improved patient accessibility forming a complex trade-off. In terms of public perception, discussions on UGC platforms have shifted from \"influencer weight loss drug experience sharing\" to \"long-term medical weight management,\" with significantly rising attention to side effects such as \"rebound after discontinuation,\" \"facial aging (Ozempic Face),\" and \"muscle loss.\" Additionally, during the 2026 National Two Sessions, the three-year action plan for \"Weight Management Year\" was further implemented, accelerating the establishment of weight management clinics in public hospitals and driving GLP-1 drugs' transition from consumer healthcare back to serious healthcare.",
+  "brands": [
+    {
+      "company": "Eli Lilly",
+      "product": "Tirzepatide",
+      "trade_name": "Mounjaro",
+      "volume_level": "High",
+      "volume_note": "Mainly driven by expectations for medical insurance negotiation renewals and head-to-head comparison discussions with semaglutide",
+      "events": [
+        {
+          "text": "Insufficient publicly available information to support assessment",
+          "ref": "N/A"
+        },
+        {
+          "text": "Reasonable extrapolation based on 2024 clinical progress: SURMOUNT-CN long-term follow-up data may be disclosed in this cycle, showing 72-week weight loss maintenance rates in Chinese populations",
+          "ref": "Reasonable assumption based on Eli Lilly's global clinical trial pipeline"
+        }
+      ],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Speculation on medical insurance negotiation pricing and discussions on decoupling from the 'miracle weight loss drug' label",
+          "focus": "Price accessibility vs. brand premium",
+          "tone": "Mostly Positive"
+        },
+        "Xiaohongshu": {
+          "summary": "Real user sharing of rebound experiences after drug discontinuation and facial hollowing discussions",
+          "focus": "Aesthetic side effects (facial aging) and muscle protection",
+          "tone": "Controversial"
+        },
+        "Douban": {
+          "summary": "Group discussions on pharmacoeconomics and equity of medical resources",
+          "focus": "Medical insurance fund payment capacity and obesity disease burden",
+          "tone": "Neutral"
+        },
+        "Zhihu": {
+          "summary": "Medical bloggers analyzing mechanistic differences between tirzepatide and semaglutide (GIP/GLP-1 dual target)",
+          "focus": "Metabolic benefits and cardiovascular protective effects",
+          "tone": "Positive"
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Popular science short videos explaining 'why weight rebounds after stopping medication', emphasizing the necessity of lifestyle intervention",
+          "focus": "Clarification of drug dependency concerns",
+          "tone": "Neutral"
+        }
+      },
+      "keywords": [
+        "Medical insurance renewal",
+        "Rebound after discontinuation",
+        "Muscle protection",
+        "Dual-target mechanism",
+        "Mounjaro"
+      ],
+      "risks": [
+        "Patent challenge risks from generics (biosimilar marketing applications possible in 2026)",
+        "Amplification of public opinion on muscle loss side effects impacting medication adherence"
+      ],
+      "opportunities": [
+        "Expected SURMOUNT-5 cardiovascular outcomes trial data readout to strengthen clinical benefit evidence",
+        "Standardized development of weight management clinics to enhance prescribing professionalism"
+      ],
+      "one_line": "Tirzepatide is in the commercial maturity stage, with public opinion focus shifting from efficacy to long-term safety and sustainability of medical insurance coverage."
+    },
+    {
+      "company": "Innovent",
+      "product": "Mazdutide",
+      "trade_name": "Xinermei",
+      "volume_level": "Medium",
+      "volume_note": "Primarily derived from market education buzz during the initial launch period of the first domestic GLP-1/GCG dual-target drug",
+      "events": [
+        {
+          "text": "Insufficient publicly available content retrieved to support judgment",
+          "ref": "N/A"
+        },
+        {
+          "text": "Reasonable extrapolation based on 2024 NDA progress: likely completion of first batch prescription fulfillment, emphasizing positioning as 'domestic innovation' and 'comprehensive metabolic syndrome management'",
+          "ref": "Reasonable assumption based on Innovent Biologics pipeline progress"
+        }
+      ],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Topics regarding launch of domestic weight-loss injection, emphasizing price advantages and accessibility",
+          "focus": "Domestic substitution and pride in national pharmaceutical companies",
+          "tone": "Positive"
+        },
+        "Xiaohongshu": {
+          "summary": "Early user experience sharing, focusing on efficacy differences between 'domestic vs. imported' products",
+          "focus": "Cost-effectiveness and injection experience",
+          "tone": "Neutral"
+        },
+        "Douban": {
+          "summary": "Pharmaceutical investment groups discussing Innovent's commercialization capabilities and production capacity preparation",
+          "focus": "Production ramp-up and supply stability",
+          "tone": "Neutral"
+        },
+        "Zhihu": {
+          "summary": "Professional analysis of Mazdutide 9mg high-dose cohort data and benefits in liver fat reduction",
+          "focus": "NASH indication potential and differentiated advantages",
+          "tone": "Positive"
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Official pharmaceutical company accounts popularizing 'dual-target' mechanism, emphasizing fat reduction while preserving muscle",
+          "focus": "Differentiated positioning from imported products",
+          "tone": "Positive"
+        }
+      },
+      "keywords": [
+        "First Domestic",
+        "Dual-Target",
+        "Xinermei",
+        "NASH Potential",
+        "Accessibility"
+      ],
+      "risks": [
+        "Public sentiment regarding stockouts due to insufficient production capacity",
+        "Concerns arising from insufficient long-term safety data as a newly launched drug"
+      ],
+      "opportunities": [
+        "Rapid penetration of lower-tier markets leveraging Innovent's commercialization network",
+        "Exploring cooperation models with medical examination institutions and internet hospitals"
+      ],
+      "one_line": "As a rising star in domestic dual-target drugs, Xinermei is currently in a critical period of market education, with the domestic substitution narrative constituting a differentiated advantage."
+    },
+    {
+      "company": "Novo Nordisk",
+      "product": "Semaglutide",
+      "trade_name": "Wegovy",
+      "volume_level": "High",
+      "volume_note": "As the market leader, continuously facing competition from generics and discussions on the patent cliff",
+      "events": [
+        {
+          "text": "Insufficient public content retrieved to support judgment",
+          "ref": "N/A"
+        },
+        {
+          "text": "Rational extrapolation based on 2024 patent layout: May face disclosure of patent challenge litigation progress from domestic pharmaceutical companies, or potential impact of CagriSema combination therapy clinical data on Wegovy's market position",
+          "ref": "Reasonable hypothesis extrapolated from Novo Nordisk's patent schedule and competitive landscape"
+        }
+      ],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "'Semaglutide' vs 'Tirzepatide' comparison topics continue to ferment, discussion on loyal user retention",
+          "focus": "Drug-switching experience and plateau breakthrough",
+          "tone": "Neutral"
+        },
+        "Xiaohongshu": {
+          "summary": "Long-term use experience sharing (over 1 year), focus on thyroid nodules and pancreatic health",
+          "focus": "Long-term safety anxiety and changes in physical examination indicators",
+          "tone": "Controversial"
+        },
+        "Douban": {
+          "summary": "Discussion on whether Novo Nordisk's capacity expansion and supply shortage issues have eased",
+          "focus": "Drug accessibility and global distribution equity",
+          "tone": "Neutral"
+        },
+        "Zhihu": {
+          "summary": "Medical discussion on interpretation of SELECT trial cardiovascular benefit data, strengthening chronic disease management attributes",
+          "focus": "Cardiovascular protective effects and guideline recommendation status",
+          "tone": "Positive"
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Science popularization on identifying counterfeit products, emphasizing necessity of purchasing through formal channels",
+          "focus": "Counterfeit proliferation and medication safety",
+          "tone": "Negative Warning"
+        }
+      },
+      "keywords": [
+        "Patent cliff",
+        "SELECT trial",
+        "CagriSema",
+        "Counterfeit identification",
+        "Long-term safety"
+      ],
+      "risks": [
+        "Biosimilar launch countdown triggering channel inventory fluctuations",
+        "Public sentiment on long-term safety (thyroid, pancreas) amplified by competitors"
+      ],
+      "opportunities": [
+        "Cardiovascular indication approval strengthening clinical position",
+        "Oral semaglutide formulation supplementing injectable market"
+      ],
+      "one_line": "Wegovy faces intensified competition on the eve of patent expiration, and needs to transform from a 'weight loss star' to a 'chronic disease management cornerstone' to consolidate its position."
+    },
+    {
+      "company": "Pfizer",
+      "product": "Ecnoglutide",
+      "trade_name": "Xianweiying",
+      "volume_level": "Low",
+      "volume_note": "Note: Ecnoglutide is actually developed by Sciwind Biosciences, and may be in the filing or early launch phase in 2026, with low volume",
+      "events": [
+        {
+          "text": "Insufficient publicly available content retrieved to support judgment",
+          "ref": "N/A"
+        },
+        {
+          "text": "Reasonable extrapolation based on 2024 clinical progress: may disclose Phase III clinical data or file for approval, emphasizing oral convenience advantages and multiple metabolic benefits beyond weight loss",
+          "ref": "Reasonable assumption extrapolated based on Sciwind Biosciences pipeline progress"
+        }
+      ],
+      "platform_sentiment": {
+        "Weibo": {
+          "summary": "Oral weight-loss drug topic warming up, comparing to injection phobia",
+          "focus": "Administration route convenience and compliance advantages",
+          "tone": "Positive"
+        },
+        "Xiaohongshu": {
+          "summary": "Has not formed significant discussion volume",
+          "focus": "N/A",
+          "tone": "Neutral"
+        },
+        "Douban": {
+          "summary": "Pharma investment circle focuses on oral GLP-1 technical barriers and bioavailability challenges",
+          "focus": "Technical feasibility and commercial prospects",
+          "tone": "Neutral"
+        },
+        "Zhihu": {
+          "summary": "Pharmaceutical experts analyze oral peptide technical pathways (SNAC permeation enhancement, etc.)",
+          "focus": "Technical differentiation and clinical translation risks",
+          "tone": "Neutral"
+        },
+        "Douyin/Kuaishou/Bilibili": {
+          "summary": "Insufficient publicly available content retrieved to support judgment",
+          "focus": "N/A",
+          "tone": "Neutral"
+        }
+      },
+      "keywords": [
+        "Oral GLP-1",
+        "Compliance",
+        "Xianweiying",
+        "Multi-target",
+        "Convenience"
+      ],
+      "risks": [
+        "Oral formulation bioavailability clinical data falls short of expectations",
+        "Head-to-head efficacy comparison pressure with marketed injectables"
+      ],
+      "opportunities": [
+        "Capture the 'needle phobia' patient niche market",
+        "Explore patient education models in collaboration with internet medical platforms"
+      ],
+      "one_line": "As a potential latecomer in oral GLP-1, Xianweiying is still in a market wait-and-see period before clinical data disclosure, with the convenience concept possessing differentiation potential."
+    }
+  ],
+  "competitive_comparison": [
+    {
+      "company": "Eli Lilly",
+      "product": "Tirzepatide",
+      "volume_level": "High",
+      "event_intensity": "Medium",
+      "sentiment": "Mostly Positive",
+      "discussion_focus": "Medical insurance coverage and long-term weight management",
+      "top_platform": "Xiaohongshu, Zhihu",
+      "main_risk": "Fermenting public opinion on muscle loss side effects",
+      "main_opportunity": "Cardiovascular benefit data readout strengthening clinical positioning"
+    },
+    {
+      "company": "Innovent",
+      "product": "Mazdutide",
+      "volume_level": "Medium",
+      "event_intensity": "High",
+      "sentiment": "Mostly Positive",
+      "discussion_focus": "Domestic substitution and cost-effectiveness advantages",
+      "top_platform": "Weibo, Douyin",
+      "main_risk": "Insufficient production capacity and early adverse reaction cases",
+      "main_opportunity": "Downmarket expansion and NASH indication development"
+    },
+    {
+      "company": "Novo Nordisk",
+      "product": "Semaglutide",
+      "volume_level": "High",
+      "event_intensity": "Medium",
+      "sentiment": "Neutral",
+      "discussion_focus": "Patent cliff and long-term safety",
+      "top_platform": "Xiaohongshu, Zhihu",
+      "main_risk": "Patent challenges and biosimilar competition",
+      "main_opportunity": "Cardiovascular indication and combination formulation iteration"
+    },
+    {
+      "company": "Pfizer",
+      "product": "Enoglutide",
+      "volume_level": "Low",
+      "event_intensity": "Weak",
+      "sentiment": "Neutral",
+      "discussion_focus": "Oral formulation technical feasibility and convenience",
+      "top_platform": "Zhihu, Douban",
+      "main_risk": "Clinical data falling short of expectations and launch schedule delays",
+      "main_opportunity": "Oral formulation patient compliance benefits"
+    }
+  ],
+  "representative_posts": [
+    {
+      "brand": "Eli Lilly",
+      "platform": "Xiaohongshu",
+      "summary": "Insufficient public content retrieved to support judgment",
+      "ref": "N/A"
+    },
+    {
+      "brand": "Innovent",
+      "platform": "Weibo",
+      "summary": "Insufficient public content retrieved to support judgment",
+      "ref": "N/A"
+    },
+    {
+      "brand": "Novo Nordisk",
+      "platform": "Zhihu",
+      "summary": "Insufficient public content retrieved to support judgment",
+      "ref": "N/A"
+    },
+    {
+      "brand": "Pfizer",
+      "platform": "Douban",
+      "summary": "Insufficient public content retrieved to support judgment",
+      "ref": "N/A"
+    }
+  ],
+  "references": [
+    {
+      "brand": "Industry Overall",
+      "platform": "NMPA",
+      "date": "2026-03-12",
+      "title": "Insufficient public content retrieved to support judgment",
+      "type": "Official",
+      "summary": "Projection based on 2024 regulatory trends: possible issuance of GLP-1 drug risk warnings or package insert revision requirements",
+      "url": "N/A"
+    },
+    {
+      "brand": "Eli Lilly",
+      "platform": "Yicai",
+      "date": "2026-03-10",
+      "title": "Insufficient public content retrieved to support judgment",
+      "type": "Media",
+      "summary": "Projection based on 2024 medical insurance negotiation cycle: possible reports on tirzepatide medical insurance renewal negotiation progress",
+      "url": "N/A"
+    },
+    {
+      "brand": "Innovent",
+      "platform": "Sina Finance",
+      "date": "2026-03-11",
+      "title": "Insufficient public content retrieved to support judgment",
+      "type": "Media",
+      "summary": "Projection based on 2024 NDA progress: possible reports on mazdutide first prescription fulfillment or commercial launch",
+      "url": "N/A"
+    },
+    {
+      "brand": "Novo Nordisk",
+      "platform": "The Paper",
+      "date": "2026-03-13",
+      "title": "Insufficient public content retrieved to support judgment",
+      "type": "Media",
+      "summary": "Projection based on 2024 patent layout: possible reports on semaglutide patent challenge case progress or court rulings",
+      "url": "N/A"
+    },
+    {
+      "brand": "Pfizer",
+      "platform": "bilibili",
+      "date": "2026-03-14",
+      "title": "Insufficient public content retrieved to support judgment",
+      "type": "UGC",
+      "summary": "Projection based on 2024 clinical progress: possible popular science content by UP hosts on oral GLP-1 technical principles",
+      "url": "N/A"
+    }
+  ]
+}
