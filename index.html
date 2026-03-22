@@ -365,6 +365,74 @@ details summary:hover{color:#00b37a}
 let currentLang="zh";
 let currentWeek="";
 
+const I18N={
+  zh:{
+    loading:"正在加载...",
+    loadFail:"加载失败：",
+    initFail:"初始化失败：",
+    updatedAt:"更新时间：",
+    metaSuffix:"北京时间自然周（周一–周日）&nbsp;·&nbsp; 公开互联网数据",
+    execSummary:"核心结论",
+    industryOverview:"行业总览",
+    brandSnapshot:"品牌速览",
+    volSuffix:"声量",
+    brandCards:"分品牌舆情卡",
+    keyEvents:"本周核心事件",
+    keywords:"舆情关键词",
+    risks:"风险点",
+    opps:"机会点",
+    platformObs:"平台舆情观察",
+    noData:"本周期未检索到足够公开内容支持判断",
+    source:"来源",
+    platform:"平台",
+    mainDiscussion:"主要讨论",
+    userFocus:"用户关注点",
+    sentiment:"情绪",
+    compTitle:"品牌横向对比",
+    colBrand:"品牌",colVol:"声量",colIntensity:"事件强度",colSentiment:"舆情倾向",
+    colFocus:"讨论重心",colTopPlatform:"最活跃平台",colRisk:"主要风险",colOpp:"主要机会",
+    postsTitle:"代表性讨论摘录",
+    filterAll:"全部",
+    readMore:"查看原文 →",
+    refTitle:"Reference 附录（共",refSuffix:"条）",
+    colDate:"日期",colTitle:"标题/话题",colType:"类型",colSummary:"摘要",colLink:"链接",
+    link:"链接",
+  },
+  en:{
+    loading:"Loading...",
+    loadFail:"Load failed: ",
+    initFail:"Init failed: ",
+    updatedAt:"Updated: ",
+    metaSuffix:"Natural week Mon–Sun (Beijing Time)&nbsp;·&nbsp; Public internet data",
+    execSummary:"Key Insights",
+    industryOverview:"Industry Overview",
+    brandSnapshot:"Brand Snapshot",
+    volSuffix:"Vol.",
+    brandCards:"Brand Intelligence Cards",
+    keyEvents:"Key Events This Week",
+    keywords:"Sentiment Keywords",
+    risks:"Risks",
+    opps:"Opportunities",
+    platformObs:"Platform Observations",
+    noData:"Insufficient public content found for this period.",
+    source:"Source",
+    platform:"Platform",
+    mainDiscussion:"Main Discussion",
+    userFocus:"User Focus",
+    sentiment:"Sentiment",
+    compTitle:"Competitive Comparison",
+    colBrand:"Brand",colVol:"Volume",colIntensity:"Event Intensity",colSentiment:"Sentiment",
+    colFocus:"Discussion Focus",colTopPlatform:"Top Platform",colRisk:"Main Risk",colOpp:"Main Opportunity",
+    postsTitle:"Representative Posts",
+    filterAll:"All",
+    readMore:"View Original →",
+    refTitle:"References (",refSuffix:" total)",
+    colDate:"Date",colTitle:"Title/Topic",colType:"Type",colSummary:"Summary",colLink:"Link",
+    link:"Link",
+  }
+};
+function t(key){return I18N[currentLang][key]||key;}
+
 async function fetchJSON(url){
   const res=await fetch(url);
   if(!res.ok)throw new Error(`HTTP ${res.status}`);
@@ -383,7 +451,7 @@ async function initWeeks(){
 async function loadReport(week){
   currentWeek=week;
   const content=document.getElementById("content");
-  content.innerHTML=`<div class="loading">${currentLang==="zh"?"正在加载...":"Loading..."}</div>`;
+  content.innerHTML=`<div class="loading">${t("loading")}</div>`;
   const suffix=currentLang==="en"?".en":"";
   try{
     const d=await fetchJSON(`data/${week}${suffix}.json`);
@@ -406,7 +474,7 @@ async function loadReport(week){
         return;
       }catch(_){}
     }
-    content.innerHTML=`<div class="error">${currentLang==="zh"?"加载失败：":"Load failed: "}${e.message}</div>`;
+    content.innerHTML=`<div class="error">${t("loadFail")}${e.message}</div>`;
   }
 }
 
@@ -447,18 +515,18 @@ function renderReport(d){
 
 function renderHeader(d){
   const gen=d.generated_at?d.generated_at.replace("T"," ").slice(0,16):"-";
-  return `<div class="report-header"><div><div class="period">${d.period||d.week}</div><div class="meta">更新时间：${gen} &nbsp;·&nbsp; 北京时间自然周（周一–周日）&nbsp;·&nbsp; 公开互联网数据</div></div></div>`;
+  return `<div class="report-header"><div><div class="period">${d.period||d.week}</div><div class="meta">${t("updatedAt")}${gen} &nbsp;·&nbsp; ${t("metaSuffix")}</div></div></div>`;
 }
 
 function renderSummary(d){
   if(!d.executive_summary?.length)return "";
   const items=d.executive_summary.map(s=>`<li>${s}</li>`).join("");
-  return `<div class="section"><div class="section-title">核心结论 <span class="badge">EXECUTIVE SUMMARY</span></div><ul class="summary-list">${items}</ul></div>`;
+  return `<div class="section"><div class="section-title">${t("execSummary")} <span class="badge">EXECUTIVE SUMMARY</span></div><ul class="summary-list">${items}</ul></div>`;
 }
 
 function renderIndustry(d){
   if(!d.industry_overview)return "";
-  return `<div class="section"><div class="section-title">行业总览 <span class="badge badge-green">GLP-1 TRACK</span></div><p class="industry-text">${d.industry_overview}</p></div>`;
+  return `<div class="section"><div class="section-title">${t("industryOverview")} <span class="badge badge-green">GLP-1 TRACK</span></div><p class="industry-text">${d.industry_overview}</p></div>`;
 }
 
 function renderBrandsSummary(d){
@@ -471,7 +539,7 @@ function renderBrandsSummary(d){
           <div class="m-brand-trade">${b.trade_name}</div>
         </div>
         <div class="m-brand-right">
-          <span class="volume-badge volume-${b.volume_level}">${b.volume_level}声量</span>
+          <span class="volume-badge volume-${b.volume_level}">${b.volume_level} ${t("volSuffix")}</span>
           <span class="m-chevron">▶</span>
         </div>
       </div>
@@ -480,7 +548,7 @@ function renderBrandsSummary(d){
         <div class="keywords">${(b.keywords||[]).map(k=>`<span class="keyword-tag">${k}</span>`).join("")}</div>
       </div>
     </div>`).join("");
-  return `<div class="section"><div class="section-title">品牌速览</div><div class="m-brand-list">${rows}</div></div>`;
+  return `<div class="section"><div class="section-title">${t("brandSnapshot")}</div><div class="m-brand-list">${rows}</div></div>`;
 }
 
 function renderBrands(d){
@@ -489,16 +557,16 @@ function renderBrands(d){
     `<button class="brand-tab-m" onclick="switchBrand(${i})" id="tabm-${i}">${b.company}｜${b.product}</button>`
   ).join("");
   const cards=d.brands.map((b,i)=>renderBrandCard(b,i)).join("");
-  return `<div class="brand-tabs-mobile">${mobileTabs}</div><div class="section"><div class="section-title">分品牌舆情卡 <span class="badge badge-orange">BRAND CARDS</span></div>${cards}</div>`;
+  return `<div class="brand-tabs-mobile">${mobileTabs}</div><div class="section"><div class="section-title">${t("brandCards")} <span class="badge badge-orange">BRAND CARDS</span></div>${cards}</div>`;
 }
 
 function renderBrandCard(b,i){
   const events=(b.events||[]).map(e=>
-    `<li><span>${e.text}</span>${e.ref&&e.ref!=="N/A"?` <a href="${e.ref}" target="_blank">[来源]</a>`:""}</li>`
-  ).join("")||`<li class="no-data" style="padding-left:0;list-style:none">本周期未检索到足够公开内容支持判断</li>`;
+    `<li><span>${e.text}</span>${e.ref&&e.ref!=="N/A"?` <a href="${e.ref}" target="_blank">[${t("source")}]</a>`:""}</li>`
+  ).join("")||`<li class="no-data" style="padding-left:0;list-style:none">${t("noData")}</li>`;
 
   const platforms=Object.entries(b.platform_sentiment||{}).map(([p,v])=>{
-    const hasData=v.summary&&!v.summary.includes("未检索到");
+    const hasData=v.summary&&!v.summary.includes("未检索到")&&!v.summary.toLowerCase().includes("insufficient");
     return `<tr><td><span class="platform-name">${p}</span></td><td>${hasData?v.summary:`<span class="no-data">-</span>`}</td><td>${hasData?(v.focus||"-"):"-"}</td><td>${tone(v.tone)}</td></tr>`;
   }).join("");
 
@@ -507,14 +575,14 @@ function renderBrandCard(b,i){
   const opps=(b.opportunities||[]).map(o=>`<li>${o}</li>`).join("")||`<li class="no-data">-</li>`;
 
   return `<div class="brand-card" id="brand-${i}">
-    <div class="brand-header"><span class="brand-name">${b.company}</span><span style="color:#4a5568">|</span><span class="brand-product">${b.product}</span><span class="brand-trade">（${b.trade_name}）</span><span class="volume-badge volume-${b.volume_level}">${b.volume_level}声量</span></div>
+    <div class="brand-header"><span class="brand-name">${b.company}</span><span style="color:#4a5568">|</span><span class="brand-product">${b.product}</span><span class="brand-trade">（${b.trade_name}）</span><span class="volume-badge volume-${b.volume_level}">${b.volume_level} ${t("volSuffix")}</span></div>
     ${b.volume_note?`<div class="volume-note">${b.volume_note}</div>`:""}
     <div class="brand-card-grid">
-      <div class="card-block"><div class="card-block-title">本周核心事件</div><ul class="event-list">${events}</ul></div>
-      <div><div class="card-block"><div class="card-block-title">舆情关键词</div><div class="keywords">${keywords||`<span class="no-data">-</span>`}</div></div>
-      <div class="risk-opp-grid"><div class="risk-block"><div class="card-block-title">风险点</div><ul class="risk-list">${risks}</ul></div><div class="opp-block"><div class="card-block-title">机会点</div><ul class="opp-list">${opps}</ul></div></div></div>
+      <div class="card-block"><div class="card-block-title">${t("keyEvents")}</div><ul class="event-list">${events}</ul></div>
+      <div><div class="card-block"><div class="card-block-title">${t("keywords")}</div><div class="keywords">${keywords||`<span class="no-data">-</span>`}</div></div>
+      <div class="risk-opp-grid"><div class="risk-block"><div class="card-block-title">${t("risks")}</div><ul class="risk-list">${risks}</ul></div><div class="opp-block"><div class="card-block-title">${t("opps")}</div><ul class="opp-list">${opps}</ul></div></div></div>
     </div>
-    <div class="card-block" style="margin-top:14px"><div class="card-block-title">平台舆情观察</div><div style="overflow-x:auto"><table class="platform-table"><thead><tr><th>平台</th><th>主要讨论</th><th>用户关注点</th><th>情绪</th></tr></thead><tbody>${platforms}</tbody></table></div></div>
+    <div class="card-block" style="margin-top:14px"><div class="card-block-title">${t("platformObs")}</div><div style="overflow-x:auto"><table class="platform-table"><thead><tr><th>${t("platform")}</th><th>${t("mainDiscussion")}</th><th>${t("userFocus")}</th><th>${t("sentiment")}</th></tr></thead><tbody>${platforms}</tbody></table></div></div>
     ${b.one_line?`<div class="one-line"><span class="one-line-icon">💬</span>${b.one_line}</div>`:""}
   </div>`;
 }
@@ -549,48 +617,48 @@ function switchTab(tab){
 function renderComparison(d){
   if(!d.competitive_comparison?.length)return "";
   const rows=d.competitive_comparison.map(c=>
-    `<tr><td data-label="品牌"><strong>${c.company}</strong> <span style="color:#4a5568;font-size:11px">${c.product}</span></td>
-    <td data-label="声量"><span class="volume-badge volume-${c.volume_level}">${c.volume_level}</span></td>
-    <td data-label="事件强度">${c.event_intensity||"-"}</td>
-    <td data-label="舆情倾向">${tone(c.sentiment)}</td>
-    <td data-label="讨论重心" style="max-width:160px">${c.discussion_focus||"-"}</td>
-    <td data-label="最活跃平台">${c.top_platform||"-"}</td>
-    <td data-label="主要风险" style="color:#ff6b35;font-size:12px;max-width:140px">${c.main_risk||"-"}</td>
-    <td data-label="主要机会" style="color:#00e5a0;font-size:12px;max-width:140px">${c.main_opportunity||"-"}</td></tr>`
+    `<tr><td data-label="${t("colBrand")}"><strong>${c.company}</strong> <span style="color:#4a5568;font-size:11px">${c.product}</span></td>
+    <td data-label="${t("colVol")}"><span class="volume-badge volume-${c.volume_level}">${c.volume_level}</span></td>
+    <td data-label="${t("colIntensity")}">${c.event_intensity||"-"}</td>
+    <td data-label="${t("colSentiment")}">${tone(c.sentiment)}</td>
+    <td data-label="${t("colFocus")}" style="max-width:160px">${c.discussion_focus||"-"}</td>
+    <td data-label="${t("colTopPlatform")}">${c.top_platform||"-"}</td>
+    <td data-label="${t("colRisk")}" style="color:#ff6b35;font-size:12px;max-width:140px">${c.main_risk||"-"}</td>
+    <td data-label="${t("colOpp")}" style="color:#00e5a0;font-size:12px;max-width:140px">${c.main_opportunity||"-"}</td></tr>`
   ).join("");
-  return `<div class="section"><div class="section-title">品牌横向对比 <span class="badge">COMPETITIVE SNAPSHOT</span></div><div style="overflow-x:auto"><table class="comp-table"><thead><tr><th>品牌</th><th>声量</th><th>事件强度</th><th>舆情倾向</th><th>讨论重心</th><th>最活跃平台</th><th>主要风险</th><th>主要机会</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+  return `<div class="section"><div class="section-title">${t("compTitle")} <span class="badge">COMPETITIVE SNAPSHOT</span></div><div style="overflow-x:auto"><table class="comp-table"><thead><tr><th>${t("colBrand")}</th><th>${t("colVol")}</th><th>${t("colIntensity")}</th><th>${t("colSentiment")}</th><th>${t("colFocus")}</th><th>${t("colTopPlatform")}</th><th>${t("colRisk")}</th><th>${t("colOpp")}</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
 }
 
 function renderPosts(d){
   if(!d.representative_posts?.length)return "";
   const brands=[...new Set(d.representative_posts.map(p=>p.brand))];
   const filterTabs=brands.length>1
-    ?`<div class="posts-filter"><button class="posts-filter-btn active" onclick="filterPosts(this,'')">全部</button>${brands.map(b=>`<button class="posts-filter-btn" onclick="filterPosts(this,'${b}')">${b}</button>`).join("")}</div>`
+    ?`<div class="posts-filter"><button class="posts-filter-btn active" onclick="filterPosts(this,'')">${t("filterAll")}</button>${brands.map(b=>`<button class="posts-filter-btn" onclick="filterPosts(this,'${b}')">${b}</button>`).join("")}</div>`
     :"";
   const cards=d.representative_posts.map(p=>{
     const tags=(p.tags||[]).map(t=>{
-      const cls=t.includes("推广")?"tag-promo":t.includes("副作用")?"tag-risk":t.includes("机会")?"tag-opp":"";
+      const cls=t.includes("推广")||t.toLowerCase().includes("promo")?"tag-promo":t.includes("副作用")||t.toLowerCase().includes("side effect")?"tag-risk":t.includes("机会")||t.toLowerCase().includes("opportunit")?"tag-opp":"";
       return `<span class="keyword-tag ${cls}">${t}</span>`;
     }).join("");
     return `<div class="post-card" data-brand="${p.brand}"><div class="post-meta"><span class="post-brand">${p.brand}</span><span class="post-platform">${p.platform}</span></div>
       ${tags?`<div style="margin-bottom:8px;display:flex;flex-wrap:wrap;gap:4px">${tags}</div>`:""}
       <p>${p.summary}</p>
-      ${p.ref&&p.ref!=="N/A"?`<a href="${p.ref}" target="_blank">查看原文 →</a>`:""}
+      ${p.ref&&p.ref!=="N/A"?`<a href="${p.ref}" target="_blank">${t("readMore")}</a>`:""}
     </div>`;
   }).join("");
-  return `<div class="section"><div class="section-title">代表性讨论摘录 <span class="badge">REPRESENTATIVE POSTS</span></div>${filterTabs}<div class="posts-grid">${cards}</div></div>`;
+  return `<div class="section"><div class="section-title">${t("postsTitle")} <span class="badge">REPRESENTATIVE POSTS</span></div>${filterTabs}<div class="posts-grid">${cards}</div></div>`;
 }
 
 function renderRefs(d){
   if(!d.references?.length)return "";
   const rows=d.references.map(r=>
-    `<tr><td>${r.brand||"-"}</td><td>${r.platform||"-"}</td><td style="white-space:nowrap">${r.date||"-"}</td><td>${r.title||"-"}</td><td><span class="keyword-tag" style="font-size:11px">${r.type||"-"}</span></td><td style="max-width:200px">${r.summary||"-"}</td><td>${r.url&&r.url!=="N/A"?`<a href="${r.url}" target="_blank">链接</a>`:"-"}</td></tr>`
+    `<tr><td>${r.brand||"-"}</td><td>${r.platform||"-"}</td><td style="white-space:nowrap">${r.date||"-"}</td><td>${r.title||"-"}</td><td><span class="keyword-tag" style="font-size:11px">${r.type||"-"}</span></td><td style="max-width:200px">${r.summary||"-"}</td><td>${r.url&&r.url!=="N/A"?`<a href="${r.url}" target="_blank">${t("link")}</a>`:"-"}</td></tr>`
   ).join("");
-  return `<div class="section"><details><summary>📎 Reference 附录（共 ${d.references.length} 条）</summary><div style="overflow-x:auto"><table class="ref-table"><thead><tr><th>品牌</th><th>平台</th><th>日期</th><th>标题/话题</th><th>类型</th><th>摘要</th><th>链接</th></tr></thead><tbody>${rows}</tbody></table></div></details></div>`;
+  return `<div class="section"><details><summary>📎 ${t("refTitle")} ${d.references.length} ${t("refSuffix")}</summary><div style="overflow-x:auto"><table class="ref-table"><thead><tr><th>${t("colBrand")}</th><th>${t("platform")}</th><th>${t("colDate")}</th><th>${t("colTitle")}</th><th>${t("colType")}</th><th>${t("colSummary")}</th><th>${t("colLink")}</th></tr></thead><tbody>${rows}</tbody></table></div></details></div>`;
 }
 
 initWeeks().catch(e=>{
-  document.getElementById("content").innerHTML=`<div class="error">初始化失败：${e.message}</div>`;
+  document.getElementById("content").innerHTML=`<div class="error">${t("initFail")}${e.message}</div>`;
 });
 </script>
 </body>
