@@ -1,670 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1333357826045819"
-     crossorigin="anonymous"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLP-1 Intelligence Dashboard</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-/* ===== DESKTOP DARK TERMINAL (>900px) ===== */
-body{font-family:"Noto Sans SC",sans-serif;background:#0a0e1a;color:#c9d1e0;font-size:14px;line-height:1.6;min-height:100vh}
-body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(circle,rgba(0,229,160,.06) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0}
-
-/* header */
-.header{position:relative;z-index:10;background:rgba(10,14,26,.95);border-bottom:1px solid rgba(0,229,160,.2);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px;backdrop-filter:blur(8px)}
-.header-left{display:flex;align-items:center;gap:16px}
-.header-logo{width:38px;height:38px;background:linear-gradient(135deg,#00e5a0,#00b37a);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;box-shadow:0 0 16px rgba(0,229,160,.4)}
-.header h1{font-family:"Space Mono",monospace;font-size:17px;font-weight:700;color:#00e5a0;letter-spacing:2px;text-transform:uppercase}
-.header h1::after{content:"_";animation:blink 1.2s step-end infinite;color:#00e5a0}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.header-subtitle{font-size:10px;color:#4a5568;font-family:"Space Mono",monospace;letter-spacing:2px;text-transform:uppercase;margin-top:1px}
-.header-meta{font-size:11px;color:#4a5568;margin-top:2px;font-family:"Space Mono",monospace}
-.week-selector{display:flex;align-items:center;gap:10px}
-.week-selector label{color:#4a5568;font-size:11px;font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:1px}
-.week-selector select{background:rgba(0,229,160,.05);color:#00e5a0;border:1px solid rgba(0,229,160,.3);border-radius:6px;padding:7px 14px;font-size:12px;cursor:pointer;outline:none;font-family:"Space Mono",monospace}
-.week-selector select:hover{background:rgba(0,229,160,.1);border-color:#00e5a0}
-.week-selector select option{background:#0d1117;color:#c9d1e0}
-
-/* layout */
-.layout{display:flex;min-height:calc(100vh - 64px);position:relative;z-index:1}
-.sidebar{width:240px;flex-shrink:0;background:rgba(13,17,23,.8);border-right:1px solid rgba(0,229,160,.1);padding:24px 0;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
-.sidebar-label{font-family:"Space Mono",monospace;font-size:9px;color:#4a5568;text-transform:uppercase;letter-spacing:2px;padding:0 20px 12px;border-bottom:1px solid rgba(0,229,160,.08);margin-bottom:8px}
-.brand-nav-item{display:flex;align-items:center;padding:12px 20px;cursor:pointer;transition:all .2s;border-left:3px solid transparent;position:relative}
-.brand-nav-item:hover{background:rgba(0,229,160,.05);border-left-color:rgba(0,229,160,.4)}
-.brand-nav-item.active{background:rgba(0,229,160,.08);border-left-color:#00e5a0}
-.brand-nav-item.active::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:4px;height:24px;background:#00e5a0;border-radius:2px 0 0 2px;box-shadow:0 0 8px #00e5a0}
-@keyframes pulse-active{0%,100%{opacity:1}50%{opacity:.6}}
-.brand-nav-item.active .nav-company{animation:pulse-active 2s ease-in-out infinite}
-.nav-company{font-family:"Space Mono",monospace;font-size:12px;font-weight:700;color:#c9d1e0;display:block}
-.brand-nav-item.active .nav-company{color:#00e5a0}
-.nav-product{font-size:11px;color:#4a5568;display:block;margin-top:2px}
-.brand-nav-item.active .nav-product{color:#00b37a}
-
-/* main */
-.main{flex:1;padding:28px 32px;overflow-x:hidden}
-.container{max-width:1100px}
-
-/* report header */
-.report-header{background:rgba(17,24,39,.8);border:1px solid rgba(0,229,160,.15);border-radius:10px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:blur(4px)}
-.report-header .period{font-family:"Space Mono",monospace;font-size:15px;font-weight:700;color:#00e5a0}
-.report-header .meta{font-size:11px;color:#4a5568;margin-top:3px;font-family:"Space Mono",monospace}
-
-/* section */
-.section{background:rgba(17,24,39,.8);border:1px solid rgba(0,229,160,.12);border-radius:10px;padding:20px 22px;margin-bottom:20px;backdrop-filter:blur(4px);transition:border-color .2s,box-shadow .2s}
-.section:hover{border-color:rgba(0,229,160,.25);box-shadow:0 0 20px rgba(0,229,160,.05)}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.section{animation:fadeIn .35s ease both}
-.section-title{font-family:"Space Mono",monospace;font-size:11px;font-weight:700;color:#00e5a0;text-transform:uppercase;letter-spacing:2px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid rgba(0,229,160,.15);display:flex;align-items:center;gap:10px}
-.section-title::before{content:"> ";color:#4a5568}
-.badge{background:rgba(0,229,160,.15);color:#00e5a0;font-size:9px;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:1px;border:1px solid rgba(0,229,160,.3);font-family:"Space Mono",monospace}
-.badge-orange{background:rgba(255,107,53,.15);color:#ff6b35;border-color:rgba(255,107,53,.3)}
-.badge-green{background:rgba(0,229,160,.15);color:#00e5a0;border-color:rgba(0,229,160,.3)}
-
-/* summary */
-.summary-list{list-style:none}
-.summary-list li{padding:10px 0 10px 20px;border-bottom:1px solid rgba(0,229,160,.06);position:relative;line-height:1.7;color:#a0aec0;font-size:13.5px}
-.summary-list li:last-child{border-bottom:none}
-.summary-list li::before{content:"▸";position:absolute;left:0;color:#00e5a0;font-size:12px;top:12px}
-.industry-text{line-height:1.9;color:#a0aec0;font-size:13.5px}
-
-/* brand card */
-.brand-card{display:none}
-.brand-card.active{display:block}
-.brand-header{display:flex;align-items:center;gap:14px;margin-bottom:8px;flex-wrap:wrap}
-.brand-name{font-family:"Space Mono",monospace;font-size:20px;font-weight:700;color:#e2e8f0}
-.brand-product{font-size:15px;color:#00e5a0;font-weight:600}
-.brand-trade{color:#4a5568;font-size:13px}
-.volume-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 12px;border-radius:4px;font-size:11px;font-weight:700;font-family:"Space Mono",monospace}
-.volume-高{background:rgba(255,107,53,.15);color:#ff6b35;border:1px solid rgba(255,107,53,.4);box-shadow:0 0 8px rgba(255,107,53,.2)}
-.volume-中{background:rgba(0,229,160,.12);color:#00e5a0;border:1px solid rgba(0,229,160,.3);box-shadow:0 0 8px rgba(0,229,160,.15)}
-.volume-低{background:rgba(74,85,104,.2);color:#718096;border:1px solid rgba(74,85,104,.3)}
-.volume-note{font-size:12px;color:#4a5568;margin-bottom:18px;padding:8px 14px;background:rgba(0,229,160,.04);border-radius:6px;border-left:2px solid rgba(0,229,160,.3);font-family:"Space Mono",monospace}
-
-.brand-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.card-block{background:rgba(13,17,23,.6);border:1px solid rgba(0,229,160,.08);border-radius:8px;padding:16px 18px}
-.card-block-title{font-family:"Space Mono",monospace;font-size:9px;font-weight:700;color:#4a5568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
-
-/* event list */
-.event-list{list-style:none}
-.event-list li{padding:8px 0;border-bottom:1px solid rgba(0,229,160,.06);font-size:13px;line-height:1.6;color:#a0aec0;display:flex;align-items:flex-start;gap:8px}
-.event-list li:last-child{border-bottom:none}
-.event-list li::before{content:"◆";color:#00e5a0;font-size:8px;margin-top:5px;flex-shrink:0}
-.event-list a{color:#00e5a0;font-size:11px;white-space:nowrap;flex-shrink:0;opacity:.7}
-.event-list a:hover{opacity:1}
-
-/* keywords */
-.keywords{display:flex;flex-wrap:wrap;gap:6px}
-.keyword-tag{background:rgba(79,70,229,.15);color:#818cf8;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:500;border:1px solid rgba(79,70,229,.25)}
-.tag-risk{background:rgba(255,107,53,.12);color:#ff6b35;border-color:rgba(255,107,53,.3)}
-.tag-opp{background:rgba(0,229,160,.1);color:#00e5a0;border-color:rgba(0,229,160,.25)}
-.tag-promo{background:rgba(251,191,36,.1);color:#fbbf24;border-color:rgba(251,191,36,.25)}
-
-/* risk/opp */
-.risk-opp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.risk-block{background:rgba(255,107,53,.06);border:1px solid rgba(255,107,53,.2);border-radius:8px;padding:12px 14px}
-.opp-block{background:rgba(0,229,160,.05);border:1px solid rgba(0,229,160,.2);border-radius:8px;padding:12px 14px}
-.risk-block .card-block-title{color:#ff6b35}
-.opp-block .card-block-title{color:#00e5a0}
-.risk-list,.opp-list{list-style:none}
-.risk-list li,.opp-list li{padding:4px 0 4px 16px;font-size:12.5px;position:relative;line-height:1.5;color:#a0aec0}
-.risk-list li::before{content:"!";position:absolute;left:0;font-size:11px;font-weight:800;color:#ff6b35}
-.opp-list li::before{content:"↑";position:absolute;left:0;font-size:11px;font-weight:800;color:#00e5a0}
-
-/* platform table */
-.platform-table{width:100%;border-collapse:collapse;font-size:12.5px}
-.platform-table th{background:rgba(0,229,160,.08);padding:9px 14px;text-align:left;font-weight:700;color:#00e5a0;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-family:"Space Mono",monospace;border-bottom:1px solid rgba(0,229,160,.2)}
-.platform-table td{padding:9px 14px;border-bottom:1px solid rgba(0,229,160,.06);vertical-align:top;line-height:1.5;color:#a0aec0}
-.platform-table tr:last-child td{border-bottom:none}
-.platform-table tbody tr:nth-child(even) td{background:rgba(0,229,160,.02)}
-.platform-table tr:hover td{background:rgba(0,229,160,.05)}
-.platform-name{font-weight:700;color:#e2e8f0;white-space:nowrap;font-family:"Space Mono",monospace;font-size:11px}
-
-/* tone */
-.tone-正面为主{color:#00e5a0;font-weight:700;text-shadow:0 0 8px rgba(0,229,160,.5)}
-.tone-负面为主{color:#ff6b35;font-weight:700;text-shadow:0 0 8px rgba(255,107,53,.5)}
-.tone-负面\/争议,.tone-争议{color:#fbbf24;font-weight:700;text-shadow:0 0 8px rgba(251,191,36,.4)}
-.tone-中性{color:#718096;font-weight:600}
-.tone-正面\/中性{color:#60a5fa;font-weight:700}
-
-/* one-liner */
-.one-line{background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.2);border-left:3px solid #00e5a0;border-radius:8px;padding:16px 20px;font-size:14px;font-style:italic;margin-top:18px;display:flex;align-items:flex-start;gap:12px;line-height:1.7;color:#c9d1e0}
-.one-line-icon{font-size:16px;flex-shrink:0;margin-top:1px}
-
-/* comparison */
-.comp-table{width:100%;border-collapse:collapse;font-size:12.5px}
-.comp-table th{background:rgba(0,229,160,.08);color:#00e5a0;padding:10px 14px;text-align:left;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-family:"Space Mono",monospace;border-bottom:1px solid rgba(0,229,160,.2)}
-.comp-table td{padding:11px 14px;border-bottom:1px solid rgba(0,229,160,.06);vertical-align:top;color:#a0aec0}
-.comp-table tbody tr:nth-child(even) td{background:rgba(0,229,160,.02)}
-.comp-table tbody tr:hover td{background:rgba(0,229,160,.05)}
-.comp-table tbody tr:last-child td{border-bottom:none}
-
-/* posts */
-.posts-filter{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.posts-filter-btn{padding:5px 12px;border-radius:6px;border:1px solid rgba(0,229,160,.3);background:transparent;color:#a0aec0;font-size:11px;cursor:pointer;font-family:"Space Mono",monospace}
-.posts-filter-btn.active{background:rgba(0,229,160,.15);color:#00e5a0;border-color:#00e5a0}
-.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.post-card{background:rgba(13,17,23,.7);border:1px solid rgba(0,229,160,.1);border-radius:8px;padding:16px;transition:border-color .2s,box-shadow .2s}
-.post-card:hover{border-color:rgba(0,229,160,.3);box-shadow:0 0 16px rgba(0,229,160,.08)}
-.post-meta{font-size:11px;color:#4a5568;margin-bottom:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-family:"Space Mono",monospace}
-.post-brand{font-weight:700;color:#00e5a0}
-.post-platform{background:rgba(0,229,160,.1);color:#00e5a0;padding:1px 7px;border-radius:4px;font-size:10px;font-weight:700;border:1px solid rgba(0,229,160,.25)}
-.post-card p{font-size:13px;line-height:1.65;color:#a0aec0}
-.post-card a{font-size:11px;color:#00e5a0;display:inline-block;margin-top:8px;opacity:.7}
-.post-card a:hover{opacity:1}
-
-/* refs */
-details summary{cursor:pointer;font-family:"Space Mono",monospace;font-weight:700;color:#00e5a0;font-size:12px;padding:6px 0;user-select:none;letter-spacing:1px}
-details summary:hover{color:#00b37a}
-.ref-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:14px}
-.ref-table th{background:rgba(0,229,160,.08);padding:7px 12px;text-align:left;font-weight:700;color:#00e5a0;font-size:10px;font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid rgba(0,229,160,.2)}
-.ref-table td{padding:7px 12px;border-bottom:1px solid rgba(0,229,160,.06);vertical-align:top;line-height:1.45;color:#a0aec0}
-.ref-table a{color:#00e5a0}
-
-/* misc */
-.loading{text-align:center;padding:80px;color:#4a5568;font-size:15px;font-family:"Space Mono",monospace}
-.error{background:rgba(255,107,53,.1);color:#ff6b35;padding:16px 20px;border-radius:8px;margin:20px 0;border:1px solid rgba(255,107,53,.3)}
-.no-data{color:#4a5568;font-style:italic;font-size:12px}
-.divider{height:1px;background:rgba(0,229,160,.08);margin:14px 0}
-.summary-industry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0}
-#mobile-bottom-nav{display:none}
-.m-tab-panel{display:block}
-.m-brand-list{display:none}
-
-/* ===== MOBILE (<=900px) ===== */
-@media(max-width:900px){
-  /* ── Reset desktop styles ── */
-  body{background:#f7f8fc;color:#1a1a2e}
-  body::before{display:none}
-
-  /* ── Header ── */
-  .header{background:linear-gradient(135deg,#0369a1,#075985);padding:12px 16px;flex-wrap:wrap;gap:8px;height:auto;border-bottom:none}
-  .header h1{font-family:"Space Mono",monospace;font-size:13px;color:#fff;letter-spacing:1px}
-  .header h1::after{display:none}
-  .header-subtitle{color:rgba(255,255,255,0.6);font-size:9px;letter-spacing:1px}
-  .header-meta{display:none}
-  .header-logo{background:rgba(255,255,255,0.2);box-shadow:none}
-  .week-selector{width:100%;justify-content:flex-end}
-  .week-selector label{display:none}
-  .week-selector select{background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.3);font-family:"Noto Sans SC",sans-serif;font-size:15px;padding:6px 10px;flex:1;border-radius:8px}
-
-  /* ── Layout ── */
-  .layout{flex-direction:column}
-  .sidebar{display:none}
-  .main{padding:0}
-  .container{max-width:100%;padding-bottom:64px}
-
-  /* ── Report header ── */
-  .report-header{background:#fff;border-radius:0;border:none;border-bottom:4px solid #f0f2f8;margin-bottom:0;box-shadow:none;backdrop-filter:none;padding:12px 14px}
-  .report-header .period{font-family:"Noto Sans SC",sans-serif;color:#1a1a2e;font-size:14px}
-  .report-header .meta{font-family:"Noto Sans SC",sans-serif;color:#999;font-size:10px}
-
-  /* ── Sections ── */
-  .section{background:#fff;border-radius:0;border:none;border-bottom:4px solid #f0f2f8;margin-bottom:0;box-shadow:none;backdrop-filter:none;padding:14px}
-  .section:hover{border-color:transparent;box-shadow:none}
-  .section-title{font-family:"Noto Sans SC",sans-serif;color:#1a1a2e;font-size:13px;letter-spacing:0;text-transform:none;border-bottom-color:#f0f0f5}
-  .section-title::before{display:none}
-  .badge{font-family:"Noto Sans SC",sans-serif;background:#e0f2fe;color:#0369a1;border:none}
-  .badge-orange{background:#fef3c7;color:#92400e}
-  .badge-green{background:#d1fae5;color:#065f46}
-
-  /* ── Summary ── */
-  .summary-industry-grid{display:block}
-  .summary-list li{color:#2d2d4e;font-size:13px;padding:8px 0 8px 18px}
-  .summary-list li::before{color:#0369a1;top:10px}
-  .industry-text{color:#333;font-size:13px}
-
-  /* ── Mobile brand list (总览页速览) ── */
-  .m-brand-row{background:#f8f9ff;border-radius:10px;overflow:hidden}
-  .m-brand-row-header{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;cursor:pointer;user-select:none}
-  .m-brand-name{font-size:13px;font-weight:700;color:#1a1a2e}
-  .m-brand-trade{font-size:11px;color:#888;margin-top:1px}
-  .m-brand-right{display:flex;align-items:center;gap:6px}
-  .m-chevron{font-size:11px;color:#ccc;transition:transform .2s}
-  .m-brand-row.open .m-chevron{transform:rotate(90deg)}
-  .m-brand-expanded{display:none;padding:0 12px 10px;border-top:1px solid #f0f0f5}
-  .m-brand-row.open .m-brand-expanded{display:block}
-  .m-one-line{font-size:12px;color:#555;font-style:italic;padding:8px 0 6px;line-height:1.5}
-
-  /* ── Brand cards (品牌 tab) ── */
-  .brand-tabs-mobile{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px;background:#fff;border-bottom:1px solid #f0f0f5}
-  .brand-tab-m{flex:1;min-width:0;padding:7px 6px;background:#f0f9ff;border:1px solid #e0eef8;border-radius:8px;font-size:11px;color:#555;cursor:pointer;font-family:"Noto Sans SC",sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .brand-tab-m.active{background:#0369a1;color:#fff;border-color:#0369a1}
-  .brand-header{flex-direction:row;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}
-  .brand-name{font-family:"Noto Sans SC",sans-serif;font-size:15px;color:#1a1a2e}
-  .brand-product{color:#0369a1;font-size:13px}
-  .brand-trade{color:#aaa;font-size:11px}
-  .volume-badge{font-family:"Noto Sans SC",sans-serif}
-  .volume-高{background:#fef3c7;color:#b45309;border:none;box-shadow:none}
-  .volume-中{background:#dbeafe;color:#1d4ed8;border:none;box-shadow:none}
-  .volume-低{background:#f3f4f6;color:#6b7280;border:none}
-  .volume-note{background:#f0f9ff;border-left-color:#7dd3fc;color:#888;font-family:"Noto Sans SC",sans-serif}
-  .brand-card-grid{grid-template-columns:1fr;gap:8px}
-  .card-block{background:#f8f9ff;border:none;padding:10px;border-radius:8px}
-  .card-block-title{font-family:"Noto Sans SC",sans-serif;color:#7c7caa;letter-spacing:0}
-  .event-list li{color:#2d2d4e}
-  .event-list li::before{color:#0369a1}
-  .keyword-tag{background:#dbeafe;color:#1e40af;border:none}
-  .tag-risk{background:#fee2e2;color:#991b1b;border:none}
-  .tag-opp{background:#d1fae5;color:#065f46;border:none}
-  .tag-promo{background:#fef3c7;color:#92400e;border:none}
-  .risk-opp-grid{grid-template-columns:1fr;gap:8px}
-  .risk-block{background:#fff5f5;border:none;border-left:3px solid #f87171}
-  .opp-block{background:#f0fdf4;border:none;border-left:3px solid #4ade80}
-  .risk-block .card-block-title{color:#b91c1c}
-  .opp-block .card-block-title{color:#15803d}
-  .risk-list li,.opp-list li{color:#374151}
-  .risk-list li::before{color:#ef4444}
-  .opp-list li::before{color:#22c55e}
-  .platform-table th{background:#f0f7ff;color:#0369a1;font-family:"Noto Sans SC",sans-serif;border-bottom-color:#e0eef8}
-  .platform-table td{color:#333;border-bottom-color:#f0f0f5}
-  .platform-table tbody tr:nth-child(even) td{background:transparent}
-  .platform-table tr:hover td{background:#f0f9ff}
-  .platform-name{font-family:"Noto Sans SC",sans-serif;color:#1a1a2e}
-  .tone-正面为主{color:#15803d;text-shadow:none}
-  .tone-负面为主{color:#dc2626;text-shadow:none}
-  .tone-负面\/争议,.tone-争议{color:#d97706;text-shadow:none}
-  .tone-中性{color:#6b7280}
-  .tone-正面\/中性{color:#0369a1}
-  .one-line{background:linear-gradient(135deg,#0c4a6e,#075985);color:#e0f2fe;border:none;border-left:3px solid #38bdf8;border-radius:8px;padding:10px 12px;margin-top:10px}
-
-  /* ── Comparison (对比 tab) ── */
-  .comp-table thead{display:none}
-  .comp-table,.comp-table tbody{display:block}
-  .comp-table tbody{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .comp-table tr{display:block;border:1px solid #e0eef8;border-radius:10px;padding:10px 12px;background:#f0f9ff}
-  .comp-table td{display:block;padding:3px 0;border:none;font-size:12px;color:#333;white-space:normal}
-  .comp-table td::before{content:attr(data-label);font-size:9px;font-weight:700;color:#0369a1;text-transform:uppercase;display:block;margin-bottom:1px}
-
-  /* ── Posts (讨论 tab) ── */
-  .posts-filter-btn{font-family:"Noto Sans SC",sans-serif;font-size:11px}
-  .posts-filter-btn.active{background:#e0f2fe;color:#0369a1;border-color:#0369a1}
-  .posts-grid{grid-template-columns:1fr;gap:8px}
-  .post-card{background:#f0f9ff;border:none;border-left:3px solid #0369a1;border-radius:8px;padding:12px}
-  .post-card[data-brand="礼来"]{border-left-color:#0369a1;background:#f0f9ff}
-  .post-card[data-brand="诺和诺德"]{border-left-color:#059669;background:#f0fdf4}
-  .post-card[data-brand="信达"]{border-left-color:#d97706;background:#fffbeb}
-  .post-card[data-brand="辉瑞"]{border-left-color:#7c3aed;background:#faf5ff}
-  .post-card:hover{border-color:#0369a1;box-shadow:none}
-  .post-meta{font-family:"Noto Sans SC",sans-serif;color:#888}
-  .post-brand{color:#0369a1}
-  .post-platform{background:#e0f2fe;color:#0369a1;border:none}
-  .post-card p{color:#333}
-  .post-card a{color:#0369a1}
-  details summary{font-family:"Noto Sans SC",sans-serif;color:#0369a1;letter-spacing:0}
-  .ref-table th{font-family:"Noto Sans SC",sans-serif;background:#f0f7ff;color:#0369a1;border-bottom-color:#e0eef8}
-  .ref-table td{color:#333;border-bottom-color:#f0f0f5}
-  .ref-table a{color:#0369a1}
-
-  /* ── Misc ── */
-  .loading{color:#aaa;font-family:"Noto Sans SC",sans-serif}
-  .error{background:#fef2f2;color:#dc2626;border:none}
-  .summary-industry-grid{gap:0}
-
-  /* ── Bottom nav ── */
-  #mobile-bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #f0f0f5;box-shadow:0 -2px 12px rgba(0,0,0,0.06);z-index:100}
-  .m-nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px 10px;background:none;border:none;cursor:pointer;color:#999;font-size:9px;font-family:"Noto Sans SC",sans-serif;gap:2px}
-  .m-nav-item.active{color:#0369a1}
-  .m-nav-icon{font-size:18px;line-height:1}
-
-  /* ── Tab panels — initial state controlled by switchTab() in JS ── */
-  .m-tab-panel{display:none}
-  .m-brand-list{display:flex;flex-direction:column;gap:6px}
-}
-</style>
-</head>
-<body>
-
-<div class="header">
-  <div class="header-left">
-    <div class="header-logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M5 7l7-4 7 4M5 7a4 4 0 0 0 4 4M19 7a4 4 0 0 1-4 4"/></svg></div>
-    <div>
-      <h1>GLP-1 SOCIAL LISTENING</h1>
-      <div class="header-subtitle">INTELLIGENCE DASHBOARD</div>
-      <div class="header-meta">WEIBO · XIAOHONGSHU · ZHIHU · OPEN WEB &nbsp;|&nbsp; NOT MEDICAL/INVESTMENT ADVICE</div>
-    </div>
-  </div>
-  <div class="week-selector">
-    <label>PERIOD</label>
-    <select id="weekSelect" onchange="loadReport(this.value)">
-      <option value="">Loading...</option>
-    </select>
-    <button id="langBtn" onclick="toggleLang()" style="padding:6px 10px;background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);border-radius:8px;cursor:pointer;font-size:13px;font-family:inherit;flex-shrink:0">EN</button>
-  </div>
-</div>
-
-<div class="layout">
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-label">Brand Navigation</div>
-    <div id="brandNav"></div>
-  </div>
-  <div class="main">
-    <div class="container">
-      <div id="content" class="loading">正在加载数据...</div>
-    </div>
-  </div>
-</div>
-
-<!-- Mobile bottom nav (hidden on desktop via CSS) -->
-<nav id="mobile-bottom-nav">
-  <button class="m-nav-item active" onclick="switchTab('overview')" id="mnav-overview">
-    <span class="m-nav-icon">📊</span><span data-zh="总览" data-en="Overview">总览</span>
-  </button>
-  <button class="m-nav-item" onclick="switchTab('brands')" id="mnav-brands">
-    <span class="m-nav-icon">🏷️</span><span data-zh="品牌" data-en="Brands">品牌</span>
-  </button>
-  <button class="m-nav-item" onclick="switchTab('compare')" id="mnav-compare">
-    <span class="m-nav-icon">⚔️</span><span data-zh="对比" data-en="Compare">对比</span>
-  </button>
-  <button class="m-nav-item" onclick="switchTab('posts')" id="mnav-posts">
-    <span class="m-nav-icon">💬</span><span data-zh="讨论" data-en="Posts">讨论</span>
-  </button>
-</nav>
-
-<script>
-let currentLang="zh";
-let currentWeek="";
-
-const I18N={
-  zh:{
-    loading:"正在加载...",
-    loadFail:"加载失败：",
-    initFail:"初始化失败：",
-    updatedAt:"更新时间：",
-    metaSuffix:"北京时间自然周（周一–周日）&nbsp;·&nbsp; 公开互联网数据",
-    execSummary:"核心结论",
-    industryOverview:"行业总览",
-    brandSnapshot:"品牌速览",
-    volSuffix:"声量",
-    brandCards:"分品牌舆情卡",
-    keyEvents:"本周核心事件",
-    keywords:"舆情关键词",
-    risks:"风险点",
-    opps:"机会点",
-    platformObs:"平台舆情观察",
-    noData:"本周期未检索到足够公开内容支持判断",
-    source:"来源",
-    platform:"平台",
-    mainDiscussion:"主要讨论",
-    userFocus:"用户关注点",
-    sentiment:"情绪",
-    compTitle:"品牌横向对比",
-    colBrand:"品牌",colVol:"声量",colIntensity:"事件强度",colSentiment:"舆情倾向",
-    colFocus:"讨论重心",colTopPlatform:"最活跃平台",colRisk:"主要风险",colOpp:"主要机会",
-    postsTitle:"代表性讨论摘录",
-    filterAll:"全部",
-    readMore:"查看原文 →",
-    refTitle:"Reference 附录（共",refSuffix:"条）",
-    colDate:"日期",colTitle:"标题/话题",colType:"类型",colSummary:"摘要",colLink:"链接",
-    link:"链接",
-  },
-  en:{
-    loading:"Loading...",
-    loadFail:"Load failed: ",
-    initFail:"Init failed: ",
-    updatedAt:"Updated: ",
-    metaSuffix:"Natural week Mon–Sun (Beijing Time)&nbsp;·&nbsp; Public internet data",
-    execSummary:"Key Insights",
-    industryOverview:"Industry Overview",
-    brandSnapshot:"Brand Snapshot",
-    volSuffix:"Vol.",
-    brandCards:"Brand Intelligence Cards",
-    keyEvents:"Key Events This Week",
-    keywords:"Sentiment Keywords",
-    risks:"Risks",
-    opps:"Opportunities",
-    platformObs:"Platform Observations",
-    noData:"Insufficient public content found for this period.",
-    source:"Source",
-    platform:"Platform",
-    mainDiscussion:"Main Discussion",
-    userFocus:"User Focus",
-    sentiment:"Sentiment",
-    compTitle:"Competitive Comparison",
-    colBrand:"Brand",colVol:"Volume",colIntensity:"Event Intensity",colSentiment:"Sentiment",
-    colFocus:"Discussion Focus",colTopPlatform:"Top Platform",colRisk:"Main Risk",colOpp:"Main Opportunity",
-    postsTitle:"Representative Posts",
-    filterAll:"All",
-    readMore:"View Original →",
-    refTitle:"References (",refSuffix:" total)",
-    colDate:"Date",colTitle:"Title/Topic",colType:"Type",colSummary:"Summary",colLink:"Link",
-    link:"Link",
-  }
-};
-function t(key){return I18N[currentLang][key]||key;}
-
-async function fetchJSON(url){
-  const res=await fetch(url);
-  if(!res.ok)throw new Error(`HTTP ${res.status}`);
-  return res.json();
-}
-
-async function initWeeks(){
-  const weeks=await fetchJSON("data/index.json");
-  const sel=document.getElementById("weekSelect");
-  sel.innerHTML=weeks.map((w,i)=>
-    `<option value="${w}"${i===0?" selected":""}>${w}</option>`
-  ).join("");
-  if(weeks.length>0)await loadReport(weeks[0]);
-}
-
-async function loadReport(week){
-  currentWeek=week;
-  const content=document.getElementById("content");
-  content.innerHTML=`<div class="loading">${t("loading")}</div>`;
-  const suffix=currentLang==="en"?".en":"";
-  try{
-    const d=await fetchJSON(`data/${week}${suffix}.json`);
-    content.className="";
-    content.innerHTML=renderReport(d);
-    buildSidebar(d);
-    switchBrand(0);
-    switchTab('overview');
-  }catch(e){
-    // fallback to Chinese if English not available
-    if(currentLang==="en"){
-      try{
-        const d=await fetchJSON(`data/${week}.json`);
-        content.className="";
-        content.innerHTML=renderReport(d);
-        buildSidebar(d);
-        switchBrand(0);
-        switchTab('overview');
-        content.insertAdjacentHTML("afterbegin",`<div class="error" style="font-size:11px;padding:8px 14px">English translation not available for this week. Showing Chinese.</div>`);
-        return;
-      }catch(_){}
-    }
-    content.innerHTML=`<div class="error">${t("loadFail")}${e.message}</div>`;
-  }
-}
-
-function toggleLang(){
-  currentLang=currentLang==="zh"?"en":"zh";
-  document.getElementById("langBtn").textContent=currentLang==="zh"?"EN":"中";
-  // Update mobile nav labels
-  document.querySelectorAll("[data-zh]").forEach(el=>{
-    el.textContent=currentLang==="zh"?el.dataset.zh:el.dataset.en;
-  });
-  if(currentWeek)loadReport(currentWeek);
-}
-
-function buildSidebar(d){
-  const nav=document.getElementById("brandNav");
-  if(!nav||!d.brands)return;
-  nav.innerHTML=d.brands.map((b,i)=>
-    `<div class="brand-nav-item" id="nav-${i}" onclick="switchBrand(${i})"><div><span class="nav-company">${b.company}</span><span class="nav-product">${b.product}</span></div></div>`
-  ).join("");
-}
-
-function tone(t){
-  if(!t)return `<span class="no-data">-</span>`;
-  const cls=t.replace(/\//g,"\\/");
-  return `<span class="tone-${cls}">${t}</span>`;
-}
-
-function renderReport(d){
-  return renderHeader(d)
-    +`<div class="m-tab-panel" id="tab-overview">`
-      +`<div class="summary-industry-grid"><div>${renderSummary(d)}</div><div>${renderIndustry(d)}</div></div>`
-      +renderBrandsSummary(d)
-    +`</div>`
-    +`<div class="m-tab-panel" id="tab-brands">${renderBrands(d)}</div>`
-    +`<div class="m-tab-panel" id="tab-compare">${renderComparison(d)}</div>`
-    +`<div class="m-tab-panel" id="tab-posts">${renderPosts(d)}${renderRefs(d)}</div>`;
-}
-
-function renderHeader(d){
-  const gen=d.generated_at?d.generated_at.replace("T"," ").slice(0,16):"-";
-  return `<div class="report-header"><div><div class="period">${d.period||d.week}</div><div class="meta">${t("updatedAt")}${gen} &nbsp;·&nbsp; ${t("metaSuffix")}</div></div></div>`;
-}
-
-function renderSummary(d){
-  if(!d.executive_summary?.length)return "";
-  const items=d.executive_summary.map(s=>`<li>${s}</li>`).join("");
-  return `<div class="section"><div class="section-title">${t("execSummary")} <span class="badge">EXECUTIVE SUMMARY</span></div><ul class="summary-list">${items}</ul></div>`;
-}
-
-function renderIndustry(d){
-  if(!d.industry_overview)return "";
-  return `<div class="section"><div class="section-title">${t("industryOverview")} <span class="badge badge-green">GLP-1 TRACK</span></div><p class="industry-text">${d.industry_overview}</p></div>`;
-}
-
-function renderBrandsSummary(d){
-  if(!d.brands?.length)return "";
-  const rows=d.brands.map(b=>`
-    <div class="m-brand-row">
-      <div class="m-brand-row-header" onclick="this.parentElement.classList.toggle('open')">
-        <div>
-          <div class="m-brand-name">${b.company} · ${b.product}</div>
-          <div class="m-brand-trade">${b.trade_name}</div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f8fb" id="themeColor">
+    <meta name="description" content="GLP-1 News 聚合中国 GLP-1 领域新闻，按五维评分、质量分和事件聚类呈现。">
+    <title>China GLP-1 HOT</title>
+    <link rel="stylesheet" href="styles.css?v=20260528-blue">
+  </head>
+  <body>
+    <div class="shell" id="appShell">
+      <aside class="sidebar" aria-label="主导航">
+        <button class="drawer-close" type="button" aria-label="关闭菜单">×</button>
+        <a class="brand" href="./" aria-label="China GLP-1 HOT 首页">
+          <span>
+            <span class="brand-name">China GLP-1 HOT</span>
+            <span class="brand-subtitle">China-first signal feed</span>
+          </span>
+        </a>
+        <nav class="side-nav" aria-label="内容视图">
+          <button class="side-link active" data-view="selected" data-short="精" type="button">精选</button>
+          <button class="side-link" data-view="all" data-short="全" type="button">全部</button>
+          <a class="side-link module-link" href="dashboard.html">舆情看板</a>
+        </nav>
+        <div class="side-panel">
+          <div class="panel-kicker">更新</div>
+          <div id="generatedAt" class="panel-value">--</div>
         </div>
-        <div class="m-brand-right">
-          <span class="volume-badge volume-${b.volume_level}">${b.volume_level} ${t("volSuffix")}</span>
-          <span class="m-chevron">▶</span>
+        <div class="side-panel compact">
+          <div class="panel-kicker">事件</div>
+          <div id="eventCount" class="panel-value">--</div>
         </div>
-      </div>
-      <div class="m-brand-expanded">
-        ${b.one_line?`<div class="m-one-line">${b.one_line}</div>`:""}
-        <div class="keywords">${(b.keywords||[]).map(k=>`<span class="keyword-tag">${k}</span>`).join("")}</div>
-      </div>
-    </div>`).join("");
-  return `<div class="section"><div class="section-title">${t("brandSnapshot")}</div><div class="m-brand-list">${rows}</div></div>`;
-}
+        <div class="theme-switch" aria-label="显示模式">
+          <button class="theme-button active" data-theme-choice="light" type="button" aria-label="白天模式">☀</button>
+          <button class="theme-button" data-theme-choice="dark" type="button" aria-label="夜晚模式">☾</button>
+        </div>
+      </aside>
 
-function renderBrands(d){
-  if(!d.brands?.length)return "";
-  const mobileTabs=d.brands.map((b,i)=>
-    `<button class="brand-tab-m" onclick="switchBrand(${i})" id="tabm-${i}">${b.company}｜${b.product}</button>`
-  ).join("");
-  const cards=d.brands.map((b,i)=>renderBrandCard(b,i)).join("");
-  return `<div class="brand-tabs-mobile">${mobileTabs}</div><div class="section"><div class="section-title">${t("brandCards")} <span class="badge badge-orange">BRAND CARDS</span></div>${cards}</div>`;
-}
+      <main class="main">
+        <header class="topbar">
+          <button class="menu-toggle mobile-menu-toggle" type="button" aria-label="展开菜单" aria-expanded="false">☰</button>
+          <a class="mobile-brand" href="./" aria-label="China GLP-1 HOT 首页">
+            <span class="brand-name">China GLP-1 HOT</span>
+          </a>
+          <div class="view-toggle" aria-label="内容视图">
+            <button class="view-chip active" data-view="selected" type="button">精选</button>
+            <button class="view-chip" data-view="all" type="button">全部</button>
+          </div>
+        </header>
 
-function renderBrandCard(b,i){
-  const events=(b.events||[]).map(e=>
-    `<li><span>${e.text}</span>${e.ref&&e.ref!=="N/A"?` <a href="${e.ref}" target="_blank">[${t("source")}]</a>`:""}</li>`
-  ).join("")||`<li class="no-data" style="padding-left:0;list-style:none">${t("noData")}</li>`;
+        <section class="toolbar" aria-label="筛选">
+          <div class="toolbar-head">
+            <div>
+              <h1>China GLP-1 HOT</h1>
+              <p>AI 自动挑选的高价值新闻内容</p>
+            </div>
+            <div class="score-note">
+              <span>5D</span>
+              <strong>代码精选</strong>
+            </div>
+          </div>
+          <div class="filters">
+            <label class="search">
+              <span class="search-icon">⌕</span>
+              <input id="searchInput" type="search" placeholder="搜索标题、摘要、公司、药物…" autocomplete="off">
+            </label>
+            <div class="category-strip" id="categoryFilter" aria-label="主题筛选">
+              <button class="category-chip active" data-category="" type="button">全部</button>
+              <button class="category-chip" data-category="regulatory_approval" type="button">监管审批</button>
+              <button class="category-chip" data-category="clinical_trial" type="button">临床试验</button>
+              <button class="category-chip" data-category="company" type="button">药企动态</button>
+              <button class="category-chip" data-category="commercialization" type="button">商业化/医保</button>
+              <button class="category-chip" data-category="safety" type="button">安全性</button>
+              <button class="category-chip" data-category="investment" type="button">投融资</button>
+              <button class="category-chip" data-category="research" type="button">研究进展</button>
+            </div>
+          </div>
+        </section>
 
-  const platforms=Object.entries(b.platform_sentiment||{}).map(([p,v])=>{
-    const hasData=v.summary&&!v.summary.includes("未检索到")&&!v.summary.toLowerCase().includes("insufficient");
-    return `<tr><td><span class="platform-name">${p}</span></td><td>${hasData?v.summary:`<span class="no-data">-</span>`}</td><td>${hasData?(v.focus||"-"):"-"}</td><td>${tone(v.tone)}</td></tr>`;
-  }).join("");
-
-  const keywords=(b.keywords||[]).map(k=>`<span class="keyword-tag">${k}</span>`).join("");
-  const risks=(b.risks||[]).map(r=>`<li>${r}</li>`).join("")||`<li class="no-data">-</li>`;
-  const opps=(b.opportunities||[]).map(o=>`<li>${o}</li>`).join("")||`<li class="no-data">-</li>`;
-
-  return `<div class="brand-card" id="brand-${i}">
-    <div class="brand-header"><span class="brand-name">${b.company}</span><span style="color:#4a5568">|</span><span class="brand-product">${b.product}</span><span class="brand-trade">（${b.trade_name}）</span><span class="volume-badge volume-${b.volume_level}">${b.volume_level} ${t("volSuffix")}</span></div>
-    ${b.volume_note?`<div class="volume-note">${b.volume_note}</div>`:""}
-    <div class="brand-card-grid">
-      <div class="card-block"><div class="card-block-title">${t("keyEvents")}</div><ul class="event-list">${events}</ul></div>
-      <div><div class="card-block"><div class="card-block-title">${t("keywords")}</div><div class="keywords">${keywords||`<span class="no-data">-</span>`}</div></div>
-      <div class="risk-opp-grid"><div class="risk-block"><div class="card-block-title">${t("risks")}</div><ul class="risk-list">${risks}</ul></div><div class="opp-block"><div class="card-block-title">${t("opps")}</div><ul class="opp-list">${opps}</ul></div></div></div>
+        <section id="timeline" class="timeline" aria-live="polite"></section>
+        <section id="emptyState" class="empty" hidden>
+          <h2>没有匹配的新闻</h2>
+          <p>换一个关键词或筛选条件试试。</p>
+        </section>
+      </main>
     </div>
-    <div class="card-block" style="margin-top:14px"><div class="card-block-title">${t("platformObs")}</div><div style="overflow-x:auto"><table class="platform-table"><thead><tr><th>${t("platform")}</th><th>${t("mainDiscussion")}</th><th>${t("userFocus")}</th><th>${t("sentiment")}</th></tr></thead><tbody>${platforms}</tbody></table></div></div>
-    ${b.one_line?`<div class="one-line"><span class="one-line-icon">💬</span>${b.one_line}</div>`:""}
-  </div>`;
-}
 
-function switchBrand(idx){
-  document.querySelectorAll(".brand-card").forEach((el,i)=>el.classList.toggle("active",i===idx));
-  document.querySelectorAll(".brand-nav-item").forEach((el,i)=>el.classList.toggle("active",i===idx));
-  document.querySelectorAll(".brand-tab-m").forEach((el,i)=>el.classList.toggle("active",i===idx));
-}
+    <template id="dayTemplate">
+      <section class="day">
+        <div class="day-head">
+          <h2></h2>
+          <span></span>
+        </div>
+        <div class="day-items"></div>
+      </section>
+    </template>
 
-function filterPosts(btn,brand){
-  document.querySelectorAll(".posts-filter-btn").forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-  document.querySelectorAll(".post-card").forEach(el=>{
-    el.style.display=(!brand||el.dataset.brand===brand)?"":"none";
-  });
-}
+    <template id="cardTemplate">
+      <article class="news-card">
+        <div class="time"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="source"></span>
+            <span class="badge selected-badge">精选</span>
+            <span class="badge verification"></span>
+            <span class="score"></span>
+          </div>
+          <a class="title"></a>
+          <p class="summary"></p>
+          <div class="tags"></div>
+          <div class="score-grid"></div>
+          <button class="related-toggle" type="button" hidden></button>
+          <div class="related-list" hidden></div>
+        </div>
+      </article>
+    </template>
 
-function switchTab(tab){
-  if(window.innerWidth>900){
-    document.querySelectorAll(".m-tab-panel").forEach(el=>el.style.display="");
-  }else{
-    document.querySelectorAll(".m-tab-panel").forEach(el=>{
-      el.style.display=el.id===`tab-${tab}`?"block":"none";
-    });
-  }
-  document.querySelectorAll(".m-nav-item").forEach(el=>{
-    el.classList.toggle("active",el.id===`mnav-${tab}`);
-  });
-}
-
-function renderComparison(d){
-  if(!d.competitive_comparison?.length)return "";
-  const rows=d.competitive_comparison.map(c=>
-    `<tr><td data-label="${t("colBrand")}"><strong>${c.company}</strong> <span style="color:#4a5568;font-size:11px">${c.product}</span></td>
-    <td data-label="${t("colVol")}"><span class="volume-badge volume-${c.volume_level}">${c.volume_level}</span></td>
-    <td data-label="${t("colIntensity")}">${c.event_intensity||"-"}</td>
-    <td data-label="${t("colSentiment")}">${tone(c.sentiment)}</td>
-    <td data-label="${t("colFocus")}" style="max-width:160px">${c.discussion_focus||"-"}</td>
-    <td data-label="${t("colTopPlatform")}">${c.top_platform||"-"}</td>
-    <td data-label="${t("colRisk")}" style="color:#ff6b35;font-size:12px;max-width:140px">${c.main_risk||"-"}</td>
-    <td data-label="${t("colOpp")}" style="color:#00e5a0;font-size:12px;max-width:140px">${c.main_opportunity||"-"}</td></tr>`
-  ).join("");
-  return `<div class="section"><div class="section-title">${t("compTitle")} <span class="badge">COMPETITIVE SNAPSHOT</span></div><div style="overflow-x:auto"><table class="comp-table"><thead><tr><th>${t("colBrand")}</th><th>${t("colVol")}</th><th>${t("colIntensity")}</th><th>${t("colSentiment")}</th><th>${t("colFocus")}</th><th>${t("colTopPlatform")}</th><th>${t("colRisk")}</th><th>${t("colOpp")}</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
-}
-
-function renderPosts(d){
-  if(!d.representative_posts?.length)return "";
-  const brands=[...new Set(d.representative_posts.map(p=>p.brand))];
-  const filterTabs=brands.length>1
-    ?`<div class="posts-filter"><button class="posts-filter-btn active" onclick="filterPosts(this,'')">${t("filterAll")}</button>${brands.map(b=>`<button class="posts-filter-btn" onclick="filterPosts(this,'${b}')">${b}</button>`).join("")}</div>`
-    :"";
-  const cards=d.representative_posts.map(p=>{
-    const tags=(p.tags||[]).map(t=>{
-      const cls=t.includes("推广")||t.toLowerCase().includes("promo")?"tag-promo":t.includes("副作用")||t.toLowerCase().includes("side effect")?"tag-risk":t.includes("机会")||t.toLowerCase().includes("opportunit")?"tag-opp":"";
-      return `<span class="keyword-tag ${cls}">${t}</span>`;
-    }).join("");
-    return `<div class="post-card" data-brand="${p.brand}"><div class="post-meta"><span class="post-brand">${p.brand}</span><span class="post-platform">${p.platform}</span></div>
-      ${tags?`<div style="margin-bottom:8px;display:flex;flex-wrap:wrap;gap:4px">${tags}</div>`:""}
-      <p>${p.summary}</p>
-      ${p.ref&&p.ref!=="N/A"?`<a href="${p.ref}" target="_blank">${t("readMore")}</a>`:""}
-    </div>`;
-  }).join("");
-  return `<div class="section"><div class="section-title">${t("postsTitle")} <span class="badge">REPRESENTATIVE POSTS</span></div>${filterTabs}<div class="posts-grid">${cards}</div></div>`;
-}
-
-function renderRefs(d){
-  if(!d.references?.length)return "";
-  const rows=d.references.map(r=>
-    `<tr><td>${r.brand||"-"}</td><td>${r.platform||"-"}</td><td style="white-space:nowrap">${r.date||"-"}</td><td>${r.title||"-"}</td><td><span class="keyword-tag" style="font-size:11px">${r.type||"-"}</span></td><td style="max-width:200px">${r.summary||"-"}</td><td>${r.url&&r.url!=="N/A"?`<a href="${r.url}" target="_blank">${t("link")}</a>`:"-"}</td></tr>`
-  ).join("");
-  return `<div class="section"><details><summary>📎 ${t("refTitle")} ${d.references.length} ${t("refSuffix")}</summary><div style="overflow-x:auto"><table class="ref-table"><thead><tr><th>${t("colBrand")}</th><th>${t("platform")}</th><th>${t("colDate")}</th><th>${t("colTitle")}</th><th>${t("colType")}</th><th>${t("colSummary")}</th><th>${t("colLink")}</th></tr></thead><tbody>${rows}</tbody></table></div></details></div>`;
-}
-
-initWeeks().catch(e=>{
-  document.getElementById("content").innerHTML=`<div class="error">${t("initFail")}${e.message}</div>`;
-});
-</script>
-</body>
+    <div class="drawer-backdrop" aria-hidden="true"></div>
+    <script src="app.js?v=20260528-blue" defer></script>
+  </body>
 </html>
