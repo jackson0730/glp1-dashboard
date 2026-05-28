@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-05-28T13:53:43.915242+00:00",
+  "generated_at": "2026-05-28T15:22:53.524461+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,60 +9,17 @@
     "china_impact"
   ],
   "stats": {
-    "events": 16,
-    "selected": 14,
-    "related_reports": 9
+    "events": 13,
+    "selected": 12,
+    "related_reports": 7
   },
   "news": [
     {
-      "id": "b71da810fc8b2721",
-      "title": "礼来口服GLP-1减肥药在美获批上市，已申请中国上市中 - 第一财经",
-      "summary": "礼来口服GLP-1减肥药在美获批上市，已申请中国上市中 第一财经",
-      "url": "https://www.yicai.com/news/103116315.html",
-      "source": "第一财经",
-      "source_id": "google-cn-regulatory",
-      "source_type": "professional_media",
-      "source_priority": 70,
-      "region": "china",
-      "region_label": "中国",
-      "category": "regulatory_approval",
-      "category_label": "监管审批",
-      "tags": [
-        "礼来",
-        "获批"
-      ],
-      "published_at": "2026-05-28T08:12:20+00:00",
-      "scores": {
-        "relevance": 84,
-        "importance": 73,
-        "credibility": 59,
-        "freshness": 92,
-        "china_impact": 84
-      },
-      "scored_by": "rules_fallback",
-      "score_status": "ok",
-      "quality_score": 89,
-      "selected": true,
-      "verification": "已聚类验证",
-      "cluster_id": "event-0001",
-      "is_primary": true,
-      "related_count": 1,
-      "related_items": [
-        {
-          "title": "礼来口服GLP-1药物Foundayo奥福格列隆III期数据亮眼：65岁以上老年肥胖者减重高达13% - 摩熵医药",
-          "url": "https://www.pharnexcloud.com/zixun/sx_314604",
-          "source": "摩熵医药",
-          "published_at": "2026-05-27T03:56:24+00:00",
-          "quality_score": 87
-        }
-      ]
-    },
-    {
-      "id": "32f6d7f73381cce5",
-      "title": "恒瑞III期临床试验成功，GLP-1百亿美元赛道再添玩家21世纪经济报道46分钟 - 财富号",
-      "summary": "恒瑞III期临床试验成功，GLP-1百亿美元赛道再添玩家21世纪经济报道46分钟 财富号",
-      "url": "https://caifuhao.eastmoney.com/news/20260527190452690681310",
-      "source": "财富号",
+      "id": "e7bd96cfed861800",
+      "title": "恒瑞口服小分子GLP-1 III期研究成功 - ByDrug",
+      "summary": "恒瑞口服小分子GLP-1 III期研究成功 ByDrug",
+      "url": "https://bydrug.pharmcube.com/news/detail/1dbf4eed69a813979a23a4948e8b899d",
+      "source": "ByDrug",
       "source_id": "google-cn-companies",
       "source_type": "professional_media",
       "source_priority": 70,
@@ -72,9 +29,11 @@
       "category_label": "临床试验",
       "tags": [
         "临床",
-        "恒瑞医药"
+        "恒瑞医药",
+        "研究"
       ],
-      "published_at": "2026-05-27T11:04:00+00:00",
+      "published_at": "2026-05-27T09:37:00+00:00",
+      "feed_published_at": "2026-05-27T01:37:00+00:00",
       "scores": {
         "relevance": 84,
         "importance": 73,
@@ -89,20 +48,13 @@
       "verification": "已聚类验证",
       "cluster_id": "event-0004",
       "is_primary": true,
-      "related_count": 2,
+      "related_count": 1,
       "related_items": [
-        {
-          "title": "恒瑞口服小分子GLP-1 III期研究成功 - ByDrug",
-          "url": "https://bydrug.pharmcube.com/news/detail/1dbf4eed69a813979a23a4948e8b899d",
-          "source": "ByDrug",
-          "published_at": "2026-05-27T01:37:00+00:00",
-          "quality_score": 87
-        },
         {
           "title": "恒瑞医药原研口服GLP-1受体激动剂中国Ⅲ期研究积极顶线结果公布 - 新华网",
           "url": "http://www.news.cn/digital/20260527/f641b423224348c4adaa284f9124eaec/c.html",
           "source": "新华网",
-          "published_at": "2026-05-27T03:35:32+00:00",
+          "published_at": "2026-05-27T00:00:00+00:00",
           "quality_score": 81
         }
       ]
@@ -124,7 +76,8 @@
         "利拉鲁肽",
         "获批"
       ],
-      "published_at": "2026-05-25T08:17:00+00:00",
+      "published_at": "2026-05-25T16:17:00+00:00",
+      "feed_published_at": "2026-05-25T08:17:00+00:00",
       "scores": {
         "relevance": 88,
         "importance": 73,
@@ -137,7 +90,7 @@
       "quality_score": 86,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0008",
+      "cluster_id": "event-0007",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -160,7 +113,8 @@
         "替尔泊肽",
         "获批"
       ],
-      "published_at": "2026-05-22T01:00:00+00:00",
+      "published_at": "2026-05-22T09:00:00+00:00",
+      "feed_published_at": "2026-05-22T01:00:00+00:00",
       "scores": {
         "relevance": 88,
         "importance": 73,
@@ -173,17 +127,17 @@
       "quality_score": 82,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0012",
+      "cluster_id": "event-0010",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
     },
     {
       "id": "ed6fb513a08aa5f7",
-      "title": "央视财经关注医药新质生产力，玛仕度肽成讨论案例 - 观察者",
-      "summary": "央视财经关注医药新质生产力，玛仕度肽成讨论案例 观察者",
+      "title": "央视财经关注医药新质生产力，玛仕度肽成讨论案例 - guancha.cn",
+      "summary": "央视财经关注医药新质生产力，玛仕度肽成讨论案例 guancha.cn",
       "url": "https://www.guancha.cn/economy/2026_05_28_818612.shtml",
-      "source": "观察者",
+      "source": "guancha.cn",
       "source_id": "google-cn-regulatory",
       "source_type": "professional_media",
       "source_priority": 70,
@@ -194,7 +148,8 @@
       "tags": [
         "玛仕度肽"
       ],
-      "published_at": "2026-05-28T01:37:00+00:00",
+      "published_at": "2026-05-28T09:37:32+00:00",
+      "feed_published_at": "2026-05-28T01:37:00+00:00",
       "scores": {
         "relevance": 74,
         "importance": 55,
@@ -207,7 +162,7 @@
       "quality_score": 81,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0003",
+      "cluster_id": "event-0002",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -228,7 +183,8 @@
       "tags": [
         "玛仕度肽"
       ],
-      "published_at": "2026-05-27T00:00:00+00:00",
+      "published_at": "2026-05-27T08:00:00+00:00",
+      "feed_published_at": "2026-05-27T00:00:00+00:00",
       "scores": {
         "relevance": 74,
         "importance": 55,
@@ -241,7 +197,7 @@
       "quality_score": 81,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0006",
+      "cluster_id": "event-0005",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -263,7 +219,8 @@
         "司美格鲁肽",
         "获批"
       ],
-      "published_at": "2026-05-25T02:05:37+00:00",
+      "published_at": "2026-05-25T10:05:00+00:00",
+      "feed_published_at": "2026-05-25T02:05:37+00:00",
       "scores": {
         "relevance": 88,
         "importance": 55,
@@ -276,7 +233,7 @@
       "quality_score": 81,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0011",
+      "cluster_id": "event-0009",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -297,7 +254,8 @@
       "tags": [
         "临床"
       ],
-      "published_at": "2026-05-27T03:08:43+00:00",
+      "published_at": "2026-05-27T11:08:00+00:00",
+      "feed_published_at": "2026-05-27T03:08:43+00:00",
       "scores": {
         "relevance": 70,
         "importance": 55,
@@ -310,7 +268,7 @@
       "quality_score": 79,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0005",
+      "cluster_id": "event-0003",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -331,7 +289,8 @@
       "tags": [
         "网售限制"
       ],
-      "published_at": "2026-05-28T06:41:42+00:00",
+      "published_at": "2026-05-28T14:41:00+00:00",
+      "feed_published_at": "2026-05-28T06:41:42+00:00",
       "scores": {
         "relevance": 70,
         "importance": 55,
@@ -344,7 +303,7 @@
       "quality_score": 77,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0002",
+      "cluster_id": "event-0001",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -365,7 +324,8 @@
       "tags": [
         "辉瑞"
       ],
-      "published_at": "2026-05-25T02:08:11+00:00",
+      "published_at": "2026-05-25T10:08:00+00:00",
+      "feed_published_at": "2026-05-25T02:08:11+00:00",
       "scores": {
         "relevance": 70,
         "importance": 55,
@@ -378,41 +338,7 @@
       "quality_score": 76,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0010",
-      "is_primary": true,
-      "related_count": 0,
-      "related_items": []
-    },
-    {
-      "id": "b608bc08a4afda79",
-      "title": "礼来超越默沙东：GLP-1 爆发后，肿瘤药还值得看吗？ - 财富号",
-      "summary": "礼来超越默沙东：GLP-1 爆发后，肿瘤药还值得看吗？ 财富号",
-      "url": "https://caifuhao.eastmoney.com/news/20260525104350701094680",
-      "source": "财富号",
-      "source_id": "google-cn-commercial",
-      "source_type": "professional_media",
-      "source_priority": 70,
-      "region": "china",
-      "region_label": "中国",
-      "category": "commercialization",
-      "category_label": "商业化/医保",
-      "tags": [
-        "礼来"
-      ],
-      "published_at": "2026-05-25T02:43:00+00:00",
-      "scores": {
-        "relevance": 70,
-        "importance": 55,
-        "credibility": 59,
-        "freshness": 71,
-        "china_impact": 72
-      },
-      "scored_by": "rules_fallback",
-      "score_status": "ok",
-      "quality_score": 74,
-      "selected": true,
-      "verification": "待交叉验证",
-      "cluster_id": "event-0009",
+      "cluster_id": "event-0008",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -431,7 +357,8 @@
       "category": "regulatory_approval",
       "category_label": "监管审批",
       "tags": [],
-      "published_at": "2026-05-25T09:24:07+00:00",
+      "published_at": "2026-05-25T17:24:00+00:00",
+      "feed_published_at": "2026-05-25T09:24:07+00:00",
       "scores": {
         "relevance": 55,
         "importance": 55,
@@ -444,7 +371,7 @@
       "quality_score": 73,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0007",
+      "cluster_id": "event-0006",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -466,7 +393,8 @@
         "司美格鲁肽",
         "网售限制"
       ],
-      "published_at": "2026-05-18T07:00:00+00:00",
+      "published_at": "2026-05-18T20:50:11+00:00",
+      "feed_published_at": "2026-05-18T07:00:00+00:00",
       "scores": {
         "relevance": 88,
         "importance": 55,
@@ -479,7 +407,7 @@
       "quality_score": 71,
       "selected": true,
       "verification": "已聚类验证",
-      "cluster_id": "event-0014",
+      "cluster_id": "event-0011",
       "is_primary": true,
       "related_count": 6,
       "related_items": [
@@ -487,7 +415,7 @@
           "title": "以司美格鲁肽为代表的GLP-1类减重药物具体是如何规避网络销售禁令的？ - 新浪财经",
           "url": "https://cj.sina.cn/articles/view/7879776328/1d5abd84806801kunk?froms=ggmp&vt=4",
           "source": "新浪财经",
-          "published_at": "2026-05-17T07:00:00+00:00",
+          "published_at": "2026-05-17T08:09:11+00:00",
           "quality_score": 70
         },
         {
@@ -515,7 +443,7 @@
           "title": "警惕“减重针”乱象！新规禁止网售，但线上仍存售卖漏洞 - 搜狐网",
           "url": "https://www.sohu.com/a/1024322971_355475",
           "source": "搜狐网",
-          "published_at": "2026-05-18T11:23:22+00:00",
+          "published_at": "2026-05-18T19:23:00+00:00",
           "quality_score": 66
         },
         {
@@ -557,40 +485,6 @@
       "quality_score": 68,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0016",
-      "is_primary": true,
-      "related_count": 0,
-      "related_items": []
-    },
-    {
-      "id": "258db1b3096c4351",
-      "title": "【今日IPO】博瑞医药二次递港交所，押注GLP-1赛道| Watch - MSN",
-      "summary": "【今日IPO】博瑞医药二次递港交所，押注GLP-1赛道| Watch MSN",
-      "url": "http://www.msn.com/zh-hk/video/news/%E4%BB%8A%E6%97%A5ipo-%E5%8D%9A%E7%91%9E%E5%8C%BB%E8%8D%AF%E4%BA%8C%E6%AC%A1%E9%80%92%E6%B8%AF%E4%BA%A4%E6%89%80-%E6%8A%BC%E6%B3%A8glp-1%E8%B5%9B%E9%81%93/vi-AA23CUcC",
-      "source": "MSN",
-      "source_id": "google-cn-companies",
-      "source_type": "professional_media",
-      "source_priority": 70,
-      "region": "china",
-      "region_label": "中国",
-      "category": "investment",
-      "category_label": "投融资",
-      "tags": [
-        "博瑞医药"
-      ],
-      "published_at": "2026-05-20T08:48:10+00:00",
-      "scores": {
-        "relevance": 70,
-        "importance": 55,
-        "credibility": 59,
-        "freshness": 36,
-        "china_impact": 72
-      },
-      "scored_by": "rules_fallback",
-      "score_status": "ok",
-      "quality_score": 68,
-      "selected": false,
-      "verification": "未入精选",
       "cluster_id": "event-0013",
       "is_primary": true,
       "related_count": 0,
@@ -623,7 +517,7 @@
       "quality_score": 60,
       "selected": false,
       "verification": "未入精选",
-      "cluster_id": "event-0015",
+      "cluster_id": "event-0012",
       "is_primary": true,
       "related_count": 0,
       "related_items": []

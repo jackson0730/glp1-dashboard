@@ -244,6 +244,27 @@ def parse_datetime(value: str) -> str:
         return dt.datetime.now(dt.timezone.utc).isoformat()
 
 
+def normalize_iso_timezone(value: str) -> str:
+    return re.sub(r"([+-]\d{2})$", r"\1:00", value.strip())
+
+
+def extract_article_published_at(html_text: str) -> str:
+    patterns = [
+        r"\['actime',\s*'([^']+)'\]",
+        r"\['autime',\s*'([^']+)'\]",
+        r'<meta[^>]+(?:property|name)=["\']article:published_time["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+(?:property|name)=["\'](?:pubdate|publishdate|datePublished)["\'][^>]+content=["\']([^"\']+)["\']',
+        r'"datePublished"\s*:\s*"([^"]+)"',
+        r'"publishTime"\s*:\s*"([^"]+)"',
+        r"(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}(?::\d{2})?)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, html_text, flags=re.I)
+        if match:
+            return parse_datetime(normalize_iso_timezone(html.unescape(match.group(1)).replace(" ", "T", 1)))
+    return ""
+
+
 def date_from_iso(value: str) -> dt.date:
     try:
         return dt.datetime.fromisoformat(value.replace("Z", "+00:00")).date()
@@ -425,6 +446,22 @@ def decode_google_news_url(url: str) -> str:
     except (IndexError, KeyError, TypeError, ValueError, urllib.error.URLError, TimeoutError):
         return ""
     return ""
+
+
+def enrich_published_at_from_article(item: dict[str, Any]) -> dict[str, Any]:
+    if not item.get("source_id", "").startswith("google-"):
+        return item
+    url = item.get("url", "")
+    if not url or "news.google.com" in urllib.parse.urlparse(url).netloc:
+        return item
+    try:
+        article_time = extract_article_published_at(fetch_text(url, timeout=8))
+    except (urllib.error.URLError, TimeoutError, ValueError):
+        return item
+    if article_time:
+        item["feed_published_at"] = item["published_at"]
+        item["published_at"] = article_time
+    return item
 
 
 def is_glp1_related(item: dict[str, Any]) -> bool:
@@ -795,13 +832,14 @@ def fetch_items(sources: list[Source], days: int, limit_per_source: int) -> list
         for item in parsed[:limit_per_source]:
             if not item["title"] or not is_glp1_related(item):
                 continue
+            item["url"] = resolve_google_news_url(item["url"], decode=True)
+            item = enrich_published_at_from_article(item)
             published = dt.datetime.fromisoformat(item["published_at"].replace("Z", "+00:00"))
             if published < cutoff:
                 continue
             if item["id"] in seen:
                 continue
             seen.add(item["id"])
-            item["url"] = resolve_google_news_url(item["url"], decode=True)
             items.append(item)
     return items
 

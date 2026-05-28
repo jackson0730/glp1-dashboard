@@ -8,6 +8,7 @@ from scripts.fetch_news import (
     SOURCE_RULES,
     cluster_items,
     compute_final_score,
+    extract_article_published_at,
     is_selected,
     parse_score_json,
     relevance_score_for_item,
@@ -36,6 +37,18 @@ class PipelineTest(unittest.TestCase):
         scores = parse_score_json('结果如下 {"relevance":101,"importance":60,"credibility":55,"freshness":50,"china_impact":-3}')
         self.assertEqual(scores["relevance"], 100)
         self.assertEqual(scores["china_impact"], 0)
+
+    def test_extract_article_published_at_prefers_origin_time(self):
+        html = """
+        <script>
+        _pb = [
+          ['aid', '103116315'],
+          ['actime', '2026-04-02T12:10:26+08'],
+          ['autime', '2026-04-02T12:10:26+08']
+        ];
+        </script>
+        """
+        self.assertEqual(extract_article_published_at(html), "2026-04-02T04:10:26+00:00")
 
     def test_source_threshold_makes_same_score_selective(self):
         scores = {
