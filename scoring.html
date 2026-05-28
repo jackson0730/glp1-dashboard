@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f6f8fb">
     <meta name="description" content="China GLP-1 HOT 的新闻评分、精选和聚类机制说明。">
     <title>评分机制 - China GLP-1 HOT</title>
-    <link rel="stylesheet" href="styles.css?v=20260528-rubric">
+    <link rel="stylesheet" href="styles.css?v=20260528-rubric-mobile">
   </head>
   <body>
     <div class="shell">
@@ -36,7 +36,7 @@
             <h2>1. 五维评分</h2>
             <p>DeepSeek 只返回 JSON 分数，不判断最终分，也不判断是否精选。</p>
             <div class="method-table-wrap">
-              <table class="method-table">
+              <table class="method-table score-dimension-table">
                 <thead>
                   <tr>
                     <th>维度</th>
@@ -92,7 +92,7 @@
             <h2>3. 相关性五档</h2>
             <p>相关性不是“是否出现 GLP-1”这么简单，而是看 GLP-1 是否构成新闻主体。</p>
             <div class="method-table-wrap">
-              <table class="method-table">
+              <table class="method-table relevance-band-table">
                 <thead>
                   <tr>
                     <th>分档</th>
@@ -142,7 +142,7 @@
           <h2>来源和精选阈值</h2>
           <p>精选完全由代码阈值决定。同样是 60 分，官网或监管源可能值得看，二手评论则不一定进入精选。</p>
           <div class="method-table-wrap">
-            <table class="method-table">
+            <table class="method-table source-rule-table">
               <thead>
                 <tr>
                   <th>来源类型</th>
@@ -169,7 +169,7 @@
           <h2>主题最低门槛</h2>
           <p>进入精选时，会同时看来源阈值和主题阈值，取更高的那个作为最终门槛。</p>
           <div class="method-table-wrap">
-            <table class="method-table compact-table">
+            <table class="method-table compact-table category-threshold-table">
               <thead>
                 <tr>
                   <th>主题</th>

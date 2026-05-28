@@ -978,6 +978,141 @@ h1 {
   }
 }
 
+@media (max-width: 620px) {
+  .method-main {
+    gap: 12px;
+  }
+
+  .method-hero,
+  .method-block {
+    padding: 16px;
+  }
+
+  .method-hero h1 {
+    font-size: 24px;
+  }
+
+  .method-block h2 {
+    font-size: 17px;
+  }
+
+  .method-hero p,
+  .method-block p,
+  .method-block li {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .method-table-wrap {
+    overflow-x: visible;
+  }
+
+  .method-table,
+  .compact-table {
+    display: block;
+    min-width: 0;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .method-table thead {
+    display: none;
+  }
+
+  .method-table tbody,
+  .method-table tr,
+  .method-table td {
+    display: block;
+  }
+
+  .method-table tr {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .method-table tr:last-child {
+    border-bottom: 0;
+  }
+
+  .method-table td {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 10px;
+    padding: 4px 0;
+    border-bottom: 0;
+    white-space: normal;
+  }
+
+  .method-table td::before {
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  .method-table td:first-child {
+    white-space: normal;
+  }
+
+  .score-dimension-table td:nth-child(1)::before {
+    content: "维度";
+  }
+
+  .score-dimension-table td:nth-child(2)::before {
+    content: "权重";
+  }
+
+  .score-dimension-table td:nth-child(3)::before {
+    content: "判断";
+  }
+
+  .score-dimension-table td:nth-child(4)::before {
+    content: "用途";
+  }
+
+  .relevance-band-table td:nth-child(1)::before {
+    content: "分档";
+  }
+
+  .relevance-band-table td:nth-child(2)::before {
+    content: "定义";
+  }
+
+  .relevance-band-table td:nth-child(3)::before {
+    content: "示例";
+  }
+
+  .source-rule-table td:nth-child(1)::before {
+    content: "来源";
+  }
+
+  .source-rule-table td:nth-child(2)::before {
+    content: "说明";
+  }
+
+  .source-rule-table td:nth-child(3)::before {
+    content: "加分";
+  }
+
+  .source-rule-table td:nth-child(4)::before {
+    content: "精选";
+  }
+
+  .source-rule-table td:nth-child(5)::before {
+    content: "优先";
+  }
+
+  .category-threshold-table td:nth-child(1)::before {
+    content: "主题";
+  }
+
+  .category-threshold-table td:nth-child(2)::before {
+    content: "代码";
+  }
+
+  .category-threshold-table td:nth-child(3)::before {
+    content: "门槛";
+  }
+}
+
 @media (max-width: 440px) {
   .brand-name {
     font-size: 14px;
