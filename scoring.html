@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f8fb">
+    <meta name="description" content="China GLP-1 HOT 的新闻评分、精选和聚类机制说明。">
+    <title>评分机制 - China GLP-1 HOT</title>
+    <link rel="stylesheet" href="styles.css?v=20260528-docs">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar" aria-label="主导航">
+        <a class="brand" href="./" aria-label="China GLP-1 HOT 首页">
+          <span>
+            <span class="brand-name">China GLP-1 HOT</span>
+            <span class="brand-subtitle">China-first signal feed</span>
+          </span>
+        </a>
+        <nav class="side-nav" aria-label="功能菜单">
+          <a class="side-link module-link" href="index.html">新闻首页</a>
+          <a class="side-link active module-link" href="scoring.html">评分机制</a>
+          <a class="side-link module-link" href="dashboard.html">舆情看板</a>
+        </nav>
+      </aside>
+
+      <main class="main method-main">
+        <section class="method-hero">
+          <a class="back-link" href="index.html">返回新闻首页</a>
+          <h1>评分机制</h1>
+          <p>当前版本里，大模型只负责给每条新闻打五个维度分；最终质量分、精选阈值、来源权重和事件聚类都由代码控制。</p>
+        </section>
+
+        <section class="method-grid" aria-label="评分机制说明">
+          <article class="method-block">
+            <h2>1. 五维评分</h2>
+            <p>DeepSeek 只返回 JSON 分数，不判断最终分，也不判断是否精选。</p>
+            <ul>
+              <li><strong>相关性</strong>：是否真正围绕 GLP-1 药物、肥胖或糖尿病治疗。</li>
+              <li><strong>重要性</strong>：对行业、临床、监管或商业格局的影响。</li>
+              <li><strong>可信度</strong>：来源和内容是否可验证。</li>
+              <li><strong>新鲜度</strong>：发布时间和时效性。</li>
+              <li><strong>中国影响</strong>：对中国市场、药企、监管、医保或患者可及性的影响。</li>
+            </ul>
+          </article>
+
+          <article class="method-block">
+            <h2>2. 最终质量分</h2>
+            <p>代码按固定公式计算基础分，再叠加来源和主题权重，最后压到 0-100。</p>
+            <div class="formula">0.25 相关性 + 0.25 重要性 + 0.20 可信度 + 0.15 新鲜度 + 0.15 中国影响</div>
+            <p>中国相关内容额外加权；监管审批、临床试验、安全性会小幅加权；低可信和低相关内容会扣分。</p>
+          </article>
+
+          <article class="method-block">
+            <h2>3. 来源和精选</h2>
+            <p>精选完全由代码阈值决定。同样是 60 分，官网或监管源可能值得看，二手评论则不一定进入精选。</p>
+            <ul>
+              <li>监管源、药企官网、临床登记和论文源阈值较低。</li>
+              <li>专业媒体居中。</li>
+              <li>泛媒体阈值更高，社媒和 KOL 最高。</li>
+              <li>每个主题还有自己的最低门槛，避免低质量热点进入首页。</li>
+            </ul>
+          </article>
+
+          <article class="method-block">
+            <h2>4. 事件聚类</h2>
+            <p>同一事件会折叠，只展示一条主条。主条按来源权威度、质量分和发布时间排序。</p>
+            <p>当前已收紧规则：只有非常具体的事件词可以单独合并；普通“临床、研究、获批”等大类词必须叠加同一公司或同一药物，才会被认为是同一事件。</p>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

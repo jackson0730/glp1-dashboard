@@ -60,13 +60,13 @@ class PipelineTest(unittest.TestCase):
     def test_cluster_keeps_authoritative_primary(self):
         now = dt.datetime.now(dt.timezone.utc).isoformat()
         official = {
-            **item("company_official", "regulatory_approval", "司美格鲁肽 中国 获批"),
+            **item("company_official", "regulatory_approval", "诺和诺德司美格鲁肽 中国 获批"),
             "id": "official",
             "published_at": now,
             "quality_score": 68,
         }
         media = {
-            **item("professional_media", "regulatory_approval", "司美格鲁肽 减重适应症 获批"),
+            **item("professional_media", "regulatory_approval", "诺和诺德司美格鲁肽 减重适应症 获批"),
             "id": "media",
             "published_at": now,
             "quality_score": 88,
@@ -90,16 +90,39 @@ class PipelineTest(unittest.TestCase):
             "summary": "",
             "published_at": now,
         }
+        web_sale_c = {
+            **item("professional_media", "commercialization", "电商平台用高血糖标签规避GLP-1减肥药网售禁令"),
+            "id": "web-sale-c",
+            "summary": "",
+            "published_at": now,
+        }
         oral_tablet = {
             **item("professional_media", "company", "诺和诺德将海外推出司美格鲁肽口服片"),
             "id": "oral-tablet",
             "summary": "",
             "published_at": now,
         }
-        clustered = cluster_items([web_sale_a, web_sale_b, oral_tablet])
+        clustered = cluster_items([web_sale_a, web_sale_b, web_sale_c, oral_tablet])
         cluster_ids = {entry["id"]: entry["related_count"] for entry in clustered}
         self.assertEqual(len(clustered), 2)
-        self.assertIn(1, cluster_ids.values())
+        self.assertIn(2, cluster_ids.values())
+
+    def test_cluster_does_not_merge_generic_clinical_news(self):
+        now = dt.datetime(2026, 5, 27, tzinfo=dt.timezone.utc).isoformat()
+        hengrui = {
+            **item("professional_media", "clinical_trial", "恒瑞口服小分子GLP-1 III期研究成功"),
+            "id": "hengrui",
+            "summary": "",
+            "published_at": now,
+        }
+        lilly = {
+            **item("professional_media", "clinical_trial", "礼来口服GLP-1药物III期数据亮眼"),
+            "id": "lilly",
+            "summary": "",
+            "published_at": now,
+        }
+        clustered = cluster_items([hengrui, lilly])
+        self.assertEqual(len(clustered), 2)
 
 
 if __name__ == "__main__":

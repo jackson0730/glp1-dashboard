@@ -140,10 +140,28 @@ EVENT_TERMS = {
     "安全性": ["安全", "副作用", "不良反应", "胰腺炎", "停药", "safety"],
     "投融资": ["融资", "并购", "授权", "license", "acquisition", "deal"],
     "研究": ["论文", "研究", "机制", "数据", "study", "journal"],
-    "网售限制": ["不得网售", "禁止网售", "网售限制", "网络销售禁令", "纸质处方", "擦边球", "售卖漏洞", "自创适应症", "购药乱象"],
+    "网售限制": [
+        "不得网售",
+        "禁止网售",
+        "网售限制",
+        "网售禁令",
+        "网络销售禁令",
+        "禁止网络销售",
+        "全网禁售",
+        "网购新规",
+        "纸质处方",
+        "擦边球",
+        "售卖漏洞",
+        "自创适应症",
+        "购药乱象",
+        "规避监管",
+    ],
 }
 
 STRONG_EVENT_TOKENS = {"获批", "临床", "医保", "安全性", "投融资", "研究", "网售限制"}
+COMPANY_TOKENS = set(COMPANY_TERMS)
+DRUG_TOKENS = set(DRUG_TERMS)
+SPECIFIC_EVENT_TOKENS = {"网售限制"}
 
 AUTHORITY_PATTERNS = [
     (("nmpa.gov.cn", "cde.org.cn", "fda.gov", "ema.europa.eu"), "regulator"),
@@ -649,6 +667,30 @@ def cluster_tokens(item: dict[str, Any]) -> set[str]:
     return tokens
 
 
+def cluster_match_reason(tokens: set[str], existing: set[str]) -> str | None:
+    shared = tokens & existing
+    if not shared:
+        return None
+    if shared & SPECIFIC_EVENT_TOKENS:
+        return "specific_event"
+
+    shared_companies = shared & COMPANY_TOKENS
+    shared_drugs = shared & DRUG_TOKENS
+    shared_events = shared & STRONG_EVENT_TOKENS
+
+    if shared_companies and (shared_events or shared_drugs):
+        return "same_company"
+    if shared_companies and len(shared) >= 2:
+        return "same_company"
+    if shared_companies and len(tokens | existing) <= 3:
+        return "same_company"
+
+    if shared_drugs and shared_events and len(shared) >= 3:
+        return "same_drug_event"
+
+    return None
+
+
 def same_event(item: dict[str, Any], cluster: dict[str, Any]) -> bool:
     item_date = date_from_iso(item["published_at"])
     cluster_date = cluster["date"]
@@ -656,13 +698,7 @@ def same_event(item: dict[str, Any], cluster: dict[str, Any]) -> bool:
         return False
     tokens = cluster_tokens(item)
     existing = cluster["tokens"]
-    shared = tokens & existing
-    if len(shared) >= 2:
-        return True
-    if shared & STRONG_EVENT_TOKENS:
-        return True
-    union = tokens | existing
-    return bool(shared) and len(union) > 2 and len(shared) / len(union) >= 0.45
+    return cluster_match_reason(tokens, existing) is not None
 
 
 def cluster_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:

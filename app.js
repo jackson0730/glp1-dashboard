@@ -30,6 +30,7 @@ const categoryFilter = document.querySelector("#categoryFilter");
 const categoryButtons = document.querySelectorAll("[data-category]");
 const appShell = document.querySelector("#appShell");
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+const sidebarRestore = document.querySelector(".sidebar-restore");
 const drawerClose = document.querySelector(".drawer-close");
 const drawerBackdrop = document.querySelector(".drawer-backdrop");
 const mobileQuery = window.matchMedia("(max-width: 860px)");
@@ -110,6 +111,11 @@ function setMobileMenu(open) {
   appShell.classList.toggle("mobile-sidebar-open", open);
   mobileMenuToggle.setAttribute("aria-expanded", String(open));
   mobileMenuToggle.setAttribute("aria-label", open ? "收起菜单" : "展开菜单");
+}
+
+function setSidebarCollapsed(collapsed) {
+  appShell.classList.toggle("sidebar-collapsed", collapsed);
+  drawerClose.setAttribute("aria-label", collapsed ? "展开菜单" : "隐藏菜单");
 }
 
 function toggleSidebarMenu() {
@@ -261,11 +267,19 @@ document.querySelectorAll("[data-view]").forEach((button) => {
 });
 
 mobileMenuToggle.addEventListener("click", toggleSidebarMenu);
-drawerClose.addEventListener("click", () => setMobileMenu(false));
+drawerClose.addEventListener("click", () => {
+  if (mobileQuery.matches) {
+    setMobileMenu(false);
+    return;
+  }
+  setSidebarCollapsed(true);
+});
+sidebarRestore.addEventListener("click", () => setSidebarCollapsed(false));
 drawerBackdrop.addEventListener("click", () => setMobileMenu(false));
 
 mobileQuery.addEventListener("change", () => {
   setMobileMenu(false);
+  if (mobileQuery.matches) setSidebarCollapsed(false);
 });
 
 themeButtons.forEach((button) => {
