@@ -6,6 +6,14 @@ const scoreLabels = {
   china_impact: "中国影响"
 };
 
+const shortScoreLabels = {
+  relevance: "相关",
+  importance: "重要",
+  credibility: "可信",
+  freshness: "新鲜",
+  china_impact: "中国"
+};
+
 const state = {
   view: "selected",
   query: "",
@@ -115,6 +123,7 @@ function renderScoreGrid(root, scores) {
     cell.className = "score-cell";
     const name = document.createElement("span");
     name.textContent = label;
+    name.dataset.short = shortScoreLabels[key];
     const value = document.createElement("strong");
     value.textContent = scores?.[key] ?? "--";
     cell.append(name, value);

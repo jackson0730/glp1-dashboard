@@ -37,6 +37,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -406,6 +407,7 @@ h1 {
 
 .card-body {
   position: relative;
+  min-width: 0;
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -508,6 +510,7 @@ h1 {
   font-weight: 800;
   line-height: 1.35;
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 .title:hover {
@@ -518,6 +521,7 @@ h1 {
   margin: 9px 0 0;
   color: #3e4b5b;
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 .tags {
@@ -564,6 +568,7 @@ h1 {
 
 .score-cell span {
   display: inline;
+  min-width: 0;
   color: var(--muted);
   font-size: 12px;
   overflow: hidden;
@@ -644,6 +649,7 @@ h1 {
 
   .main {
     padding: 12px;
+    overflow: hidden;
   }
 
   .topbar {
@@ -655,7 +661,7 @@ h1 {
     justify-content: space-between;
     gap: 12px;
     margin: -12px -12px 12px;
-    padding: 10px 12px;
+    padding: calc(10px + env(safe-area-inset-top)) 12px 10px;
     min-height: 58px;
     border-bottom: 1px solid var(--line);
     background: rgba(246, 248, 251, 0.94);
@@ -671,6 +677,8 @@ h1 {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    max-width: calc(100% - 168px);
+    text-align: center;
   }
 
   .mobile-menu-toggle {
@@ -689,7 +697,9 @@ h1 {
     left: 0;
     top: 0;
     z-index: 30;
-    width: 260px;
+    width: min(86vw, 340px);
+    max-width: calc(100vw - 44px);
+    padding-bottom: max(22px, env(safe-area-inset-bottom));
     display: flex;
     transform: translateX(-100%);
     box-shadow: 18px 0 40px rgba(16, 24, 32, 0.22);
@@ -734,6 +744,7 @@ h1 {
 
   .toolbar {
     padding: 16px;
+    overflow: hidden;
   }
 
   .toolbar-head {
@@ -755,6 +766,7 @@ h1 {
   .news-card {
     grid-template-columns: 1fr;
     gap: 6px;
+    min-width: 0;
   }
 
   .time {
@@ -771,12 +783,13 @@ h1 {
   }
 
   .score-grid {
-    gap: 5px;
+    gap: 4px;
+    max-width: 100%;
   }
 
   .score-cell {
     flex: 0 0 auto;
-    min-width: 92px;
+    min-width: 70px;
   }
 }
 
@@ -789,7 +802,42 @@ h1 {
     gap: 6px;
   }
 
+  .card-body {
+    padding: 14px 12px;
+  }
+
   .title {
     font-size: 17px;
+  }
+
+  .summary {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .score-grid {
+    gap: 3px;
+    margin-right: -12px;
+    padding-right: 12px;
+  }
+
+  .score-cell {
+    min-width: 0;
+    flex: 1 1 0;
+    padding: 5px 5px;
+    gap: 4px;
+  }
+
+  .score-cell span {
+    font-size: 0;
+  }
+
+  .score-cell span::after {
+    content: attr(data-short);
+    font-size: 11px;
+  }
+
+  .score-cell strong {
+    font-size: 14px;
   }
 }
