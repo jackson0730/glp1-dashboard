@@ -873,6 +873,16 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .category-strip {
+    gap: 7px;
+  }
+
+  .category-chip {
+    min-height: 32px;
+    padding: 0 11px;
+    font-size: 14px;
+  }
+
   .news-card {
     grid-template-columns: 1fr;
     gap: 6px;
@@ -942,6 +952,16 @@ h1 {
   .summary {
     font-size: 14px;
     line-height: 1.6;
+  }
+
+  .category-strip {
+    gap: 6px;
+  }
+
+  .category-chip {
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 13px;
   }
 
   .score-grid {
