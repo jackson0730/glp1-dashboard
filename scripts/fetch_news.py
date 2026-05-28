@@ -475,12 +475,35 @@ def extract_terms(text: str) -> set[str]:
     return terms
 
 
+def relevance_score_for_item(item: dict[str, Any]) -> int:
+    text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+    terms = extract_terms(text)
+    has_glp1_keyword = any(keyword.lower() in text for keyword in GLP1_KEYWORDS)
+    drug_terms = terms & DRUG_TOKENS
+    company_terms = terms & COMPANY_TOKENS
+    event_terms = terms & STRONG_EVENT_TOKENS
+
+    if drug_terms and (company_terms or event_terms):
+        return 88
+    if has_glp1_keyword and company_terms and event_terms:
+        return 84
+    if drug_terms:
+        return 74
+    if has_glp1_keyword and (company_terms or event_terms):
+        return 70
+    if has_glp1_keyword:
+        return 55
+    if company_terms and any(word in text for word in ["减重", "肥胖", "糖尿病", "代谢"]):
+        return 38
+    return 15
+
+
 def heuristic_scores(item: dict[str, Any]) -> dict[str, int]:
     text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
     source_type = item.get("source_type", "general_media")
     recency_days = max((dt.datetime.now(dt.timezone.utc).date() - date_from_iso(item["published_at"])).days, 0)
     scores = {
-        "relevance": 78 if is_glp1_related(item) else 20,
+        "relevance": relevance_score_for_item(item),
         "importance": 55,
         "credibility": 55 + SOURCE_RULES[source_type]["bonus"],
         "freshness": clamp(92 - recency_days * 7),
@@ -550,6 +573,11 @@ def build_score_prompt(item: dict[str, Any]) -> str:
 
 维度定义：
 - relevance：与 GLP-1 药物/肥胖/糖尿病治疗领域的相关性。
+  * 0-20：几乎无关。只是泛健康、资本市场、公司新闻，未触及 GLP-1。
+  * 21-40：弱相关。只顺带提到 GLP-1 或减重药，主体不是药物、临床、监管或商业化。
+  * 41-60：中等相关。讨论 GLP-1 赛道或公司布局，但缺少具体药物、适应症、临床、审批或市场事件。
+  * 61-80：高度相关。明确涉及 GLP-1 药物、适应症、临床数据、审批、商业化、价格、可及性或安全性。
+  * 81-100：核心新闻。GLP-1 是事件主体，且包含明确药物、公司、监管、临床或商业结果。
 - importance：对行业、临床、监管、商业格局的重要性。
 - credibility：信息可信度与可验证性。
 - freshness：新闻新鲜度和时效性。

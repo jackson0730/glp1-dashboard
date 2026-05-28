@@ -1,11 +1,16 @@
 import datetime as dt
+from pathlib import Path
 import unittest
 
 from scripts.fetch_news import (
+    CATEGORY_LABELS,
+    CATEGORY_THRESHOLDS,
+    SOURCE_RULES,
     cluster_items,
     compute_final_score,
     is_selected,
     parse_score_json,
+    relevance_score_for_item,
 )
 
 
@@ -56,6 +61,34 @@ class PipelineTest(unittest.TestCase):
         official_score = compute_final_score(item("company_official"), scores)
         social_score = compute_final_score(item("social_kol"), scores)
         self.assertGreater(official_score, social_score)
+
+    def test_heuristic_relevance_uses_rubric_bands(self):
+        core = item("professional_media", "clinical_trial", "恒瑞口服小分子GLP-1 III期研究成功")
+        core["summary"] = ""
+        generic = item("professional_media", "company", "翰宇药业凭GLP-1赛道走出增长新曲线")
+        generic["summary"] = ""
+        unrelated = item("professional_media", "company", "某药企发布年度资本市场报告")
+        unrelated["summary"] = ""
+
+        self.assertGreaterEqual(relevance_score_for_item(core), 81)
+        self.assertGreaterEqual(relevance_score_for_item(generic), 41)
+        self.assertLessEqual(relevance_score_for_item(generic), 60)
+        self.assertLessEqual(relevance_score_for_item(unrelated), 20)
+
+    def test_scoring_page_lists_source_rules(self):
+        html = Path("scoring.html").read_text(encoding="utf-8")
+        for source_type, rule in SOURCE_RULES.items():
+            self.assertIn(source_type, html)
+            self.assertIn(f"<td>{rule['bonus']:+d}</td>", html)
+            self.assertIn(f"<td>{rule['threshold']}</td>", html)
+            self.assertIn(f"<td>{rule['priority']}</td>", html)
+
+    def test_scoring_page_lists_category_thresholds(self):
+        html = Path("scoring.html").read_text(encoding="utf-8")
+        for category, threshold in CATEGORY_THRESHOLDS.items():
+            self.assertIn(CATEGORY_LABELS[category], html)
+            self.assertIn(f"<td>{category}</td>", html)
+            self.assertIn(f"<td>{threshold}</td>", html)
 
     def test_cluster_keeps_authoritative_primary(self):
         now = dt.datetime.now(dt.timezone.utc).isoformat()

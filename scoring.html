@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#f6f8fb">
     <meta name="description" content="China GLP-1 HOT 的新闻评分、精选和聚类机制说明。">
     <title>评分机制 - China GLP-1 HOT</title>
-    <link rel="stylesheet" href="styles.css?v=20260528-docs">
+    <link rel="stylesheet" href="styles.css?v=20260528-rubric">
   </head>
   <body>
     <div class="shell">
@@ -35,13 +35,50 @@
           <article class="method-block">
             <h2>1. 五维评分</h2>
             <p>DeepSeek 只返回 JSON 分数，不判断最终分，也不判断是否精选。</p>
-            <ul>
-              <li><strong>相关性</strong>：是否真正围绕 GLP-1 药物、肥胖或糖尿病治疗。</li>
-              <li><strong>重要性</strong>：对行业、临床、监管或商业格局的影响。</li>
-              <li><strong>可信度</strong>：来源和内容是否可验证。</li>
-              <li><strong>新鲜度</strong>：发布时间和时效性。</li>
-              <li><strong>中国影响</strong>：对中国市场、药企、监管、医保或患者可及性的影响。</li>
-            </ul>
+            <div class="method-table-wrap">
+              <table class="method-table">
+                <thead>
+                  <tr>
+                    <th>维度</th>
+                    <th>权重</th>
+                    <th>判断重点</th>
+                    <th>代码用途</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>相关性</td>
+                    <td>25%</td>
+                    <td>新闻主体是否真正围绕 GLP-1 药物、适应症、临床、监管或商业化。</td>
+                    <td>参与最终分；低于 50 会额外扣分。</td>
+                  </tr>
+                  <tr>
+                    <td>重要性</td>
+                    <td>25%</td>
+                    <td>是否影响行业格局、临床证据、监管进展、商业竞争或患者可及性。</td>
+                    <td>参与最终分；监管、临床、安全性主题另有小幅加权。</td>
+                  </tr>
+                  <tr>
+                    <td>可信度</td>
+                    <td>20%</td>
+                    <td>信息是否来自可验证来源，是否有明确主体、数据、公告或原始链接。</td>
+                    <td>参与最终分；低于 45 扣分，低于 50 不能精选。</td>
+                  </tr>
+                  <tr>
+                    <td>新鲜度</td>
+                    <td>15%</td>
+                    <td>发布时间和事件时效性。</td>
+                    <td>参与最终分，避免旧闻长期占据首页。</td>
+                  </tr>
+                  <tr>
+                    <td>中国影响</td>
+                    <td>15%</td>
+                    <td>是否影响中国监管、药企、医保、商业化、患者可及性或本土竞争。</td>
+                    <td>参与最终分；中国相关且该分不低时额外加权。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </article>
 
           <article class="method-block">
@@ -52,14 +89,46 @@
           </article>
 
           <article class="method-block">
-            <h2>3. 来源和精选</h2>
-            <p>精选完全由代码阈值决定。同样是 60 分，官网或监管源可能值得看，二手评论则不一定进入精选。</p>
-            <ul>
-              <li>监管源、药企官网、临床登记和论文源阈值较低。</li>
-              <li>专业媒体居中。</li>
-              <li>泛媒体阈值更高，社媒和 KOL 最高。</li>
-              <li>每个主题还有自己的最低门槛，避免低质量热点进入首页。</li>
-            </ul>
+            <h2>3. 相关性五档</h2>
+            <p>相关性不是“是否出现 GLP-1”这么简单，而是看 GLP-1 是否构成新闻主体。</p>
+            <div class="method-table-wrap">
+              <table class="method-table">
+                <thead>
+                  <tr>
+                    <th>分档</th>
+                    <th>定义</th>
+                    <th>示例</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0-20</td>
+                    <td>几乎无关。只是泛健康、资本市场、公司新闻，未触及 GLP-1。</td>
+                    <td>当前首页经初筛后通常不会出现。</td>
+                  </tr>
+                  <tr>
+                    <td>21-40</td>
+                    <td>弱相关。只顺带提到 GLP-1 或减重药，主体不是药物、临床、监管或商业化。</td>
+                    <td>当前首页经初筛后通常不会出现。</td>
+                  </tr>
+                  <tr>
+                    <td>41-60</td>
+                    <td>中等相关。讨论 GLP-1 赛道或公司布局，但缺少具体药物、适应症、临床、审批或市场事件。</td>
+                    <td>翰宇药业凭 GLP-1 赛道，走出增长新曲线。</td>
+                  </tr>
+                  <tr>
+                    <td>61-80</td>
+                    <td>高度相关。明确涉及 GLP-1 药物、临床、审批、商业化、价格、可及性或安全性。</td>
+                    <td>减重药大跳水：司美格鲁肽跌至百元、替尔泊肽腰斩。</td>
+                  </tr>
+                  <tr>
+                    <td>81-100</td>
+                    <td>核心新闻。GLP-1 是事件主体，且包含明确药物、公司、监管、临床或商业结果。</td>
+                    <td>恒瑞口服小分子 GLP-1 III 期研究成功；礼来口服 GLP-1 减肥药获批。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </article>
 
           <article class="method-block">
@@ -67,6 +136,58 @@
             <p>同一事件会折叠，只展示一条主条。主条按来源权威度、质量分和发布时间排序。</p>
             <p>当前已收紧规则：只有非常具体的事件词可以单独合并；普通“临床、研究、获批”等大类词必须叠加同一公司或同一药物，才会被认为是同一事件。</p>
           </article>
+        </section>
+
+        <section class="method-block method-wide">
+          <h2>来源和精选阈值</h2>
+          <p>精选完全由代码阈值决定。同样是 60 分，官网或监管源可能值得看，二手评论则不一定进入精选。</p>
+          <div class="method-table-wrap">
+            <table class="method-table">
+              <thead>
+                <tr>
+                  <th>来源类型</th>
+                  <th>说明</th>
+                  <th>来源加分</th>
+                  <th>精选阈值</th>
+                  <th>主条优先级</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>regulator</td><td>监管机构官网，例如 NMPA、CDE、FDA、EMA。</td><td>+12</td><td>58</td><td>100</td></tr>
+                <tr><td>company_official</td><td>药企官网或官方公告。</td><td>+8</td><td>60</td><td>90</td></tr>
+                <tr><td>clinical_registry</td><td>临床登记平台。</td><td>+7</td><td>61</td><td>85</td></tr>
+                <tr><td>journal</td><td>医学期刊或论文源。</td><td>+6</td><td>63</td><td>80</td></tr>
+                <tr><td>professional_media</td><td>医药、财经、行业专业媒体。</td><td>+4</td><td>66</td><td>70</td></tr>
+                <tr><td>general_media</td><td>泛媒体或普通新闻转载。</td><td>+0</td><td>72</td><td>50</td></tr>
+                <tr><td>social_kol</td><td>社媒、KOL、二手评论。</td><td>-12</td><td>82</td><td>20</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="method-block method-wide">
+          <h2>主题最低门槛</h2>
+          <p>进入精选时，会同时看来源阈值和主题阈值，取更高的那个作为最终门槛。</p>
+          <div class="method-table-wrap">
+            <table class="method-table compact-table">
+              <thead>
+                <tr>
+                  <th>主题</th>
+                  <th>代码值</th>
+                  <th>最低门槛</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>监管审批</td><td>regulatory_approval</td><td>58</td></tr>
+                <tr><td>临床试验</td><td>clinical_trial</td><td>62</td></tr>
+                <tr><td>药企动态</td><td>company</td><td>60</td></tr>
+                <tr><td>商业化/医保</td><td>commercialization</td><td>66</td></tr>
+                <tr><td>安全性</td><td>safety</td><td>66</td></tr>
+                <tr><td>投融资</td><td>investment</td><td>70</td></tr>
+                <tr><td>研究进展</td><td>research</td><td>68</td></tr>
+              </tbody>
+            </table>
+          </div>
         </section>
       </main>
     </div>
