@@ -455,6 +455,11 @@ h1 {
   gap: 12px;
 }
 
+.day.collapsed .day-items,
+.day-items[hidden] {
+  display: none;
+}
+
 .news-card {
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr);
@@ -943,12 +948,19 @@ h1 {
   }
 
   .toolbar {
-    padding: 16px;
+    margin-bottom: 14px;
+    padding: 12px;
     overflow: hidden;
   }
 
   .toolbar-head {
     display: block;
+  }
+
+  .toolbar p {
+    margin-top: 0;
+    font-size: 15px;
+    line-height: 1.45;
   }
 
   h1 {
@@ -961,6 +973,22 @@ h1 {
 
   .filters {
     grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .search {
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  .search-icon {
+    font-size: 15px;
+  }
+
+  .search input {
+    min-height: 36px;
+    font-size: 14px;
   }
 
   .category-strip {
