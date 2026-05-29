@@ -50,6 +50,10 @@ class PipelineTest(unittest.TestCase):
         """
         self.assertEqual(extract_article_published_at(html), "2026-04-02T04:10:26+00:00")
 
+    def test_extract_article_published_at_treats_naive_time_as_beijing(self):
+        html = "<em>2026-05-27 09:37:00</em>"
+        self.assertEqual(extract_article_published_at(html), "2026-05-27T01:37:00+00:00")
+
     def test_source_threshold_makes_same_score_selective(self):
         scores = {
             "relevance": 60,

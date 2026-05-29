@@ -248,6 +248,13 @@ def normalize_iso_timezone(value: str) -> str:
     return re.sub(r"([+-]\d{2})$", r"\1:00", value.strip())
 
 
+def parse_article_datetime(value: str) -> str:
+    normalized = normalize_iso_timezone(html.unescape(value).strip()).replace(" ", "T", 1)
+    if not re.search(r"(Z|[+-]\d{2}:\d{2})$", normalized):
+        normalized = f"{normalized}+08:00"
+    return parse_datetime(normalized)
+
+
 def extract_article_published_at(html_text: str) -> str:
     patterns = [
         r"\['actime',\s*'([^']+)'\]",
@@ -261,7 +268,7 @@ def extract_article_published_at(html_text: str) -> str:
     for pattern in patterns:
         match = re.search(pattern, html_text, flags=re.I)
         if match:
-            return parse_datetime(normalize_iso_timezone(html.unescape(match.group(1)).replace(" ", "T", 1)))
+            return parse_article_datetime(match.group(1))
     return ""
 
 

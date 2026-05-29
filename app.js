@@ -36,6 +36,7 @@ const drawerBackdrop = document.querySelector(".drawer-backdrop");
 const mobileQuery = window.matchMedia("(max-width: 860px)");
 const themeButtons = document.querySelectorAll("[data-theme-choice]");
 const themeColor = document.querySelector("#themeColor");
+const chinaTimeZone = "Asia/Shanghai";
 
 function applyTheme(theme) {
   const nextTheme = theme === "dark" ? "dark" : "light";
@@ -51,6 +52,7 @@ applyTheme(localStorage.getItem("glp1-theme") || "light");
 
 function formatDate(value) {
   return new Intl.DateTimeFormat("zh-CN", {
+    timeZone: chinaTimeZone,
     month: "long",
     day: "numeric",
     weekday: "short"
@@ -59,6 +61,7 @@ function formatDate(value) {
 
 function formatTime(value) {
   return new Intl.DateTimeFormat("zh-CN", {
+    timeZone: chinaTimeZone,
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
@@ -68,6 +71,7 @@ function formatTime(value) {
 
 function formatGeneratedAt(value) {
   return new Intl.DateTimeFormat("zh-CN", {
+    timeZone: chinaTimeZone,
     month: "2-digit",
     day: "2-digit",
     hour: "2-digit",
