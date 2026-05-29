@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import copy
 import datetime as dt
 import email.utils
 import hashlib
@@ -29,6 +30,7 @@ DEFAULT_OUTPUT_PATH = ROOT / "data" / "news.json"
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 DEEPSEEK_MODEL = "deepseek-v4-pro"
 GOOGLE_NEWS_DECODE_CACHE: dict[str, str] = {}
+BEIJING_TZ = dt.timezone(dt.timedelta(hours=8))
 
 SCORE_KEYS = ("relevance", "importance", "credibility", "freshness", "china_impact")
 
@@ -276,9 +278,26 @@ def extract_article_published_at(html_text: str) -> str:
 
 def date_from_iso(value: str) -> dt.date:
     try:
-        return dt.datetime.fromisoformat(value.replace("Z", "+00:00")).date()
+        return parse_iso_datetime(value).date()
     except ValueError:
         return dt.datetime.now(dt.timezone.utc).date()
+
+
+def parse_iso_datetime(value: str) -> dt.datetime:
+    parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=dt.timezone.utc)
+    return parsed.astimezone(dt.timezone.utc)
+
+
+def beijing_yesterday_window(now: dt.datetime | None = None) -> tuple[dt.datetime, dt.datetime]:
+    current = now or dt.datetime.now(dt.timezone.utc)
+    if current.tzinfo is None:
+        current = current.replace(tzinfo=dt.timezone.utc)
+    yesterday = current.astimezone(BEIJING_TZ).date() - dt.timedelta(days=1)
+    start = dt.datetime.combine(yesterday, dt.time(0, 0), tzinfo=BEIJING_TZ)
+    end = start + dt.timedelta(days=1)
+    return start.astimezone(dt.timezone.utc), end.astimezone(dt.timezone.utc)
 
 
 def load_sources(path: Path = DEFAULT_SOURCES_PATH) -> list[Source]:
@@ -741,6 +760,17 @@ def cluster_tokens(item: dict[str, Any]) -> set[str]:
     return tokens
 
 
+def related_item_summary(item: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "id": item.get("id", ""),
+        "title": item["title"],
+        "url": item["url"],
+        "source": item["source"],
+        "published_at": item["published_at"],
+        "quality_score": item["quality_score"],
+    }
+
+
 def cluster_match_reason(tokens: set[str], existing: set[str]) -> str | None:
     shared = tokens & existing
     if not shared:
@@ -812,24 +842,159 @@ def cluster_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
         primary["cluster_id"] = cluster_id
         primary["is_primary"] = True
         primary["related_count"] = len(related)
-        primary["related_items"] = [
-            {
-                "title": item["title"],
-                "url": item["url"],
-                "source": item["source"],
-                "published_at": item["published_at"],
-                "quality_score": item["quality_score"],
-            }
-            for item in related
-        ]
+        primary["related_items"] = [related_item_summary(item) for item in related]
         if related:
             primary["verification"] = "已聚类验证" if primary["selected"] else primary["verification"]
         output.append(primary)
     return sorted(output, key=lambda item: (item["selected"], item["quality_score"], item["published_at"]), reverse=True)
 
 
-def fetch_items(sources: list[Source], days: int, limit_per_source: int) -> list[dict[str, Any]]:
-    cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)
+def item_fingerprint(item: dict[str, Any]) -> str:
+    title = re.sub(r"\s+", " ", item.get("title", "").strip().lower())
+    source = item.get("source", "").strip().lower()
+    return f"{title}|{source}"
+
+
+def collect_known_item_keys(events: list[dict[str, Any]]) -> tuple[set[str], set[str], set[str]]:
+    ids: set[str] = set()
+    urls: set[str] = set()
+    fingerprints: set[str] = set()
+
+    def add(item: dict[str, Any]) -> None:
+        if item.get("id"):
+            ids.add(item["id"])
+        if item.get("url"):
+            urls.add(item["url"])
+        fingerprints.add(item_fingerprint(item))
+
+    for event in events:
+        add(event)
+        for related in event.get("related_items", []):
+            add(related)
+    return ids, urls, fingerprints
+
+
+def filter_new_items(items: list[dict[str, Any]], existing_events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    ids, urls, fingerprints = collect_known_item_keys(existing_events)
+    filtered = []
+    for item in items:
+        if item.get("id") in ids or item.get("url") in urls or item_fingerprint(item) in fingerprints:
+            continue
+        ids.add(item.get("id", ""))
+        urls.add(item.get("url", ""))
+        fingerprints.add(item_fingerprint(item))
+        filtered.append(item)
+    return filtered
+
+
+def event_tokens(event: dict[str, Any]) -> set[str]:
+    tokens = cluster_tokens(event)
+    for related in event.get("related_items", []):
+        tokens.update(cluster_tokens(related))
+    return tokens
+
+
+def event_date(event: dict[str, Any]) -> dt.date:
+    dates = [date_from_iso(event["published_at"])]
+    for related in event.get("related_items", []):
+        if related.get("published_at"):
+            dates.append(date_from_iso(related["published_at"]))
+    return max(dates)
+
+
+def item_matches_event(item: dict[str, Any], event: dict[str, Any]) -> bool:
+    cluster = {"date": event_date(event), "tokens": event_tokens(event)}
+    return same_event(item, cluster)
+
+
+def item_rank(item: dict[str, Any]) -> tuple[int, int, str]:
+    return (
+        item.get("source_priority", 0),
+        item.get("quality_score", 0),
+        item.get("published_at", ""),
+    )
+
+
+def next_cluster_id(events: list[dict[str, Any]]) -> str:
+    numbers = []
+    for event in events:
+        match = re.fullmatch(r"event-(\d+)", str(event.get("cluster_id", "")))
+        if match:
+            numbers.append(int(match.group(1)))
+    return f"event-{(max(numbers) if numbers else 0) + 1:04d}"
+
+
+def normalize_related_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    seen: set[tuple[str, str, str]] = set()
+    output = []
+    for item in sorted(items, key=lambda entry: entry.get("published_at", ""), reverse=True):
+        key = (item.get("id", ""), item.get("url", ""), item_fingerprint(item))
+        if key in seen:
+            continue
+        seen.add(key)
+        output.append(item)
+    return output
+
+
+def merge_item_into_event(event: dict[str, Any], item: dict[str, Any]) -> dict[str, Any]:
+    related = list(event.get("related_items", []))
+    if item_rank(item) > item_rank(event):
+        merged = {**item}
+        merged["cluster_id"] = event.get("cluster_id", "")
+        merged["is_primary"] = True
+        related = normalize_related_items([related_item_summary(event), *related])
+        merged["related_items"] = related
+        merged["related_count"] = len(related)
+        if related:
+            merged["verification"] = "已聚类验证" if merged.get("selected") else merged.get("verification", "")
+        return merged
+
+    merged = event
+    related = normalize_related_items([*related, related_item_summary(item)])
+    merged["related_items"] = related
+    merged["related_count"] = len(related)
+    if related:
+        merged["verification"] = "已聚类验证" if merged.get("selected") else merged.get("verification", "")
+    return merged
+
+
+def merge_incremental_events(existing_events: list[dict[str, Any]], new_items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    events = copy.deepcopy(existing_events)
+    for event in events:
+        event["related_items"] = normalize_related_items(event.get("related_items", []))
+        event["related_count"] = len(event["related_items"])
+
+    for item in sorted(new_items, key=lambda entry: entry.get("published_at", ""), reverse=True):
+        for index, event in enumerate(events):
+            if item_matches_event(item, event):
+                events[index] = merge_item_into_event(event, item)
+                break
+        else:
+            primary = {**item}
+            primary["cluster_id"] = next_cluster_id(events)
+            primary["is_primary"] = True
+            primary["related_count"] = 0
+            primary["related_items"] = []
+            events.append(primary)
+
+    return sorted(events, key=lambda item: (item["selected"], item["quality_score"], item["published_at"]), reverse=True)
+
+
+def read_existing_events(output_path: Path) -> list[dict[str, Any]]:
+    if not output_path.exists():
+        return []
+    payload = json.loads(output_path.read_text(encoding="utf-8"))
+    return payload.get("news", [])
+
+
+def fetch_items(
+    sources: list[Source],
+    days: int,
+    limit_per_source: int,
+    since: dt.datetime | None = None,
+    until: dt.datetime | None = None,
+) -> list[dict[str, Any]]:
+    cutoff = since or dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=days)
     items: list[dict[str, Any]] = []
     seen: set[str] = set()
     for source in sources:
@@ -843,8 +1008,10 @@ def fetch_items(sources: list[Source], days: int, limit_per_source: int) -> list
                 continue
             item["url"] = resolve_google_news_url(item["url"], decode=True)
             item = enrich_published_at_from_article(item)
-            published = dt.datetime.fromisoformat(item["published_at"].replace("Z", "+00:00"))
+            published = parse_iso_datetime(item["published_at"])
             if published < cutoff:
+                continue
+            if until is not None and published >= until:
                 continue
             if item["id"] in seen:
                 continue
@@ -880,18 +1047,38 @@ def main() -> int:
     parser.add_argument("--days", type=int, default=14)
     parser.add_argument("--limit-per-source", type=int, default=30)
     parser.add_argument("--max-items", type=int, default=0, help="Limit items after fetch for smoke tests.")
+    parser.add_argument("--incremental", action="store_true", help="Merge new scored items into the existing output.")
+    parser.add_argument(
+        "--window",
+        choices=("rolling", "yesterday"),
+        default="rolling",
+        help="Fetch window. 'yesterday' means Beijing-time 00:00-24:00 yesterday.",
+    )
     parser.add_argument("--model", default=DEEPSEEK_MODEL)
     parser.add_argument("--api-timeout", type=int, default=20)
     parser.add_argument("--score-workers", type=int, default=4)
     args = parser.parse_args()
 
     sources = load_sources(args.sources)
-    raw_items = fetch_items(sources, days=args.days, limit_per_source=args.limit_per_source)
+    since = until = None
+    if args.window == "yesterday":
+        since, until = beijing_yesterday_window()
+        print(f"fetch window: {since.isoformat()} to {until.isoformat()} (Beijing yesterday)", file=sys.stderr)
+
+    raw_items = fetch_items(sources, days=args.days, limit_per_source=args.limit_per_source, since=since, until=until)
+    existing_events = read_existing_events(args.output) if args.incremental else []
+    if args.incremental:
+        before_count = len(raw_items)
+        raw_items = filter_new_items(raw_items, existing_events)
+        print(f"incremental mode: {before_count} fetched, {len(raw_items)} new after dedupe", file=sys.stderr)
     if args.max_items > 0:
         raw_items = raw_items[: args.max_items]
+    if args.incremental and not raw_items:
+        print(f"no new items; kept existing {args.output}")
+        return 0
     scorer = DeepSeekScorer(os.getenv("DEEPSEEK_API_KEY"), model=args.model, timeout=args.api_timeout)
     scored_items = add_scores(raw_items, scorer, workers=max(1, args.score_workers))
-    clustered = cluster_items(scored_items)
+    clustered = merge_incremental_events(existing_events, scored_items) if args.incremental else cluster_items(scored_items)
     write_payload(build_payload(clustered), args.output)
     print(f"wrote {args.output} with {len(clustered)} clustered events")
     return 0

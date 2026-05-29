@@ -6,12 +6,15 @@ from scripts.fetch_news import (
     CATEGORY_LABELS,
     CATEGORY_THRESHOLDS,
     SOURCE_RULES,
+    beijing_yesterday_window,
     cluster_items,
     compute_final_score,
     extract_article_published_at,
+    filter_new_items,
     is_glp1_related,
     is_selected,
     load_sources,
+    merge_incremental_events,
     parse_datetime,
     parse_score_json,
     relevance_score_for_item,
@@ -59,6 +62,13 @@ class PipelineTest(unittest.TestCase):
 
     def test_parse_datetime_accepts_numeric_rss_timezone_with_extra_spaces(self):
         self.assertEqual(parse_datetime("2026-05-29 19:00:15  +0800"), "2026-05-29T11:00:15+00:00")
+
+    def test_beijing_yesterday_window_uses_local_calendar_day(self):
+        now = dt.datetime(2026, 5, 29, 17, 30, tzinfo=dt.timezone.utc)
+        start, end = beijing_yesterday_window(now)
+
+        self.assertEqual(start.isoformat(), "2026-05-28T16:00:00+00:00")
+        self.assertEqual(end.isoformat(), "2026-05-29T16:00:00+00:00")
 
     def test_sources_config_uses_unique_valid_enabled_sources(self):
         sources = load_sources()
@@ -210,6 +220,64 @@ class PipelineTest(unittest.TestCase):
         }
         clustered = cluster_items([hengrui, lilly])
         self.assertEqual(len(clustered), 2)
+
+    def test_incremental_merge_preserves_existing_events(self):
+        now = dt.datetime(2026, 5, 27, tzinfo=dt.timezone.utc).isoformat()
+        existing = {
+            **item("professional_media", "clinical_trial", "恒瑞口服小分子GLP-1 III期研究成功"),
+            "id": "hengrui-primary",
+            "source": "21财经",
+            "published_at": now,
+            "quality_score": 92,
+            "cluster_id": "event-0001",
+            "is_primary": True,
+            "related_count": 0,
+            "related_items": [],
+        }
+        new_related = {
+            **item("professional_media", "clinical_trial", "恒瑞医药原研口服GLP-1受体激动剂中国III期研究积极顶线结果公布"),
+            "id": "hengrui-related",
+            "source": "新华网",
+            "published_at": now,
+            "quality_score": 80,
+        }
+        new_event = {
+            **item("professional_media", "regulatory_approval", "礼来口服GLP-1药物在美获批上市"),
+            "id": "lilly-new",
+            "source": "第一财经",
+            "published_at": now,
+            "quality_score": 88,
+        }
+
+        merged = merge_incremental_events([existing], [new_related, new_event])
+        hengrui = next(event for event in merged if event["cluster_id"] == "event-0001")
+
+        self.assertEqual(len(merged), 2)
+        self.assertEqual(hengrui["id"], "hengrui-primary")
+        self.assertEqual(hengrui["related_count"], 1)
+        self.assertEqual(hengrui["related_items"][0]["id"], "hengrui-related")
+
+    def test_incremental_dedupe_uses_existing_history(self):
+        existing = {
+            **item("professional_media", "company", "司美格鲁肽新闻"),
+            "id": "existing",
+            "source": "第一财经",
+            "url": "https://example.com/existing",
+            "related_items": [
+                {
+                    "id": "related",
+                    "title": "司美格鲁肽相关新闻",
+                    "url": "https://example.com/related",
+                    "source": "21财经",
+                    "published_at": "2026-05-27T10:00:00+00:00",
+                    "quality_score": 80,
+                }
+            ],
+        }
+        duplicate = {**item("professional_media", "company", "司美格鲁肽相关新闻"), "source": "21财经", "url": "https://example.com/related"}
+        fresh = {**item("professional_media", "company", "替尔泊肽相关新闻"), "source": "21财经", "url": "https://example.com/fresh"}
+
+        self.assertEqual(filter_new_items([duplicate, fresh], [existing]), [fresh])
 
 
 if __name__ == "__main__":

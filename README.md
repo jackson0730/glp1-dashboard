@@ -86,14 +86,18 @@ http://localhost:8765/index.html
 
 ```bash
 export DEEPSEEK_API_KEY="your_key"
-python3 scripts/fetch_news.py --days 14 --limit-per-source 30
+python3 scripts/fetch_news.py --incremental --window yesterday --limit-per-source 30
 ```
 
 不设置 `DEEPSEEK_API_KEY` 时，脚本会使用规则评分兜底，结果中的 `scored_by` 会标记为 `rules_fallback`。
 
+当前推荐使用增量模式：每天只抓取北京时间昨天 0 点到 24 点的新新闻，和现有 `data/news.json` 合并，历史内容全部保留。
+
 常用参数：
 
 - `--days`：抓取最近多少天，默认 14。
+- `--incremental`：增量合并到现有 `data/news.json`，不清空历史数据。
+- `--window yesterday`：抓取北京时间昨天自然日。
 - `--limit-per-source`：每个源最多读取多少条，默认 30。
 - `--max-items`：抓取后限制评分条数，适合本地 smoke test。
 - `--score-workers`：评分并发数，默认 4。
@@ -110,7 +114,7 @@ python3 -m unittest discover -s tests
 
 仓库通过 GitHub Pages 从 `main` 分支根目录发布。自定义域名由 [`CNAME`](CNAME) 配置。
 
-当前已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`、刷新 `data/news.json`、运行测试，并在只有新闻数据变化时提交和推送到 `origin main`。
+当前已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`，增量抓取北京时间昨天 0 点到 24 点的新新闻，合并进 `data/news.json`，运行测试，并在只有新闻数据变化时提交和推送到 `origin main`。
 
 如需让自动更新使用 DeepSeek 五维评分，请确保运行环境配置：
 

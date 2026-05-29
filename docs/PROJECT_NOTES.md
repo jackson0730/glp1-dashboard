@@ -146,7 +146,7 @@ China GLP-1 HOT 是一个中国优先的 GLP-1 新闻时间线。它只展示中
 - 线上仓库：`jackson0730/glp1-dashboard`。
 - GitHub Pages 站点：`https://sociallisteningdashboard.cn`。
 - 当前机器已配置 SSH 推送，后续不需要 GitHub token。
-- 已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`、刷新 `data/news.json`、运行测试，并在只有新闻数据变化时提交和推送到 `origin main`。
+- 已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`，增量抓取北京时间昨天 0 点到 24 点的新新闻，合并进 `data/news.json`，运行测试，并在只有新闻数据变化时提交和推送到 `origin main`。
 - 自动任务只允许提交 `data/news.json`，如果出现其他意外文件改动会停止并报告。
 - 如果自动新闻更新需要 DeepSeek 五维评分，需要在运行环境配置 `DEEPSEEK_API_KEY`；未配置时脚本会使用规则评分兜底。
 - 如需提交 GitHub Actions 工作流，token 需要 `Workflows: Read and write`；SSH 推送普通代码不需要 token。
@@ -182,7 +182,8 @@ http://127.0.0.1:8765/
 
 ### 2026-05-30
 
-- 配置 Codex 本地每日自动刷新任务：北京时间 01:30 抓取最近 14 天新闻、筛选评分、更新 `data/news.json`、运行测试，并在数据变化时推送到仓库。
+- 将新闻自动更新改为增量模式：北京时间 01:30 只抓取昨天 0 点到 24 点的新新闻，和现有 `data/news.json` 合并，历史展示数据全部保留。
+- 增量模式会跳过已存在的 URL、ID 和标题/来源组合，只对新条目评分；新条目会尝试合并进已有事件簇，否则创建新事件。
 - 自动任务使用现有 SSH 推送能力，不在仓库中保存任何 API key 或 token。
 
 ### 2026-05-29
