@@ -110,10 +110,12 @@ python3 -m unittest discover -s tests
 
 仓库通过 GitHub Pages 从 `main` 分支根目录发布。自定义域名由 [`CNAME`](CNAME) 配置。
 
-如需启用自动更新，建议先在 GitHub Secrets 配置：
+当前已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`、刷新 `data/news.json`、运行测试，并在只有新闻数据变化时提交和推送到 `origin main`。
+
+如需让自动更新使用 DeepSeek 五维评分，请确保运行环境配置：
 
 ```text
 DEEPSEEK_API_KEY
 ```
 
-当前仓库不要求提交 API key，也不要把本地密钥写入代码或文档。
+未配置 `DEEPSEEK_API_KEY` 时，脚本会使用规则评分兜底。当前仓库不要求提交 API key，也不要把本地密钥写入代码或文档。
