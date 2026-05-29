@@ -228,15 +228,17 @@ def strip_html(value: str) -> str:
 def parse_datetime(value: str) -> str:
     if not value:
         return dt.datetime.now(dt.timezone.utc).isoformat()
+    normalized_value = re.sub(r"\s+", " ", value.strip())
     try:
-        parsed = email.utils.parsedate_to_datetime(value)
+        parsed = email.utils.parsedate_to_datetime(normalized_value)
         if parsed.tzinfo is None:
             parsed = parsed.replace(tzinfo=dt.timezone.utc)
         return parsed.astimezone(dt.timezone.utc).isoformat()
     except (TypeError, ValueError):
         pass
     try:
-        parsed = dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+        iso_value = re.sub(r"([+-]\d{2})(\d{2})$", r"\1:\2", normalized_value).replace(" ", "T", 1)
+        parsed = dt.datetime.fromisoformat(iso_value.replace("Z", "+00:00"))
         if parsed.tzinfo is None:
             parsed = parsed.replace(tzinfo=dt.timezone.utc)
         return parsed.astimezone(dt.timezone.utc).isoformat()

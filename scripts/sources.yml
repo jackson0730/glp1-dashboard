@@ -23,6 +23,86 @@
       "region": "china",
       "source_type": "professional_media",
       "category_hint": "commercialization"
+    },
+    {
+      "id": "huxiu-rss",
+      "name": "虎嗅",
+      "url": "https://rss.huxiu.com/",
+      "region": "china",
+      "source_type": "professional_media",
+      "category_hint": "company"
+    },
+    {
+      "id": "36kr-feed",
+      "name": "36氪",
+      "url": "https://36kr.com/feed",
+      "region": "china",
+      "source_type": "professional_media",
+      "category_hint": "investment"
+    },
+    {
+      "id": "anyfeeder-infzm-news",
+      "name": "南方周末",
+      "url": "https://plink.anyfeeder.com/infzm/news",
+      "region": "china",
+      "source_type": "general_media",
+      "category_hint": "company"
+    },
+    {
+      "id": "anyfeeder-cctvnewscenter",
+      "name": "央视新闻",
+      "url": "https://plink.anyfeeder.com/weixin/cctvnewscenter",
+      "region": "china",
+      "source_type": "general_media",
+      "category_hint": "company"
+    },
+    {
+      "id": "anyfeeder-people-daily",
+      "name": "人民日报",
+      "url": "https://plink.anyfeeder.com/people-daily",
+      "region": "china",
+      "source_type": "general_media",
+      "category_hint": "company"
+    },
+    {
+      "id": "anyfeeder-newsxinhua",
+      "name": "新华社",
+      "url": "https://plink.anyfeeder.com/weixin/newsxinhua",
+      "region": "china",
+      "source_type": "general_media",
+      "category_hint": "company"
+    },
+    {
+      "id": "anyfeeder-wowjiemian",
+      "name": "界面新闻",
+      "url": "https://plink.anyfeeder.com/weixin/wowjiemian",
+      "region": "china",
+      "source_type": "professional_media",
+      "category_hint": "company"
+    },
+    {
+      "id": "anyfeeder-cctvyscj",
+      "name": "央视财经",
+      "url": "https://plink.anyfeeder.com/weixin/cctvyscj",
+      "region": "china",
+      "source_type": "professional_media",
+      "category_hint": "commercialization"
+    },
+    {
+      "id": "anyfeeder-thepapernews",
+      "name": "澎湃新闻",
+      "url": "https://plink.anyfeeder.com/weixin/thepapernews",
+      "region": "china",
+      "source_type": "general_media",
+      "category_hint": "company"
+    },
+    {
+      "id": "anyfeeder-dxy",
+      "name": "丁香医生",
+      "url": "https://plink.anyfeeder.com/weixin/DingXiangYiSheng",
+      "region": "china",
+      "source_type": "professional_media",
+      "category_hint": "safety"
     }
   ]
 }

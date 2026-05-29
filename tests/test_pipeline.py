@@ -9,7 +9,10 @@ from scripts.fetch_news import (
     cluster_items,
     compute_final_score,
     extract_article_published_at,
+    is_glp1_related,
     is_selected,
+    load_sources,
+    parse_datetime,
     parse_score_json,
     relevance_score_for_item,
 )
@@ -53,6 +56,40 @@ class PipelineTest(unittest.TestCase):
     def test_extract_article_published_at_treats_naive_time_as_beijing(self):
         html = "<em>2026-05-27 09:37:00</em>"
         self.assertEqual(extract_article_published_at(html), "2026-05-27T01:37:00+00:00")
+
+    def test_parse_datetime_accepts_numeric_rss_timezone_with_extra_spaces(self):
+        self.assertEqual(parse_datetime("2026-05-29 19:00:15  +0800"), "2026-05-29T11:00:15+00:00")
+
+    def test_sources_config_uses_unique_valid_enabled_sources(self):
+        sources = load_sources()
+        ids = [source.id for source in sources]
+        urls = [source.url for source in sources]
+        expected_ids = {
+            "huxiu-rss",
+            "36kr-feed",
+            "anyfeeder-infzm-news",
+            "anyfeeder-cctvnewscenter",
+            "anyfeeder-people-daily",
+            "anyfeeder-newsxinhua",
+            "anyfeeder-wowjiemian",
+            "anyfeeder-cctvyscj",
+            "anyfeeder-thepapernews",
+            "anyfeeder-dxy",
+        }
+
+        self.assertTrue(expected_ids.issubset(set(ids)))
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(len(urls), len(set(urls)))
+        for source in sources:
+            self.assertIn(source.source_type, SOURCE_RULES)
+            self.assertIn(source.category_hint, CATEGORY_LABELS)
+
+    def test_strict_glp1_filter_rejects_general_news(self):
+        general_news = {"title": "铁路新规6月1日起实施", "summary": "拒绝补票旅客将被限制购票"}
+        glp1_news = {"title": "GLP-1减肥药网售限制升级", "summary": "司美格鲁肽仍需处方"}
+
+        self.assertFalse(is_glp1_related(general_news))
+        self.assertTrue(is_glp1_related(glp1_news))
 
     def test_source_threshold_makes_same_score_selective(self):
         scores = {

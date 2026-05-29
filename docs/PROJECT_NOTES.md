@@ -59,6 +59,34 @@ China GLP-1 HOT 是一个中国优先的 GLP-1 新闻时间线。它只展示中
 8. 用规则做事件聚类，选择主条并折叠相关报道。
 9. 输出 `data/news.json` 供静态页面读取。
 
+## 信息源收录
+
+当前启用的信息源包括 Google News 定向搜索源，以及经过可用性和质量筛选的中文 RSS 源。新增泛资讯源仍执行严格 GLP-1 初筛，不放宽到泛健康或泛医药话题。
+
+本次新增启用源：
+
+- 虎嗅：`https://rss.huxiu.com/`
+- 36氪：`https://36kr.com/feed`
+- 南方周末：`https://plink.anyfeeder.com/infzm/news`
+- 央视新闻：`https://plink.anyfeeder.com/weixin/cctvnewscenter`
+- 人民日报：`https://plink.anyfeeder.com/people-daily`
+- 新华社：`https://plink.anyfeeder.com/weixin/newsxinhua`
+- 界面新闻：`https://plink.anyfeeder.com/weixin/wowjiemian`
+- 央视财经：`https://plink.anyfeeder.com/weixin/cctvyscj`
+- 澎湃新闻：`https://plink.anyfeeder.com/weixin/thepapernews`
+- 丁香医生：`https://plink.anyfeeder.com/weixin/DingXiangYiSheng`
+
+本次暂不启用源：
+
+- `https://www.zhihu.com/rss`：当前返回空内容。
+- `https://rsshub.app/zhihu/hotlist`：当前不可访问或超时，且热榜噪音较高。
+- `https://rsshub.app/infzm/2`：当前不可访问或超时；用 AnyFeeder 南方周末源替代。
+- `https://www.huxiu.com/rss/0.xml`：当前超时；用 `https://rss.huxiu.com/` 替代。
+- `https://plink.anyfeeder.com/xueqiu/hot`：当前 503。
+- `https://plink.anyfeeder.com/wsj/cn`：样本停留在 2024 年，疑似陈旧。
+- `https://plink.anyfeeder.com/qq/news/china`：当前 404。
+- `https://plink.anyfeeder.com/chinadaily/world`：项目相关性弱，且样本时间字段不稳定。
+
 ## 评分机制
 
 大模型只负责给每条信息打 5 个维度分，不计算最终分，不判断精选，不处理来源权重。
@@ -149,6 +177,12 @@ http://127.0.0.1:8765/
 - 明暗模式都要检查重点色、文字、边框和按钮是否有足够对比度。
 
 ## 修改记录
+
+### 2026-05-29
+
+- 新增 10 个经过筛选的中文 RSS 信息源，并继续保持严格 GLP-1 关键词初筛。
+- 记录本次暂不启用的信息源及原因，避免不可用、陈旧或弱相关源污染首页。
+- 修正 RSS 时间解析，支持 `2026-05-29 19:00:15  +0800` 这类双空格数字时区格式。
 
 ### 2026-05-28
 

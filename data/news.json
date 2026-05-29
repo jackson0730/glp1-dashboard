@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-05-29T11:17:06.974099+00:00",
+  "generated_at": "2026-05-29T15:21:33.267237+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,16 +9,16 @@
     "china_impact"
   ],
   "stats": {
-    "events": 13,
-    "selected": 10,
-    "related_reports": 5
+    "events": 14,
+    "selected": 11,
+    "related_reports": 6
   },
   "news": [
     {
-      "id": "af610a56ec5f57d5",
-      "title": "司美格鲁肽原料药获巴西CADIFA批准 - 搜狐网",
-      "summary": "司美格鲁肽原料药获巴西CADIFA批准 搜狐网",
-      "url": "https://m.sohu.com/a/1029437684_135869?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+      "id": "11f7b61f7f64d860",
+      "title": "公司要闻|司美格鲁肽原料药获巴西CADIFA批准 - 搜狐网",
+      "summary": "公司要闻|司美格鲁肽原料药获巴西CADIFA批准 搜狐网",
+      "url": "https://m.sohu.com/a/1029492029_121613636?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
       "source": "搜狐网",
       "source_id": "google-cn-regulatory",
       "source_type": "professional_media",
@@ -31,8 +31,8 @@
         "司美格鲁肽",
         "获批"
       ],
-      "published_at": "2026-05-29T08:46:00+00:00",
-      "feed_published_at": "2026-05-29T08:46:46+00:00",
+      "published_at": "2026-05-29T10:26:00+00:00",
+      "feed_published_at": "2026-05-29T10:26:39+00:00",
       "scores": {
         "relevance": 88,
         "importance": 73,
@@ -51,11 +51,11 @@
       "related_items": []
     },
     {
-      "id": "e7bd96cfed861800",
-      "title": "恒瑞口服小分子GLP-1 III期研究成功 - ByDrug",
-      "summary": "恒瑞口服小分子GLP-1 III期研究成功 ByDrug",
-      "url": "https://bydrug.pharmcube.com/news/detail/1dbf4eed69a813979a23a4948e8b899d",
-      "source": "ByDrug",
+      "id": "dfcbc1e468c95e55",
+      "title": "恒瑞III期临床试验成功，GLP-1百亿美元赛道再添玩家 - 21财经",
+      "summary": "恒瑞III期临床试验成功，GLP-1百亿美元赛道再添玩家 21财经",
+      "url": "https://www.21jingji.com/article/20260527/herald/d63bb18caad776d43e5b3dc26e726d89.html",
+      "source": "21财经",
       "source_id": "google-cn-regulatory",
       "source_type": "professional_media",
       "source_priority": 70,
@@ -65,11 +65,10 @@
       "category_label": "临床试验",
       "tags": [
         "临床",
-        "恒瑞医药",
-        "研究"
+        "恒瑞医药"
       ],
-      "published_at": "2026-05-27T01:37:00+00:00",
-      "feed_published_at": "2026-05-27T01:37:00+00:00",
+      "published_at": "2026-05-27T10:30:04+00:00",
+      "feed_published_at": "2026-05-27T10:14:00+00:00",
       "scores": {
         "relevance": 84,
         "importance": 73,
@@ -82,10 +81,17 @@
       "quality_score": 86,
       "selected": true,
       "verification": "已聚类验证",
-      "cluster_id": "event-0005",
+      "cluster_id": "event-0004",
       "is_primary": true,
-      "related_count": 1,
+      "related_count": 2,
       "related_items": [
+        {
+          "title": "恒瑞口服小分子GLP-1 III期研究成功 - ByDrug",
+          "url": "https://bydrug.pharmcube.com/news/detail/1dbf4eed69a813979a23a4948e8b899d",
+          "source": "ByDrug",
+          "published_at": "2026-05-27T01:37:00+00:00",
+          "quality_score": 86
+        },
         {
           "title": "恒瑞医药原研口服GLP-1受体激动剂中国Ⅲ期研究积极顶线结果公布 - 新华网",
           "url": "http://www.news.cn/digital/20260527/f641b423224348c4adaa284f9124eaec/c.html",
@@ -126,7 +132,7 @@
       "quality_score": 84,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0007",
+      "cluster_id": "event-0008",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -163,7 +169,7 @@
       "quality_score": 81,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0009",
+      "cluster_id": "event-0010",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -269,7 +275,7 @@
       "quality_score": 80,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0008",
+      "cluster_id": "event-0009",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -304,7 +310,7 @@
       "quality_score": 78,
       "selected": true,
       "verification": "待交叉验证",
-      "cluster_id": "event-0004",
+      "cluster_id": "event-0005",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -345,6 +351,39 @@
       "related_items": []
     },
     {
+      "id": "a158a3cb077da3ae",
+      "title": "美容院注射“减重针”后出现严重低血糖，专家：这药不是谁都能打 - 搜狐网",
+      "summary": "美容院注射“减重针”后出现严重低血糖，专家：这药不是谁都能打 搜狐网",
+      "url": "https://www.sohu.com/a/1027414740_539687",
+      "source": "搜狐网",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [],
+      "published_at": "2026-05-25T09:24:00+00:00",
+      "feed_published_at": "2026-05-25T09:24:07+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 64,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 72,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0007",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "313a28657a869443",
       "title": "司美格鲁肽按新规不得网售，但电商仍在打“擦边球” - 21财经",
       "summary": "司美格鲁肽按新规不得网售，但电商仍在打“擦边球” 21财经",
@@ -375,7 +414,7 @@
       "quality_score": 70,
       "selected": true,
       "verification": "已聚类验证",
-      "cluster_id": "event-0011",
+      "cluster_id": "event-0012",
       "is_primary": true,
       "related_count": 4,
       "related_items": [
@@ -438,7 +477,7 @@
       "quality_score": 67,
       "selected": false,
       "verification": "未入精选",
-      "cluster_id": "event-0010",
+      "cluster_id": "event-0011",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -471,7 +510,7 @@
       "quality_score": 62,
       "selected": false,
       "verification": "未入精选",
-      "cluster_id": "event-0013",
+      "cluster_id": "event-0014",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -503,7 +542,7 @@
       "quality_score": 59,
       "selected": false,
       "verification": "未入精选",
-      "cluster_id": "event-0012",
+      "cluster_id": "event-0013",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
