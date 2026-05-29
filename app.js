@@ -18,7 +18,8 @@ const state = {
   view: "selected",
   query: "",
   category: "",
-  news: []
+  news: [],
+  collapsedDays: new Set()
 };
 
 const timeline = document.querySelector("#timeline");
@@ -217,15 +218,38 @@ function groupByDate(items) {
   }, new Map());
 }
 
+function toggleDay(label) {
+  if (state.collapsedDays.has(label)) {
+    state.collapsedDays.delete(label);
+  } else {
+    state.collapsedDays.add(label);
+  }
+  render();
+}
+
 function render() {
   const items = filteredNews();
   timeline.innerHTML = "";
   emptyState.hidden = items.length > 0;
+  let index = 0;
   groupByDate(items).forEach((dayItems, label) => {
+    index += 1;
     const fragment = dayTemplate.content.cloneNode(true);
-    fragment.querySelector("h2").textContent = label;
-    fragment.querySelector("span").textContent = `${dayItems.length} 条`;
+    const section = fragment.querySelector(".day");
+    const button = fragment.querySelector(".day-toggle");
     const list = fragment.querySelector(".day-items");
+    const collapsed = state.collapsedDays.has(label);
+    const listId = `day-items-${index}`;
+
+    fragment.querySelector(".day-title").textContent = label;
+    fragment.querySelector(".day-count").textContent = `${dayItems.length} 条`;
+    section.classList.toggle("collapsed", collapsed);
+    list.id = listId;
+    list.hidden = collapsed;
+    button.setAttribute("aria-expanded", String(!collapsed));
+    button.setAttribute("aria-controls", listId);
+    button.setAttribute("aria-label", `${collapsed ? "展开" : "收起"} ${label}新闻`);
+    button.addEventListener("click", () => toggleDay(label));
     dayItems.forEach((item) => list.appendChild(renderCard(item)));
     timeline.appendChild(fragment);
   });
