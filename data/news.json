@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-05-29T15:21:33.267237+00:00",
+  "generated_at": "2026-05-31T15:38:48.067148+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,9 +9,9 @@
     "china_impact"
   ],
   "stats": {
-    "events": 14,
-    "selected": 11,
-    "related_reports": 6
+    "events": 19,
+    "selected": 16,
+    "related_reports": 8
   },
   "news": [
     {
@@ -46,6 +46,42 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0001",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "f98209c7f0599d62",
+      "title": "公司要闻|司美格鲁肽原料药获巴西CADIFA批准 - ByDrug",
+      "summary": "公司要闻|司美格鲁肽原料药获巴西CADIFA批准 ByDrug",
+      "url": "https://bydrug.pharmcube.com/news/detail/544be5c17ffedc9d829519b13f0af527",
+      "source": "ByDrug",
+      "source_id": "google-cn-companies",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "司美格鲁肽",
+        "获批"
+      ],
+      "published_at": "2026-05-29T08:11:00+00:00",
+      "feed_published_at": "2026-05-29T08:11:00+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 78,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 87,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0018",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -173,6 +209,60 @@
       "is_primary": true,
       "related_count": 0,
       "related_items": []
+    },
+    {
+      "id": "f3d7b3e8cea0e05c",
+      "title": "诺和诺德一季度涨势似为真——但礼来仍领先，司美格鲁肽口服片带来安慰而非定论 - 新浪财经",
+      "summary": "诺和诺德一季度涨势似为真——但礼来仍领先，司美格鲁肽口服片带来安慰而非定论 新浪财经",
+      "url": "https://finance.sina.com.cn/stock/usstock/summary/2026-05-31/doc-inhztchc9839945.shtml",
+      "source": "新浪财经",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [
+        "司美格鲁肽",
+        "礼来",
+        "诺和诺德"
+      ],
+      "published_at": "2026-05-30T17:05:54+00:00",
+      "feed_published_at": "2026-05-30T17:05:00+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 80,
+      "selected": true,
+      "verification": "已聚类验证",
+      "cluster_id": "event-0016",
+      "is_primary": true,
+      "related_count": 2,
+      "related_items": [
+        {
+          "id": "5c1fb65c0fdeec49",
+          "title": "礼来：减重28%，股价仅波动2.2%——关键在于这种脱节现象 - 新浪财经",
+          "url": "https://finance.sina.com.cn/stock/usstock/summary/2026-05-30/doc-inhzswyi6696464.shtml",
+          "source": "新浪财经",
+          "published_at": "2026-05-30T13:35:03+00:00",
+          "quality_score": 72
+        },
+        {
+          "id": "9ef70b050fec9cfb",
+          "title": "礼来创纪录的减肥药物无法解决估值问题 - 新浪财经",
+          "url": "https://finance.sina.com.cn/stock/usstock/summary/2026-05-30/doc-inhzswyf9915309.shtml",
+          "source": "新浪财经",
+          "published_at": "2026-05-30T13:17:01+00:00",
+          "quality_score": 74
+        }
+      ]
     },
     {
       "id": "ed6fb513a08aa5f7",
@@ -316,6 +406,38 @@
       "related_items": []
     },
     {
+      "id": "f31a5491dc8305e5",
+      "title": "GLP-1减重药滥用遭监管收紧，处方药零售合规门槛提高 - 虎嗅",
+      "summary": "GLP-1减重药滥用遭监管收紧，处方药零售合规门槛提高 虎嗅",
+      "url": "https://www.huxiu.com/article/4863052.html",
+      "source": "虎嗅",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [],
+      "published_at": "2026-05-31T03:15:33+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 76,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0015",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "e624f19b882840b3",
       "title": "5月史上最严网购新规：GLP-1减肥药等爆款被全网禁售 - 搜狐网",
       "summary": "5月史上最严网购新规：GLP-1减肥药等爆款被全网禁售 搜狐网",
@@ -346,6 +468,75 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0002",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "52caafb018fdb65a",
+      "title": "GLP-1减肥药禁止在电商销售，行业野蛮增长态势要终结了 - 新浪新闻_手机新浪网",
+      "summary": "GLP-1减肥药禁止在电商销售，行业野蛮增长态势要终结了 新浪新闻_手机新浪网",
+      "url": "https://news.sina.cn/2026-05-30/detail-inhzshan7207308.d.html?oid=roleta%20louca%E3%80%903958.com%E3%80%91O%20maior%20site%20de%20jogos%20de%20azar%20do%20Brasil,%203958.com,%20oferece%20Bacar%C3%A1,%20jogos%20eletr%20nicos%20e%20milhares%20de%20jogos.mzo&vt=4&cid=56261&node_id=56261",
+      "source": "新浪新闻_手机新浪网",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [],
+      "published_at": "2026-05-30T08:06:15+00:00",
+      "feed_published_at": "2026-05-30T10:30:02+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 75,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0017",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "ecf9f7af4c39f624",
+      "title": "CVS恢复将泽邦德纳入医保报销范围，并把礼来新款减肥药纳入药品目录 - 搜狐网",
+      "summary": "CVS恢复将泽邦德纳入医保报销范围，并把礼来新款减肥药纳入药品目录 搜狐网",
+      "url": "https://m.sohu.com/a/1029056701_122014422?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+      "source": "搜狐网",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [
+        "医保",
+        "礼来"
+      ],
+      "published_at": "2026-05-28T16:22:00+00:00",
+      "feed_published_at": "2026-05-28T16:22:01+00:00",
+      "scores": {
+        "relevance": 62,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 71,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 73,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0019",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -419,11 +610,11 @@
       "related_count": 4,
       "related_items": [
         {
-          "title": "以司美格鲁肽为代表的GLP-1类减重药物具体是如何规避网络销售禁令的？ - 新浪财经",
-          "url": "https://cj.sina.cn/articles/view/7879776328/1d5abd84806801kunk?froms=ggmp&vt=4",
-          "source": "新浪财经",
-          "published_at": "2026-05-17T00:09:11+00:00",
-          "quality_score": 69
+          "title": "警惕“减重针”乱象！新规禁止网售，但线上仍存售卖漏洞 - 搜狐网",
+          "url": "https://www.sohu.com/a/1024322971_355475",
+          "source": "搜狐网",
+          "published_at": "2026-05-18T11:23:00+00:00",
+          "quality_score": 65
         },
         {
           "title": "电商平台自创\"高血糖合并超重\"标签规避GLP-1减肥药网售禁令 - 虎嗅",
@@ -433,18 +624,18 @@
           "quality_score": 68
         },
         {
+          "title": "以司美格鲁肽为代表的GLP-1类减重药物具体是如何规避网络销售禁令的？ - 新浪财经",
+          "url": "https://cj.sina.cn/articles/view/7879776328/1d5abd84806801kunk?froms=ggmp&vt=4",
+          "source": "新浪财经",
+          "published_at": "2026-05-17T00:09:11+00:00",
+          "quality_score": 69
+        },
+        {
           "title": "\"史上最严\"药品新规实施 GLP-1类减肥药借降糖身份规避监管 - 虎嗅",
           "url": "https://www.huxiu.com/article/4858966.html",
           "source": "虎嗅",
           "published_at": "2026-05-16T15:02:44+00:00",
           "quality_score": 66
-        },
-        {
-          "title": "警惕“减重针”乱象！新规禁止网售，但线上仍存售卖漏洞 - 搜狐网",
-          "url": "https://www.sohu.com/a/1024322971_355475",
-          "source": "搜狐网",
-          "published_at": "2026-05-18T11:23:00+00:00",
-          "quality_score": 65
         }
       ]
     },

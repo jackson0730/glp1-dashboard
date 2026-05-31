@@ -96,10 +96,14 @@ class PipelineTest(unittest.TestCase):
 
     def test_strict_glp1_filter_rejects_general_news(self):
         general_news = {"title": "铁路新规6月1日起实施", "summary": "拒绝补票旅客将被限制购票"}
+        company_news = {"title": "辉瑞发布一季度财报", "summary": "收入和利润同比增长"}
         glp1_news = {"title": "GLP-1减肥药网售限制升级", "summary": "司美格鲁肽仍需处方"}
+        company_weight_loss_news = {"title": "辉瑞减重药管线进入临床", "summary": "公司继续布局肥胖治疗"}
 
         self.assertFalse(is_glp1_related(general_news))
+        self.assertFalse(is_glp1_related(company_news))
         self.assertTrue(is_glp1_related(glp1_news))
+        self.assertTrue(is_glp1_related(company_weight_loss_news))
 
     def test_source_threshold_makes_same_score_selective(self):
         scores = {
@@ -131,12 +135,15 @@ class PipelineTest(unittest.TestCase):
         core["summary"] = ""
         generic = item("professional_media", "company", "翰宇药业凭GLP-1赛道走出增长新曲线")
         generic["summary"] = ""
+        watched_company = item("professional_media", "company", "礼来减重业务增长，口服减肥药管线受关注")
+        watched_company["summary"] = ""
         unrelated = item("professional_media", "company", "某药企发布年度资本市场报告")
         unrelated["summary"] = ""
 
         self.assertGreaterEqual(relevance_score_for_item(core), 81)
         self.assertGreaterEqual(relevance_score_for_item(generic), 41)
         self.assertLessEqual(relevance_score_for_item(generic), 60)
+        self.assertGreaterEqual(relevance_score_for_item(watched_company), 55)
         self.assertLessEqual(relevance_score_for_item(unrelated), 20)
 
     def test_scoring_page_lists_source_rules(self):

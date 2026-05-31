@@ -135,6 +135,21 @@ COMPANY_TERMS = {
     "Roche": ["roche"],
 }
 
+WATCHED_WEIGHT_LOSS_COMPANIES = {
+    company: COMPANY_TERMS[company]
+    for company in ("辉瑞", "礼来", "诺和诺德", "信达生物")
+}
+
+WEIGHT_LOSS_CONTEXT_TERMS = [
+    "减重",
+    "减肥",
+    "肥胖",
+    "体重管理",
+    "代谢",
+    "weight loss",
+    "obesity",
+]
+
 EVENT_TERMS = {
     "获批": ["获批", "批准", "上市", "approval", "approved", "nda", "bla"],
     "临床": ["临床", "iii期", "ii期", "phase 3", "phase iii", "phase 2", "trial"],
@@ -494,7 +509,7 @@ def enrich_published_at_from_article(item: dict[str, Any]) -> dict[str, Any]:
 
 def is_glp1_related(item: dict[str, Any]) -> bool:
     text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
-    return any(keyword.lower() in text for keyword in GLP1_KEYWORDS)
+    return any(keyword.lower() in text for keyword in GLP1_KEYWORDS) or has_company_weight_loss_context(text)
 
 
 def detect_category(text: str, fallback: str = "company") -> str:
@@ -540,10 +555,22 @@ def extract_terms(text: str) -> set[str]:
     return terms
 
 
+def has_company_weight_loss_context(text: str) -> bool:
+    lower = text.lower()
+    has_company = any(
+        alias.lower() in lower
+        for aliases in WATCHED_WEIGHT_LOSS_COMPANIES.values()
+        for alias in aliases
+    )
+    has_weight_context = any(term.lower() in lower for term in WEIGHT_LOSS_CONTEXT_TERMS)
+    return has_company and has_weight_context
+
+
 def relevance_score_for_item(item: dict[str, Any]) -> int:
     text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
     terms = extract_terms(text)
     has_glp1_keyword = any(keyword.lower() in text for keyword in GLP1_KEYWORDS)
+    has_company_weight_loss = has_company_weight_loss_context(text)
     drug_terms = terms & DRUG_TOKENS
     company_terms = terms & COMPANY_TOKENS
     event_terms = terms & STRONG_EVENT_TOKENS
@@ -556,6 +583,10 @@ def relevance_score_for_item(item: dict[str, Any]) -> int:
         return 74
     if has_glp1_keyword and (company_terms or event_terms):
         return 70
+    if has_company_weight_loss and any(word in text for word in ["减重药", "减肥药", "肥胖药", "obesity drug", "weight loss drug"]):
+        return 62
+    if has_company_weight_loss:
+        return 55
     if has_glp1_keyword:
         return 55
     if company_terms and any(word in text for word in ["减重", "肥胖", "糖尿病", "代谢"]):
