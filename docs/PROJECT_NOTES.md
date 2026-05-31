@@ -145,7 +145,7 @@ China GLP-1 HOT 是一个中国优先的 GLP-1 新闻时间线。它只展示中
 
 - 线上仓库：`jackson0730/glp1-dashboard`。
 - GitHub Pages 站点：`https://sociallisteningdashboard.cn`。
-- 当前机器已配置 SSH 推送，后续不需要 GitHub token。
+- 当前机器使用标准 GitHub SSH 远端 `git@github.com:jackson0730/glp1-dashboard.git`，避免自动化环境访问 `ssh.github.com:443` 失败。
 - 已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`，增量抓取北京时间昨天 0 点到 24 点的新新闻，合并进 `data/news.json`，运行测试，并在只有新闻数据变化时提交和推送到 `origin main`。
 - 自动任务只允许提交 `data/news.json`，如果出现其他意外文件改动会停止并报告。
 - 如果自动新闻更新需要 DeepSeek 五维评分，需要在运行环境配置 `DEEPSEEK_API_KEY`；未配置时脚本会使用规则评分兜底。
@@ -184,6 +184,7 @@ http://127.0.0.1:8765/
 
 - 初筛规则新增“关注药企 + 减重/肥胖语境”入口，目前覆盖辉瑞、礼来、诺和诺德、信达生物。
 - 执行最近 3 天增量更新：抓取 8 条、去重后新增 7 条，合并后 `data/news.json` 共 19 个事件。
+- 修复本地自动任务同步失败：仓库远端从 `ssh://git@ssh.github.com:443/...` 改为标准 GitHub SSH 地址，并要求自动任务在拉取前确认该远端。
 
 ### 2026-05-30
 
