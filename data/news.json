@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-05-31T15:38:48.067148+00:00",
+  "generated_at": "2026-06-02T02:12:52.979961+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,8 +9,8 @@
     "china_impact"
   ],
   "stats": {
-    "events": 19,
-    "selected": 16,
+    "events": 22,
+    "selected": 19,
     "related_reports": 8
   },
   "news": [
@@ -169,6 +169,42 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0008",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "cc7e8909dcacab3c",
+      "title": "减重前沿 | 礼来「GLP-1」减重药获美国主流医保全面覆盖 - 搜狐网",
+      "summary": "减重前沿 | 礼来「GLP-1」减重药获美国主流医保全面覆盖 搜狐网",
+      "url": "https://m.sohu.com/a/1030560843_121303447?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+      "source": "搜狐网",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [
+        "医保",
+        "礼来"
+      ],
+      "published_at": "2026-06-01T07:00:00+00:00",
+      "feed_published_at": "2026-06-01T07:00:36+00:00",
+      "scores": {
+        "relevance": 84,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 81,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0022",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -371,6 +407,41 @@
       "related_items": []
     },
     {
+      "id": "e91692d53f9d40dc",
+      "title": "辉瑞强势入局GLP-1赛道，多款减重降糖药同台竞争 - 新京报",
+      "summary": "辉瑞强势入局GLP-1赛道，多款减重降糖药同台竞争 新京报",
+      "url": "https://www.bjnews.com.cn/detail/1780315203168447.html",
+      "source": "新京报",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "辉瑞"
+      ],
+      "published_at": "2026-06-01T12:00:00+00:00",
+      "feed_published_at": "2026-06-01T12:00:00+00:00",
+      "scores": {
+        "relevance": 70,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 79,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0020",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "546390647bc913d3",
       "title": "52周减重19.3%，国产新药临床告捷！详解GLP-1赛道困局与机遇 - 搜狐网",
       "summary": "52周减重19.3%，国产新药临床告捷！详解GLP-1赛道困局与机遇 搜狐网",
@@ -401,6 +472,41 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0005",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "5fa095273d89e77f",
+      "title": "不只低频给药：甘李药业博凡格鲁肽率先闯关，国产GLP-1进入差异化创新新阶段 - 搜狐网",
+      "summary": "不只低频给药：甘李药业博凡格鲁肽率先闯关，国产GLP-1进入差异化创新新阶段 搜狐网",
+      "url": "https://m.sohu.com/a/1030679099_564023?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+      "source": "搜狐网",
+      "source_id": "google-cn-companies",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "company",
+      "category_label": "药企动态",
+      "tags": [
+        "甘李药业"
+      ],
+      "published_at": "2026-06-01T11:23:00+00:00",
+      "feed_published_at": "2026-06-01T11:23:31+00:00",
+      "scores": {
+        "relevance": 70,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 76,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0021",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
