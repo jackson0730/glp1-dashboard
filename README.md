@@ -114,7 +114,7 @@ python3 -m unittest discover -s tests
 
 仓库通过 GitHub Pages 从 `main` 分支根目录发布。自定义域名由 [`CNAME`](CNAME) 配置。
 
-当前已配置 Codex 本地定时任务：每天北京时间 01:30 通过标准 GitHub SSH 远端自动同步 `main`，增量抓取北京时间昨天 0 点到 24 点的新新闻，合并进 `data/news.json`，运行测试，并在只有新闻数据变化时提交和推送到 `origin main`。
+当前已配置 Codex 本地定时任务：每天北京时间 01:30 通过 HTTPS 远端自动同步 `main`，预检 GitHub SSH 推送通道，增量抓取北京时间昨天 0 点到 24 点的新新闻，合并进 `data/news.json`，运行测试，并在只有新闻数据变化时提交和推送到 `main`。
 
 如需让自动更新使用 DeepSeek 五维评分，请确保运行环境配置：
 

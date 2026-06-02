@@ -145,11 +145,11 @@ China GLP-1 HOT 是一个中国优先的 GLP-1 新闻时间线。它只展示中
 
 - 线上仓库：`jackson0730/glp1-dashboard`。
 - GitHub Pages 站点：`https://sociallisteningdashboard.cn`。
-- 当前机器使用标准 GitHub SSH 远端 `git@github.com:jackson0730/glp1-dashboard.git`，避免自动化环境访问 `ssh.github.com:443` 失败。
-- 已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`，增量抓取北京时间昨天 0 点到 24 点的新新闻，合并进 `data/news.json`，运行测试，并在只有新闻数据变化时提交和推送到 `origin main`。
+- 当前机器使用 HTTPS 远端 `https://github.com/jackson0730/glp1-dashboard.git` 做只读同步，避免自动化环境在拉取阶段访问 GitHub SSH 端口失败。
+- 已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`，预检 GitHub SSH 推送通道，增量抓取北京时间昨天 0 点到 24 点的新新闻，合并进 `data/news.json`，运行测试，并在只有新闻数据变化时提交和推送到 `main`。
 - 自动任务只允许提交 `data/news.json`，如果出现其他意外文件改动会停止并报告。
 - 如果自动新闻更新需要 DeepSeek 五维评分，需要在运行环境配置 `DEEPSEEK_API_KEY`；未配置时脚本会使用规则评分兜底。
-- 如需提交 GitHub Actions 工作流，token 需要 `Workflows: Read and write`；SSH 推送普通代码不需要 token。
+- 如需提交 GitHub Actions 工作流，token 需要 `Workflows: Read and write`。
 
 ## 验证方式
 
@@ -185,12 +185,13 @@ http://127.0.0.1:8765/
 - 初筛规则新增“关注药企 + 减重/肥胖语境”入口，目前覆盖辉瑞、礼来、诺和诺德、信达生物。
 - 执行最近 3 天增量更新：抓取 8 条、去重后新增 7 条，合并后 `data/news.json` 共 19 个事件。
 - 修复本地自动任务同步失败：仓库远端从 `ssh://git@ssh.github.com:443/...` 改为标准 GitHub SSH 地址，并要求自动任务在拉取前确认该远端。
+- 再次调整自动任务发布链路：远端同步改为 HTTPS，发布前预检标准 SSH 和 `ssh.github.com:443` 两条推送通道，避免抓取完成后才发现无法推送。
 
 ### 2026-05-30
 
 - 将新闻自动更新改为增量模式：北京时间 01:30 只抓取昨天 0 点到 24 点的新新闻，和现有 `data/news.json` 合并，历史展示数据全部保留。
 - 增量模式会跳过已存在的 URL、ID 和标题/来源组合，只对新条目评分；新条目会尝试合并进已有事件簇，否则创建新事件。
-- 自动任务使用现有 SSH 推送能力，不在仓库中保存任何 API key 或 token。
+- 自动任务使用 SSH 推送能力，不在仓库中保存任何 API key 或 token。
 
 ### 2026-05-29
 
