@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-06-02T02:12:52.979961+00:00",
+  "generated_at": "2026-06-05T14:53:19.301483+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,9 +9,9 @@
     "china_impact"
   ],
   "stats": {
-    "events": 22,
-    "selected": 19,
-    "related_reports": 8
+    "events": 30,
+    "selected": 27,
+    "related_reports": 12
   },
   "news": [
     {
@@ -51,6 +51,59 @@
       "related_items": []
     },
     {
+      "id": "d883042979830ae5",
+      "title": "翰森制药GLP-1/GIP减重药上市许可申请获NMPA受理 - drugtimes.cn",
+      "summary": "翰森制药GLP-1/GIP减重药上市许可申请获NMPA受理 drugtimes.cn",
+      "url": "https://www.drugtimes.cn/2026/06/04/hansenzhiyaoglp1gipjianzhongyaoshangshixukeshenqinghuonmpash/",
+      "source": "drugtimes.cn",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "翰森制药",
+        "获批"
+      ],
+      "published_at": "2026-06-04T01:16:38+00:00",
+      "feed_published_at": "2026-06-04T01:16:38+00:00",
+      "scores": {
+        "relevance": 84,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 88,
+      "selected": true,
+      "verification": "已聚类验证",
+      "cluster_id": "event-0023",
+      "is_primary": true,
+      "related_items": [
+        {
+          "id": "145cea6dc6645cf7",
+          "title": "新华健康丨翰森制药双靶点GLP-1减重药奥莱泊肽NDA获受理 将面临激烈市场竞争 - 东方财富",
+          "url": "https://wap.eastmoney.com/a/202606053762285376.html",
+          "source": "东方财富",
+          "published_at": "2026-06-05T14:30:58+00:00",
+          "quality_score": 83
+        },
+        {
+          "id": "068195279a4f2623",
+          "title": "行业动态 | 翰森制药GLP-1/GIP双靶点减重创新药上市申报获受理 - 财富号",
+          "url": "https://caifuhao.eastmoney.com/news/20260604174451693095790",
+          "source": "财富号",
+          "published_at": "2026-06-04T09:44:00+00:00",
+          "quality_score": 82
+        }
+      ],
+      "related_count": 2
+    },
+    {
       "id": "f98209c7f0599d62",
       "title": "公司要闻|司美格鲁肽原料药获巴西CADIFA批准 - ByDrug",
       "summary": "公司要闻|司美格鲁肽原料药获巴西CADIFA批准 ByDrug",
@@ -82,6 +135,43 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0018",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "fd4a60a267489c25",
+      "title": "巴西国家卫生监督局批准首支巴西产司美格鲁肽注射笔；该药物价格应比同类产品低 30%。 - Folha do Litoral News",
+      "summary": "巴西国家卫生监督局批准首支巴西产司美格鲁肽注射笔；该药物价格应比同类产品低 30%。 Folha do Litoral News",
+      "url": "https://folhadolitoral.com.br/zh-CN/editorias/ciencia-e-saude/anvisa-aprova-primeira-caneta-brasileira-de-semaglutida-medicamento-deve-custar-30-menos-que-concorrentes/",
+      "source": "Folha do Litoral News",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "医保",
+        "司美格鲁肽",
+        "获批"
+      ],
+      "published_at": "2026-06-02T20:39:53+00:00",
+      "feed_published_at": "2026-06-02T20:39:53+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 71,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 86,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0030",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -174,6 +264,40 @@
       "related_items": []
     },
     {
+      "id": "d92ff0d176aba99b",
+      "title": "翰宇药业：公司已关注到司美格鲁肽化合物专利到期后国内仿制药市场的竞争趋势 - 东方财富",
+      "summary": "翰宇药业：公司已关注到司美格鲁肽化合物专利到期后国内仿制药市场的竞争趋势 东方财富",
+      "url": "https://finance.eastmoney.com/a/202606053762221573.html",
+      "source": "东方财富",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "司美格鲁肽"
+      ],
+      "published_at": "2026-06-05T13:18:45+00:00",
+      "scores": {
+        "relevance": 74,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 82,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0024",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "cc7e8909dcacab3c",
       "title": "减重前沿 | 礼来「GLP-1」减重药获美国主流医保全面覆盖 - 搜狐网",
       "summary": "减重前沿 | 礼来「GLP-1」减重药获美国主流医保全面覆盖 搜狐网",
@@ -245,6 +369,51 @@
       "is_primary": true,
       "related_count": 0,
       "related_items": []
+    },
+    {
+      "id": "f40446c4db144980",
+      "title": "恒瑞口服小分子GLP-1受体激动剂研究结果发表JAMA子刊 - 新华网",
+      "summary": "恒瑞口服小分子GLP-1受体激动剂研究结果发表JAMA子刊 新华网",
+      "url": "http://www.news.cn/enterprise/20260605/1ef36e79c00f407bb94f0aaad98483fa/c.html",
+      "source": "新华网",
+      "source_id": "google-cn-companies",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "research",
+      "category_label": "研究进展",
+      "tags": [
+        "恒瑞医药",
+        "研究"
+      ],
+      "published_at": "2026-06-05T00:00:00+00:00",
+      "feed_published_at": "2026-06-05T06:04:55+00:00",
+      "scores": {
+        "relevance": 84,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 80,
+      "selected": true,
+      "verification": "已聚类验证",
+      "cluster_id": "event-0028",
+      "is_primary": true,
+      "related_count": 1,
+      "related_items": [
+        {
+          "id": "c308e5fc1e56cf36",
+          "title": "同日双捷，恒瑞GLP-1炸翻全场 - 搜狐网",
+          "url": "https://m.sohu.com/a/1031067753_121029209?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+          "source": "搜狐网",
+          "published_at": "2026-06-02T07:06:00+00:00",
+          "quality_score": 76
+        }
+      ]
     },
     {
       "id": "f3d7b3e8cea0e05c",
@@ -435,11 +604,20 @@
       "score_status": "ok",
       "quality_score": 79,
       "selected": true,
-      "verification": "待交叉验证",
+      "verification": "已聚类验证",
       "cluster_id": "event-0020",
       "is_primary": true,
-      "related_count": 0,
-      "related_items": []
+      "related_count": 1,
+      "related_items": [
+        {
+          "id": "8f160e6d5b81dd13",
+          "title": "减重前沿 | 辉瑞新一代「偏向型」埃诺格鲁肽「先维盈」全国上市会 - 搜狐网",
+          "url": "https://m.sohu.com/a/1031936057_121303447?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+          "source": "搜狐网",
+          "published_at": "2026-06-04T01:43:00+00:00",
+          "quality_score": 75
+        }
+      ]
     },
     {
       "id": "546390647bc913d3",
@@ -472,6 +650,41 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0005",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "8672753044ee307c",
+      "title": "辉瑞埃诺格鲁肽上市 用于超重或肥胖人群体重管理 - 光明网",
+      "summary": "辉瑞埃诺格鲁肽上市 用于超重或肥胖人群体重管理 光明网",
+      "url": "https://health.gmw.cn/2026-06/05/content_38813837.htm",
+      "source": "光明网",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "获批",
+        "辉瑞"
+      ],
+      "published_at": "2026-06-05T08:26:00+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 76,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0026",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -612,6 +825,71 @@
       "related_items": []
     },
     {
+      "id": "a4f098d0b65fdf4f",
+      "title": "TD Cowen将全球GLP-1药物销售预测上调至2030年1,500亿美元 提供者 Investing.com - 英为财情 Investing.com",
+      "summary": "TD Cowen将全球GLP-1药物销售预测上调至2030年1,500亿美元 提供者 Investing.com 英为财情 Investing.com",
+      "url": "https://cn.investing.com/news/stock-market-news/article-93CH-3403667",
+      "source": "英为财情 Investing.com",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [],
+      "published_at": "2026-06-05T11:06:00+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 73,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0025",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "8a465dbd0fabde62",
+      "title": "21调查｜618减重大考：GLP-1监管收紧，AKK菌狂欢？ - 21财经",
+      "summary": "21调查｜618减重大考：GLP-1监管收紧，AKK菌狂欢？ 21财经",
+      "url": "https://www.21jingji.com/article/20260605/herald/a0c1b6e77c24e21e1c88a453a3756e5c.html",
+      "source": "21财经",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [],
+      "published_at": "2026-06-05T05:00:03+00:00",
+      "feed_published_at": "2026-06-05T02:31:00+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 73,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0027",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "ecf9f7af4c39f624",
       "title": "CVS恢复将泽邦德纳入医保报销范围，并把礼来新款减肥药纳入药品目录 - 搜狐网",
       "summary": "CVS恢复将泽邦德纳入医保报销范围，并把礼来新款减肥药纳入药品目录 搜狐网",
@@ -643,6 +921,39 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0019",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "6001e1906554092f",
+      "title": "网红减重针网销乱象：有商家宣称“不瘦必赔”，虚报病症也能开处方 - 海报新闻",
+      "summary": "网红减重针网销乱象：有商家宣称“不瘦必赔”，虚报病症也能开处方 海报新闻",
+      "url": "https://hb.dzwww.com/p/pf2FUtiDjGd.html",
+      "source": "海报新闻",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [],
+      "published_at": "2026-06-04T11:00:00+00:00",
+      "feed_published_at": "2026-06-04T11:00:00+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 72,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0029",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
