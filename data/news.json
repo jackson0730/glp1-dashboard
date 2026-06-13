@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-06-13T03:13:48.102966+00:00",
+  "generated_at": "2026-06-13T17:35:01.562301+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,8 +9,8 @@
     "china_impact"
   ],
   "stats": {
-    "events": 57,
-    "selected": 53,
+    "events": 58,
+    "selected": 54,
     "related_reports": 24
   },
   "news": [
@@ -599,6 +599,40 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0024",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "046a93c873cbde54",
+      "title": "全球首发！全球首个基础胰岛素/GLP-1RA周制即将在中国率先上市 - ByDrug",
+      "summary": "全球首发！全球首个基础胰岛素/GLP-1RA周制即将在中国率先上市 ByDrug",
+      "url": "https://bydrug.pharmcube.com/news/detail/ff5ed99e00bd5b37a2fae6eaec24db50",
+      "source": "ByDrug",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "获批"
+      ],
+      "published_at": "2026-06-13T05:29:00+00:00",
+      "scores": {
+        "relevance": 70,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 81,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0058",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
