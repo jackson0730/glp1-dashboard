@@ -145,8 +145,8 @@ China GLP-1 HOT 是一个中国优先的 GLP-1 新闻时间线。它只展示中
 
 - 线上仓库：`jackson0730/glp1-dashboard`。
 - GitHub Pages 站点：`https://sociallisteningdashboard.cn`。
-- 当前机器使用 HTTPS 远端 `https://github.com/jackson0730/glp1-dashboard.git` 做只读同步，避免自动化环境在拉取阶段访问 GitHub SSH 端口失败。
-- 已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`，预检 GitHub SSH 推送通道，增量抓取北京时间昨天 0 点到 24 点的新新闻，合并进 `data/news.json`，运行测试，并在只有新闻数据变化时提交和推送到 `main`。
+- 当前机器使用 SSH 443 远端 `ssh://git@ssh.github.com:443/jackson0730/glp1-dashboard.git` 同步和推送，避免 HTTPS 凭据与本地代理问题。
+- 已配置 Codex 本地定时任务：每天北京时间 01:30 自动同步 `main`，增量抓取北京时间昨天 0 点到 24 点的新新闻，合并进 `data/news.json`，运行测试，并在只有新闻数据变化时提交和推送到 `main`。
 - 自动任务只允许提交 `data/news.json`，如果出现其他意外文件改动会停止并报告。
 - 如果自动新闻更新需要 DeepSeek 五维评分，需要在运行环境配置 `DEEPSEEK_API_KEY`；未配置时脚本会使用规则评分兜底。
 - 如需提交 GitHub Actions 工作流，token 需要 `Workflows: Read and write`。
@@ -179,6 +179,12 @@ http://127.0.0.1:8765/
 - 明暗模式都要检查重点色、文字、边框和按钮是否有足够对比度。
 
 ## 修改记录
+
+### 2026-06-13
+
+- 修复自动任务失败：移除已失效的全局 Git 代理 `127.0.0.1:6478`，仓库远端固定为 `ssh://git@ssh.github.com:443/jackson0730/glp1-dashboard.git`。
+- 更新 Codex 定时任务流程：不再把 `origin` 改回 HTTPS，也不在新闻抓取前做推送 dry-run；只有 `data/news.json` 真的变化时才提交并推送。
+- 补跑最近 14 天增量新闻：抓取 46 条、去重后新增 39 条，合并后 `data/news.json` 共 57 个事件、53 条精选。
 
 ### 2026-05-31
 
