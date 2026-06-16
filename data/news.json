@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-06-13T17:35:01.562301+00:00",
+  "generated_at": "2026-06-16T12:24:16.656128+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,8 +9,8 @@
     "china_impact"
   ],
   "stats": {
-    "events": 58,
-    "selected": 54,
+    "events": 62,
+    "selected": 58,
     "related_reports": 24
   },
   "news": [
@@ -280,6 +280,42 @@
           "quality_score": 80
         }
       ]
+    },
+    {
+      "id": "4dd9fef74619a920",
+      "title": "周制剂依柯胰岛素司美格鲁肽在中国首发上市 - 新京报",
+      "summary": "周制剂依柯胰岛素司美格鲁肽在中国首发上市 新京报",
+      "url": "https://www.bjnews.com.cn/detail/1781500228169327.html",
+      "source": "新京报",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "司美格鲁肽",
+        "获批"
+      ],
+      "published_at": "2026-06-15T05:10:00+00:00",
+      "feed_published_at": "2026-06-15T05:10:00+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 85,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0061",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
     },
     {
       "id": "07cbf8d5850a0d36",
@@ -711,6 +747,76 @@
       "related_items": []
     },
     {
+      "id": "27a659c1bd4e6ab7",
+      "title": "2025年Q2司美格鲁肽市场真相：销量同比下滑但环比修复，国产竞品能否撼动地位？ - 维科号",
+      "summary": "2025年Q2司美格鲁肽市场真相：销量同比下滑但环比修复，国产竞品能否撼动地位？ 维科号",
+      "url": "https://mp.ofweek.com/biotech/a056714984607",
+      "source": "维科号",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "司美格鲁肽"
+      ],
+      "published_at": "2026-06-15T08:51:00+00:00",
+      "feed_published_at": "2026-06-15T08:51:00+00:00",
+      "scores": {
+        "relevance": 74,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 80,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0059",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "95ae0f7ccd7e3d21",
+      "title": "2025年Q2司美格鲁肽市场复盘：销量逐步回升，GLP-1赛道竞争进入白热化！ - Sohu",
+      "summary": "2025年Q2司美格鲁肽市场复盘：销量逐步回升，GLP-1赛道竞争进入白热化！ Sohu",
+      "url": "https://m.sohu.com/a/1036815019_121035734?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+      "source": "Sohu",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "司美格鲁肽"
+      ],
+      "published_at": "2026-06-15T07:07:00+00:00",
+      "feed_published_at": "2026-06-15T07:07:59+00:00",
+      "scores": {
+        "relevance": 74,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 80,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0060",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "f40446c4db144980",
       "title": "恒瑞口服小分子GLP-1受体激动剂研究结果发表JAMA子刊 - 新华网",
       "summary": "恒瑞口服小分子GLP-1受体激动剂研究结果发表JAMA子刊 新华网",
@@ -1105,6 +1211,41 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0044",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "1356c9b817921c08",
+      "title": "埃诺格鲁肽体重降幅显著优于司美格鲁肽35% | 正心Ecosphere - 新浪财经",
+      "summary": "埃诺格鲁肽体重降幅显著优于司美格鲁肽35% | 正心Ecosphere 新浪财经",
+      "url": "https://cj.sina.cn/articles/view/5953466437/162dab0450670aqjjm?froms=ggmp&vt=4",
+      "source": "新浪财经",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [
+        "司美格鲁肽"
+      ],
+      "published_at": "2026-06-14T18:07:27+00:00",
+      "feed_published_at": "2026-06-14T18:07:27+00:00",
+      "scores": {
+        "relevance": 74,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 78,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 76,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0062",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
