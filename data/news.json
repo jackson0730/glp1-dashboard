@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-06-16T12:24:16.656128+00:00",
+  "generated_at": "2026-06-17T17:34:28.073585+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,8 +9,8 @@
     "china_impact"
   ],
   "stats": {
-    "events": 62,
-    "selected": 58,
+    "events": 64,
+    "selected": 60,
     "related_reports": 24
   },
   "news": [
@@ -1145,6 +1145,42 @@
       ]
     },
     {
+      "id": "b165e0d74bd4e472",
+      "title": "诺和诺德全球CEO：未来会增加在中国的BD交易，口服减重版司美将递交上市申请 - thepaper.cn",
+      "summary": "诺和诺德全球CEO：未来会增加在中国的BD交易，口服减重版司美将递交上市申请 thepaper.cn",
+      "url": "https://www.thepaper.cn/newsDetail_forward_33397676",
+      "source": "thepaper.cn",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "获批",
+        "诺和诺德"
+      ],
+      "published_at": "2026-06-17T06:22:00+00:00",
+      "feed_published_at": "2026-06-17T06:22:00+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 78,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0064",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "546390647bc913d3",
       "title": "52周减重19.3%，国产新药临床告捷！详解GLP-1赛道困局与机遇 - 搜狐网",
       "summary": "52周减重19.3%，国产新药临床告捷！详解GLP-1赛道困局与机遇 搜狐网",
@@ -1669,6 +1705,41 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0051",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "11adf8df8045fdeb",
+      "title": "信达生物携手全亿健康开展肥胖合并脂肪肝防治科普活动 - Sohu",
+      "summary": "信达生物携手全亿健康开展肥胖合并脂肪肝防治科普活动 Sohu",
+      "url": "https://m.sohu.com/a/1037958713_120952561?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+      "source": "Sohu",
+      "source_id": "google-cn-companies",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "company",
+      "category_label": "药企动态",
+      "tags": [
+        "信达生物"
+      ],
+      "published_at": "2026-06-17T10:40:00+00:00",
+      "feed_published_at": "2026-06-17T10:40:21+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 73,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0063",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
