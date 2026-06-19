@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-06-17T17:34:28.073585+00:00",
+  "generated_at": "2026-06-19T06:24:34.631280+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,8 +9,8 @@
     "china_impact"
   ],
   "stats": {
-    "events": 64,
-    "selected": 60,
+    "events": 67,
+    "selected": 63,
     "related_reports": 24
   },
   "news": [
@@ -742,6 +742,42 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0010",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "3801d8fdf68c43dd",
+      "title": "恒瑞医药披露口服小分子GLP-1受体激动剂HRS-7535第二项中国关键Ⅲ期2型糖尿病研究（OUTSTAND-2）积极顶线结果 - ByDrug",
+      "summary": "恒瑞医药披露口服小分子GLP-1受体激动剂HRS-7535第二项中国关键Ⅲ期2型糖尿病研究（OUTSTAND-2）积极顶线结果 ByDrug",
+      "url": "https://bydrug.pharmcube.com/news/detail/2dacbac9d866944afd207215ed35428e",
+      "source": "ByDrug",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "research",
+      "category_label": "研究进展",
+      "tags": [
+        "恒瑞医药",
+        "研究"
+      ],
+      "published_at": "2026-06-17T23:00:00+00:00",
+      "feed_published_at": "2026-06-18T07:33:00+00:00",
+      "scores": {
+        "relevance": 84,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 78,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 80,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0066",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -1571,6 +1607,38 @@
       "related_items": []
     },
     {
+      "id": "1470abf16b962b6f",
+      "title": "胃肠道不适影响GLP-1减肥药使用，药企打响“减副”争夺战 - 搜狐网",
+      "summary": "胃肠道不适影响GLP-1减肥药使用，药企打响“减副”争夺战 搜狐网",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOZjJWYi1BOXJyTUlTeFF5Tl9QN1hud3FjYVBpTnJzT2R3R3Q0V0tqZGcydVBQbmFWbndBMVk0Zm9VMkNaSEh5T1F4NUYyU3ViOGFzbFc1S0RQTDg3UGVzWm8yLXVJaFRvM3R0TDhIR0pOSXlSZ3dWX3hmNFpoS1FITEVYVUxkbFVa?oc=5",
+      "source": "搜狐网",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [],
+      "published_at": "2026-06-18T08:09:00+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 75,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0065",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "a395d5c258d03238",
       "title": "又一国产减肥药挑战司美格鲁肽 埃诺格鲁肽显效 - 中华网",
       "summary": "又一国产减肥药挑战司美格鲁肽 埃诺格鲁肽显效 中华网",
@@ -1669,6 +1737,38 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0017",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "1b81222ae358091f",
+      "title": "GLP-1的 “常山赵子龙”，英雄迟暮来得比想象快 - 36Kr",
+      "summary": "GLP-1的 “常山赵子龙”，英雄迟暮来得比想象快 36Kr",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8tZlFfQkJsX0lEU21jcXNsNDdYUTZHOEVwRFdGbWpVQlRHM1BVOEh4YUFiS1lmazNJMFhFaWktLWR2ZVozMEx1T1ZJNG9aeFVI?oc=5",
+      "source": "36Kr",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [],
+      "published_at": "2026-06-17T18:38:00+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 78,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 74,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0067",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
