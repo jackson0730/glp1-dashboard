@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-06-19T06:24:34.631280+00:00",
+  "generated_at": "2026-06-23T17:35:03.820551+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,8 +9,8 @@
     "china_impact"
   ],
   "stats": {
-    "events": 67,
-    "selected": 63,
+    "events": 69,
+    "selected": 65,
     "related_reports": 24
   },
   "news": [
@@ -350,6 +350,41 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0055",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "82cd18556f0b0ba0",
+      "title": "歌礼制药：“同类最佳”潜质GLP-1/GIP双靶点新药ASC35获美国FDA临床批准 - 东方财富",
+      "summary": "歌礼制药：“同类最佳”潜质GLP-1/GIP双靶点新药ASC35获美国FDA临床批准 东方财富",
+      "url": "https://finance.eastmoney.com/a/202606233779826241.html",
+      "source": "东方财富",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "临床",
+        "获批"
+      ],
+      "published_at": "2026-06-23T10:37:38+00:00",
+      "scores": {
+        "relevance": 70,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 84,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0068",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -1247,6 +1282,41 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0005",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "00890b9a9e964ad9",
+      "title": "减重针价格跳水至两百多元，成网红“瘦身保健品”？医生警示：处方药绝非保健品，乱打暗藏致命风险 - 搜狐网",
+      "summary": "减重针价格跳水至两百多元，成网红“瘦身保健品”？医生警示：处方药绝非保健品，乱打暗藏致命风险 搜狐网",
+      "url": "https://m.sohu.com/a/1040422734_120046696?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+      "source": "搜狐网",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [
+        "医保"
+      ],
+      "published_at": "2026-06-23T06:34:00+00:00",
+      "feed_published_at": "2026-06-23T06:34:00+00:00",
+      "scores": {
+        "relevance": 70,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 77,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0069",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
