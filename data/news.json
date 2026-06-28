@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-06-25T18:23:11.739501+00:00",
+  "generated_at": "2026-06-28T17:38:01.927134+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,11 +9,47 @@
     "china_impact"
   ],
   "stats": {
-    "events": 72,
-    "selected": 68,
+    "events": 75,
+    "selected": 71,
     "related_reports": 24
   },
   "news": [
+    {
+      "id": "525988377b7e2abb",
+      "title": "Cell子刊：母义明/谷伟军合作发现替尔泊肽在中国早期2型糖尿病患者中的III期临床证据- 进展专区 - 生物谷",
+      "summary": "Cell子刊：母义明/谷伟军合作发现替尔泊肽在中国早期2型糖尿病患者中的III期临床证据- 进展专区 生物谷",
+      "url": "https://news.bioon.com/article/8512940822b1.html",
+      "source": "生物谷",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "clinical_trial",
+      "category_label": "临床试验",
+      "tags": [
+        "临床",
+        "替尔泊肽"
+      ],
+      "published_at": "2026-06-28T03:05:00+00:00",
+      "feed_published_at": "2026-06-28T03:05:00+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 90,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0073",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
     {
       "id": "383af679883e4d73",
       "title": "石药集团(01093)：司美格鲁肽长效注射液(SYH 9017) 在美国获临床试验批准 - 凤凰网",
@@ -516,6 +552,41 @@
       "related_items": []
     },
     {
+      "id": "e40f418fcd5cb33d",
+      "title": "SURMOUNT-REAL UK：一项评估替尔泊肽在肥胖成人中有效性的实用性随机临床试验 - news.ebiotrade.com",
+      "summary": "SURMOUNT-REAL UK：一项评估替尔泊肽在肥胖成人中有效性的实用性随机临床试验 news.ebiotrade.com",
+      "url": "https://news.ebiotrade.com/2026-6/20260628000835339.htm",
+      "source": "news.ebiotrade.com",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "clinical_trial",
+      "category_label": "临床试验",
+      "tags": [
+        "临床",
+        "替尔泊肽"
+      ],
+      "published_at": "2026-06-27T23:57:32+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 83,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0074",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "2c525394b8070ba1",
       "title": "药物受理最新动态：信达生物制药（苏州）有限公司玛仕度肽注射液补充申请获受理 - 新浪财经",
       "summary": "药物受理最新动态：信达生物制药（苏州）有限公司玛仕度肽注射液补充申请获受理 新浪财经",
@@ -814,6 +885,40 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0010",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "4fd67bf5645dfb8a",
+      "title": "替尔泊肽（Tirzepatide，双重GIP/GLP-1受体激动剂）减轻ApoE?/?小鼠内皮功能障碍及血管紧张素II诱导的腹主动脉瘤 - news.ebiotrade.com",
+      "summary": "替尔泊肽（Tirzepatide，双重GIP/GLP-1受体激动剂）减轻ApoE?/?小鼠内皮功能障碍及血管紧张素II诱导的腹主动脉瘤 news.ebiotrade.com",
+      "url": "https://news.ebiotrade.com/2026-6/20260628000615172.htm",
+      "source": "news.ebiotrade.com",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "替尔泊肽"
+      ],
+      "published_at": "2026-06-27T23:57:32+00:00",
+      "scores": {
+        "relevance": 74,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 80,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0075",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
