@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-06-28T17:38:01.927134+00:00",
+  "generated_at": "2026-07-01T17:37:20.442384+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,11 +9,83 @@
     "china_impact"
   ],
   "stats": {
-    "events": 75,
-    "selected": 71,
+    "events": 80,
+    "selected": 76,
     "related_reports": 24
   },
   "news": [
+    {
+      "id": "001189f4899a24c3",
+      "title": "深耕代谢健康 中美双驱发力｜利拉鲁肽（H）注射液国内正式获批上市 - ByDrug",
+      "summary": "深耕代谢健康 中美双驱发力｜利拉鲁肽（H）注射液国内正式获批上市 ByDrug",
+      "url": "https://bydrug.pharmcube.com/news/detail/0b20428fd658278e5fca254622ad2913",
+      "source": "ByDrug",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "利拉鲁肽",
+        "获批"
+      ],
+      "published_at": "2026-07-01T13:20:00+00:00",
+      "feed_published_at": "2026-07-01T13:20:00+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 90,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0076",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "2e8de9851db49fc9",
+      "title": "国内首款化学合成！翰宇药业利拉鲁肽获批上市 - ByDrug",
+      "summary": "国内首款化学合成！翰宇药业利拉鲁肽获批上市 ByDrug",
+      "url": "https://bydrug.pharmcube.com/news/detail/8cbf2fc6503391a4eeab8e06b6a8796f",
+      "source": "ByDrug",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "利拉鲁肽",
+        "获批"
+      ],
+      "published_at": "2026-07-01T08:35:00+00:00",
+      "feed_published_at": "2026-07-01T08:35:00+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 90,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0077",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
     {
       "id": "525988377b7e2abb",
       "title": "Cell子刊：母义明/谷伟军合作发现替尔泊肽在中国早期2型糖尿病患者中的III期临床证据- 进展专区 - 生物谷",
@@ -353,6 +425,40 @@
           "quality_score": 80
         }
       ]
+    },
+    {
+      "id": "1ed12670517e0c2f",
+      "title": "翰宇药业：替尔泊肽注射液新药简略申请获美国FDA受理 - 东方财富",
+      "summary": "翰宇药业：替尔泊肽注射液新药简略申请获美国FDA受理 东方财富",
+      "url": "https://finance.eastmoney.com/a/202607013789159169.html",
+      "source": "东方财富",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "替尔泊肽"
+      ],
+      "published_at": "2026-07-01T01:00:06+00:00",
+      "scores": {
+        "relevance": 74,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 85,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0079",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
     },
     {
       "id": "4dd9fef74619a920",
@@ -778,6 +884,78 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0024",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "fc61374584cede54",
+      "title": "翰宇药业「替尔泊肽」在美国申报上市 - 新浪网",
+      "summary": "翰宇药业「替尔泊肽」在美国申报上市 新浪网",
+      "url": "https://finance.sina.com.cn/roll/2026-07-01/doc-inifhmie3167374.shtml",
+      "source": "新浪网",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [
+        "替尔泊肽",
+        "获批"
+      ],
+      "published_at": "2026-07-01T04:29:33+00:00",
+      "feed_published_at": "2026-07-01T04:15:00+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 81,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0078",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "1c8cd2bfacbdb520",
+      "title": "诺和诺德与礼来备战美国医保覆盖，激烈角逐GLP-1 口服药市场 - MSN",
+      "summary": "诺和诺德与礼来备战美国医保覆盖，激烈角逐GLP-1 口服药市场 MSN",
+      "url": "https://www.msn.com/zh-cn/news/other/%E8%AF%BA%E5%92%8C%E8%AF%BA%E5%BE%B7%E4%B8%8E%E7%A4%BC%E6%9D%A5%E5%A4%87%E6%88%98%E7%BE%8E%E5%9B%BD%E5%8C%BB%E4%BF%9D%E8%A6%86%E7%9B%96-%E6%BF%80%E7%83%88%E8%A7%92%E9%80%90glp-1%E5%8F%A3%E6%9C%8D%E8%8D%AF%E5%B8%82%E5%9C%BA/ar-AA25cyZe?apiversion=v2&domshim=1&noservercache=1&noservertelemetry=1&batchservertelemetry=1&renderwebcomponents=1&wcseo=1",
+      "source": "MSN",
+      "source_id": "google-cn-commercial",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [
+        "医保",
+        "礼来",
+        "诺和诺德"
+      ],
+      "published_at": "2026-06-30T17:50:52+00:00",
+      "scores": {
+        "relevance": 84,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 81,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0080",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
