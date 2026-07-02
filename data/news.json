@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-07-01T17:37:20.442384+00:00",
+  "generated_at": "2026-07-02T17:35:52.511909+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,11 +9,49 @@
     "china_impact"
   ],
   "stats": {
-    "events": 80,
-    "selected": 76,
+    "events": 83,
+    "selected": 79,
     "related_reports": 24
   },
   "news": [
+    {
+      "id": "ec55069162bbe92b",
+      "title": "翰宇药业挑战礼来：利拉鲁肽国内首家化药获批，替尔泊肽打响FDA首仿争夺战！ - 搜狐网",
+      "summary": "翰宇药业挑战礼来：利拉鲁肽国内首家化药获批，替尔泊肽打响FDA首仿争夺战！ 搜狐网",
+      "url": "https://m.sohu.com/a/1044727462_121035734?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+      "source": "搜狐网",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "利拉鲁肽",
+        "替尔泊肽",
+        "礼来",
+        "获批"
+      ],
+      "published_at": "2026-07-02T08:22:00+00:00",
+      "feed_published_at": "2026-07-02T08:22:00+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 90,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0082",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
     {
       "id": "001189f4899a24c3",
       "title": "深耕代谢健康 中美双驱发力｜利拉鲁肽（H）注射液国内正式获批上市 - ByDrug",
@@ -529,6 +567,42 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0055",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "48352a0abdb7838d",
+      "title": "诺和诺德利拉鲁肽二级标准品申报获受理，筑牢GLP-1产业质量根基 - ByDrug",
+      "summary": "诺和诺德利拉鲁肽二级标准品申报获受理，筑牢GLP-1产业质量根基 ByDrug",
+      "url": "https://bydrug.pharmcube.com/news/detail/8c9c99e6ec63141935a2f7a0910c666a",
+      "source": "ByDrug",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "利拉鲁肽",
+        "诺和诺德"
+      ],
+      "published_at": "2026-07-02T08:32:00+00:00",
+      "feed_published_at": "2026-07-02T08:32:00+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 84,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0081",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -2400,6 +2474,41 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0019",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "2b589825d556c9d6",
+      "title": "恒瑞医药的“减肥神药”野望：礼来有的，我全要 - 新浪财经",
+      "summary": "恒瑞医药的“减肥神药”野望：礼来有的，我全要 新浪财经",
+      "url": "https://finance.sina.com.cn/wm/2026-07-02/doc-inifkixw3616039.shtml?froms=ggmp",
+      "source": "新浪财经",
+      "source_id": "google-cn-companies",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "company",
+      "category_label": "药企动态",
+      "tags": [
+        "恒瑞医药",
+        "礼来"
+      ],
+      "published_at": "2026-07-01T23:28:00+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 85,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 72,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0083",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
