@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-07-03T17:36:21.178492+00:00",
+  "generated_at": "2026-07-04T17:35:05.177563+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,8 +9,8 @@
     "china_impact"
   ],
   "stats": {
-    "events": 92,
-    "selected": 88,
+    "events": 93,
+    "selected": 89,
     "related_reports": 24
   },
   "news": [
@@ -603,6 +603,42 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0055",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "fc892daccb5e2a81",
+      "title": "翰宇药业：与三生蔓迪合作的司美格鲁肽注射液上市申请获受理 - 搜狐网",
+      "summary": "翰宇药业：与三生蔓迪合作的司美格鲁肽注射液上市申请获受理 搜狐网",
+      "url": "https://m.sohu.com/a/1045814555_121948396?scm=10001.325_13-325_13.0.0-0-0-0-0.5_1334",
+      "source": "搜狐网",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "司美格鲁肽",
+        "获批"
+      ],
+      "published_at": "2026-07-04T08:19:00+00:00",
+      "feed_published_at": "2026-07-04T08:19:11+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 84,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0093",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
