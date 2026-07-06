@@ -1,6 +1,6 @@
 {
   "site": "GLP-1 News",
-  "generated_at": "2026-07-04T17:35:05.177563+00:00",
+  "generated_at": "2026-07-06T17:35:20.231769+00:00",
   "score_dimensions": [
     "relevance",
     "importance",
@@ -9,8 +9,8 @@
     "china_impact"
   ],
   "stats": {
-    "events": 93,
-    "selected": 89,
+    "events": 97,
+    "selected": 93,
     "related_reports": 24
   },
   "news": [
@@ -192,6 +192,42 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0073",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "806eb9788aa4fe93",
+      "title": "勇闯“减肥药”赛道，翰宇药业旗下化学原料药利拉鲁肽获批 - 东方财富",
+      "summary": "勇闯“减肥药”赛道，翰宇药业旗下化学原料药利拉鲁肽获批 东方财富",
+      "url": "https://wap.eastmoney.com/a/202607063795441819.html",
+      "source": "东方财富",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "利拉鲁肽",
+        "获批"
+      ],
+      "published_at": "2026-07-06T13:39:20+00:00",
+      "feed_published_at": "2026-07-06T00:17:19+00:00",
+      "scores": {
+        "relevance": 88,
+        "importance": 73,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 89,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0094",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -1169,6 +1205,42 @@
       "related_count": 3
     },
     {
+      "id": "6f0f9ed38db2d4de",
+      "title": "美国医保Medicare实施GLP-1减肥药覆盖计划，为礼来诺和诺德带来超百亿美元增量收入 - 虎嗅网",
+      "summary": "美国医保Medicare实施GLP-1减肥药覆盖计划，为礼来诺和诺德带来超百亿美元增量收入 虎嗅网",
+      "url": "https://www.huxiu.com/article/4872814.html",
+      "source": "虎嗅网",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "commercialization",
+      "category_label": "商业化/医保",
+      "tags": [
+        "医保",
+        "礼来",
+        "诺和诺德"
+      ],
+      "published_at": "2026-07-06T00:17:29+00:00",
+      "scores": {
+        "relevance": 84,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 84
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 82,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0096",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
       "id": "08a84122e43ed567",
       "title": "华润三九与博瑞医药合作开发的GLP-1/GIP双靶点创新药BGM0504注射液减重适应症新药上市申请获国家药品监督管理局受理医药新闻-ByDrug-一站式医药资源共享中心-医药魔方 - ByDrug",
       "summary": "华润三九与博瑞医药合作开发的GLP-1/GIP双靶点创新药BGM0504注射液减重适应症新药上市申请获国家药品监督管理局受理医药新闻-ByDrug-一站式医药资源共享中心-医药魔方 ByDrug",
@@ -1243,6 +1315,41 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0024",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "1a20ff24b549961f",
+      "title": "玛仕度肽预充式多剂量注射笔（24mg）在上海开出全国首张处方 - ByDrug",
+      "summary": "玛仕度肽预充式多剂量注射笔（24mg）在上海开出全国首张处方 ByDrug",
+      "url": "https://bydrug.pharmcube.com/news/detail/6cb14a5a2bea474f6a08016a1288ab61",
+      "source": "ByDrug",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [
+        "玛仕度肽"
+      ],
+      "published_at": "2026-07-06T00:00:00+00:00",
+      "feed_published_at": "2026-07-03T08:51:00+00:00",
+      "scores": {
+        "relevance": 74,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 81,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0097",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
@@ -2068,6 +2175,39 @@
       "selected": true,
       "verification": "待交叉验证",
       "cluster_id": "event-0044",
+      "is_primary": true,
+      "related_count": 0,
+      "related_items": []
+    },
+    {
+      "id": "5eb2aa101377745b",
+      "title": "GLP-1减肥针：千亿赛道狂欢与乱象 - ByDrug",
+      "summary": "GLP-1减肥针：千亿赛道狂欢与乱象 ByDrug",
+      "url": "https://bydrug.pharmcube.com/news/detail/390eeba578405505e0f4583df1f786fc",
+      "source": "ByDrug",
+      "source_id": "google-cn-regulatory",
+      "source_type": "professional_media",
+      "source_priority": 70,
+      "region": "china",
+      "region_label": "中国",
+      "category": "regulatory_approval",
+      "category_label": "监管审批",
+      "tags": [],
+      "published_at": "2026-07-06T11:29:00+00:00",
+      "feed_published_at": "2026-07-06T11:29:00+00:00",
+      "scores": {
+        "relevance": 55,
+        "importance": 55,
+        "credibility": 59,
+        "freshness": 92,
+        "china_impact": 72
+      },
+      "scored_by": "rules_fallback",
+      "score_status": "ok",
+      "quality_score": 76,
+      "selected": true,
+      "verification": "待交叉验证",
+      "cluster_id": "event-0095",
       "is_primary": true,
       "related_count": 0,
       "related_items": []
